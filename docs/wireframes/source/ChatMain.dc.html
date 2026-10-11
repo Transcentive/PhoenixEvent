@@ -1,0 +1,66 @@
+<!doctype html>
+<html lang="en">
+<head>
+<meta charset="utf-8">
+<title>Conversations</title>
+<script src="./support.js"></script>
+<link rel="stylesheet" href="theme.css">
+<link rel="stylesheet" href="ds/phoenixevent/components/bundle.css">
+</head>
+<body>
+<x-dc>
+<helmet>
+<style>
+body{margin:0}
+a{color:#1c1c1c}a:hover{color:#000000}
+</style>
+</helmet>
+<div data-theme="{{theme}}" style="min-height: 900px; background: var(--surface); color: var(--ink); font-family: var(--font-sans)">
+<header style="display: flex; flex-wrap: wrap; align-items: center; gap: var(--space-4); padding: var(--space-3) var(--space-8); background: var(--surface-raised); border-bottom: 1px solid var(--border)">
+<span style="font: 700 19px/26px var(--font-sans)">PhoenixEvent</span>
+<span style="display: inline-flex; align-items: center; gap: var(--space-1); font: 400 14px/20px var(--font-sans); color: var(--ink-muted)"><svg class="pe-icon" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><rect x="5" y="4" width="14" height="16" rx="1"></rect><path d="M9 8h2M13 8h2M9 12h2M13 12h2M10 20v-4h4v4"></path></svg>Lincoln Elementary PTA</span>
+<span style="flex-grow: 1"></span>
+<span style="font: 400 14px/20px var(--font-sans); color: var(--ink-muted)">[MEMBER NAME]</span>
+<a class="pe-btn pe-btn--secondary" href="AccountLoggedOut.dc.html">Log out</a>
+</header>
+<main style="max-width: 1120px; margin: 0 auto; padding: var(--space-8); display: flex; flex-direction: column; gap: var(--space-6)">
+<div><a class="pe-link" href="OrgHome.dc.html">Back to Lincoln Elementary PTA</a></div>
+<h1 style="margin: 0; font: 700 30px/36px var(--font-sans)">Chat</h1>
+<div style="display: flex; flex-wrap: wrap; gap: var(--space-6); align-items: flex-start">
+<nav aria-label="Conversations" class="pe-card" style="flex: 1 1 300px; display: flex; flex-direction: column; padding: var(--space-4)">
+<h2 style="margin: 0 0 var(--space-2); font: 600 19px/26px var(--font-sans)">Conversations</h2>
+<a href="#" style="display: flex; align-items: center; gap: var(--space-2); min-height: 44px; padding: 0 var(--space-2); font: 400 16px/24px var(--font-sans); text-decoration: none; color: var(--ink)"><svg class="pe-icon" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><rect x="5" y="4" width="14" height="16" rx="1"></rect><path d="M9 8h2M13 8h2M9 12h2M13 12h2M10 20v-4h4v4"></path></svg>Lincoln Elementary PTA</a>
+<a href="#" style="display: flex; align-items: center; gap: var(--space-2); min-height: 44px; padding: 0 var(--space-2); font: 400 16px/24px var(--font-sans); text-decoration: none; color: var(--ink)"><svg class="pe-icon" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><rect x="4" y="6" width="16" height="14" rx="2"></rect><path d="M4 10h16M8 4v4M16 4v4"></path></svg>Halloween Bash</a>
+<a href="#" aria-current="page" style="display: flex; align-items: center; gap: var(--space-2); min-height: 44px; padding: 0 var(--space-2); font: 600 16px/24px var(--font-sans); text-decoration: none; color: var(--ink); background: var(--surface-sunken); border: 1px solid var(--border-strong); border-radius: var(--radius-md)"><svg class="pe-icon" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M6 21V4M6 5h11l-2 3.5 2 3.5H6"></path></svg>Haunted Hallway</a>
+<h3 style="margin: var(--space-4) 0 var(--space-1); font: 600 13px/20px var(--font-sans); letter-spacing: .01em; color: var(--ink-muted)">Direct messages</h3>
+<a href="#" style="display: flex; align-items: center; gap: var(--space-2); min-height: 44px; padding: 0 var(--space-2); font: 400 16px/24px var(--font-sans); text-decoration: none; color: var(--ink)">Dana Reyes</a>
+<a href="#" style="display: flex; align-items: center; gap: var(--space-2); min-height: 44px; padding: 0 var(--space-2); font: 400 16px/24px var(--font-sans); text-decoration: none; color: var(--ink)">[MEMBER NAME]</a>
+<p style="margin: var(--space-3) 0 0; font: 400 14px/20px var(--font-sans); color: var(--ink-muted)">Direct messages reach members of Lincoln Elementary PTA.</p>
+</nav>
+<section class="pe-card" style="flex: 999 1 520px; min-width: 0; display: flex; flex-direction: column; gap: var(--space-4)">
+<div style="display: flex; align-items: center; gap: var(--space-1); font: 600 13px/20px var(--font-sans); letter-spacing: .01em; color: var(--ink-muted)"><svg class="pe-icon" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M6 21V4M6 5h11l-2 3.5 2 3.5H6"></path></svg>Station conversation · Halloween Bash</div>
+<h2 style="margin: 0; font: 600 24px/30px var(--font-sans)">Haunted Hallway</h2>
+<div style="display: flex; flex-direction: column; gap: var(--space-3); min-height: 320px; padding: var(--space-4) 0; border-top: 1px solid var(--border); border-bottom: 1px solid var(--border)">
+<div style="display: flex; flex-direction: column; gap: var(--space-1)"><span style="font: 600 14px/20px var(--font-sans)">Dana Reyes, Station Chair <span style="font-weight: 400; color: var(--ink-muted)">· [TIME]</span></span><span style="font: 400 16px/24px var(--font-sans)">[Message text]</span></div>
+<div style="display: flex; flex-direction: column; gap: var(--space-1)"><span style="font: 600 14px/20px var(--font-sans)">[MEMBER NAME] <span style="font-weight: 400; color: var(--ink-muted)">· [TIME]</span></span><span style="font: 400 16px/24px var(--font-sans)">[Message text]</span></div>
+<div style="display: flex; flex-direction: column; gap: var(--space-1)"><span style="font: 600 14px/20px var(--font-sans)">You <span style="font-weight: 400; color: var(--ink-muted)">· [TIME]</span></span><span style="font: 400 16px/24px var(--font-sans)">[Message text]</span></div>
+</div>
+<div class="pe-field">
+<label class="pe-field__label" for="message">Message</label>
+<div class="pe-password"><input class="pe-input" id="message" name="message"><button class="pe-btn pe-btn--primary" type="button">Send</button></div>
+<span class="pe-field__hint">Chat is text only. Share files in an announcement.</span>
+</div>
+</section>
+</div>
+</main>
+</div>
+</x-dc>
+<script type="text/x-dc" data-dc-script data-props='{"theme":{"editor":"enum","options":["greystone","sunbeam","moonshadow"],"default":"greystone"},"$preview":{"width":1280,"height":900}}'>
+class Component extends DCLogic {
+renderVals() {
+return { theme: this.props.theme ?? 'greystone' };
+}
+}
+</script>
+</body>
+</html>

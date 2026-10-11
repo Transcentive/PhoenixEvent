@@ -1,0 +1,47 @@
+<!doctype html>
+<html lang="en">
+<head>
+<meta charset="utf-8">
+<title>Change roles</title>
+<script src="./support.js"></script>
+<link rel="stylesheet" href="theme.css">
+<link rel="stylesheet" href="ds/phoenixevent/components/bundle.css">
+</head>
+<body>
+<x-dc>
+<helmet>
+<style>
+body{margin:0}
+a{color:#1c1c1c}a:hover{color:#000000}
+</style>
+</helmet>
+<div data-theme="{{theme}}" style="min-height: 700px; background: var(--surface); color: var(--ink); font-family: var(--font-sans); display: flex; flex-direction: column">
+<div class="pe-scrim" style="flex-grow: 1; min-height: 700px">
+<div class="pe-dialog" role="dialog" aria-modal="true" aria-labelledby="dialog-title">
+<h1 class="pe-dialog__title" id="dialog-title">Change roles for [MEMBER NAME]</h1>
+<p class="pe-dialog__body">Roles here apply inside Lincoln Elementary PTA only.</p>
+<fieldset style="margin: 0; padding: 0; border: 0; display: flex; flex-direction: column; gap: var(--space-1)">
+<legend style="padding: 0; font: 600 14px/20px var(--font-sans)">Organization roles</legend>
+<label style="display: flex; align-items: center; gap: var(--space-2); min-height: 44px; font: 400 16px/24px var(--font-sans)"><input type="checkbox" defaultChecked="checked" style="width: 20px; height: 20px">Member</label>
+<label style="display: flex; align-items: center; gap: var(--space-2); min-height: 44px; font: 400 16px/24px var(--font-sans)"><input type="checkbox" style="width: 20px; height: 20px">Organization Administrator</label>
+<label style="display: flex; align-items: center; gap: var(--space-2); min-height: 44px; font: 400 16px/24px var(--font-sans)"><input type="checkbox" style="width: 20px; height: 20px">Organization Leadership</label>
+</fieldset>
+<p class="pe-dialog__body" style="font: 400 14px/20px var(--font-sans); color: var(--ink-muted)">Event and station roles, such as Event Chair and Station Chair, are set on the event board and station roster screens. Payments are handled on the Organization payment screen.</p>
+<p class="pe-dialog__body" style="font: 400 14px/20px var(--font-sans); color: var(--ink-muted)">The organization has three roles: Member, Organization Leadership and Organization Administrator. Every person in the organization is a Member. What each role may do is set in section 7B.6 of the specification.</p>
+<div class="pe-dialog__actions">
+<a class="pe-btn pe-btn--secondary" href="OrgMembers.dc.html">Cancel</a>
+<a class="pe-btn pe-btn--primary" href="OrgMembers.dc.html">Save roles</a>
+</div>
+</div>
+</div>
+</div>
+</x-dc>
+<script type="text/x-dc" data-dc-script data-props='{"theme":{"editor":"enum","options":["greystone","sunbeam","moonshadow"],"default":"greystone"},"$preview":{"width":1280,"height":750}}'>
+class Component extends DCLogic {
+renderVals() {
+return { theme: this.props.theme ?? 'greystone' };
+}
+}
+</script>
+</body>
+</html>

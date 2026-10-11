@@ -1,0 +1,109 @@
+<!doctype html>
+<html lang="en">
+<head>
+<meta charset="utf-8">
+<title>Event board</title>
+<script src="./support.js"></script>
+<link rel="stylesheet" href="theme.css">
+<link rel="stylesheet" href="ds/phoenixevent/components/bundle.css">
+</head>
+<body>
+<x-dc>
+<helmet>
+<style>
+body{margin:0}
+a{color:#1c1c1c}a:hover{color:#000000}
+</style>
+</helmet>
+<div data-theme="{{theme}}" style="min-height: 1320px; background: var(--surface); color: var(--ink); font-family: var(--font-sans)">
+<header style="display: flex; flex-wrap: wrap; align-items: center; gap: var(--space-4); padding: var(--space-3) var(--space-8); background: var(--surface-raised); border-bottom: 1px solid var(--border)">
+<span style="font: 700 19px/26px var(--font-sans)">PhoenixEvent</span>
+<span style="display: inline-flex; align-items: center; gap: var(--space-1); font: 400 14px/20px var(--font-sans); color: var(--ink-muted)"><svg class="pe-icon" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><rect x="5" y="4" width="14" height="16" rx="1"></rect><path d="M9 8h2M13 8h2M9 12h2M13 12h2M10 20v-4h4v4"></path></svg>Lincoln Elementary PTA</span>
+<span style="flex-grow: 1"></span>
+<span style="font: 400 14px/20px var(--font-sans); color: var(--ink-muted)">[MEMBER NAME]</span>
+<a class="pe-btn pe-btn--secondary" href="AccountLoggedOut.dc.html">Log out</a>
+</header>
+<main style="max-width: 1120px; margin: 0 auto; padding: var(--space-8); display: flex; flex-direction: column; gap: var(--space-6)">
+<div><a class="pe-link" href="OrgHome.dc.html">Back to Lincoln Elementary PTA</a></div>
+<section style="display: flex; flex-direction: column; gap: var(--space-3)">
+<div style="display: flex; align-items: center; gap: var(--space-1); font: 600 13px/20px var(--font-sans); letter-spacing: .01em; color: var(--ink-muted)"><svg class="pe-icon" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><rect x="4" y="6" width="16" height="14" rx="2"></rect><path d="M4 10h16M8 4v4M16 4v4"></path></svg>Event · Halloween Bash</div>
+<h1 style="margin: 0; font: 700 30px/36px var(--font-sans)">Event board</h1>
+<nav aria-label="Manage event" style="display: flex; flex-wrap: wrap; gap: var(--space-4)">
+<a class="pe-link" href="SetupStation.dc.html">Create station</a>
+<a class="pe-link" href="SetupApprovals.dc.html">Approval queue</a>
+<a class="pe-link" href="SetupRoster.dc.html">Station rosters</a>
+<a class="pe-link" href="SetupWaiting.dc.html">Waiting lists</a>
+</nav>
+</section>
+<div style="display: flex; flex-wrap: wrap; gap: var(--space-8); align-items: flex-start">
+<section class="pe-card" style="flex: 999 1 560px; min-width: 0; display: flex; flex-direction: column; gap: var(--space-3)">
+<div style="display: flex; flex-wrap: wrap; align-items: center; gap: var(--space-3)">
+<h2 style="margin: 0; font: 600 19px/26px var(--font-sans); flex-grow: 1">Board members</h2>
+<a class="pe-btn pe-btn--primary" href="DialogAppoint.dc.html">Appoint board member</a>
+</div>
+<div class="pe-meter pe-meter--caution"><div class="pe-meter__track" role="img" aria-label="4 of 5 seats taken"><div class="pe-meter__fill" style="width: 80%"></div></div><div class="pe-meter__row"><span>4 of 5 seats taken</span><span class="pe-meter__note">Includes the chair</span></div></div>
+<div style="display: flex; flex-wrap: wrap; align-items: center; gap: var(--space-3); padding: var(--space-3) 0; border-top: 1px solid var(--border)">
+<div style="flex: 1 1 220px; display: flex; flex-direction: column"><span style="font: 600 16px/24px var(--font-sans)">[CHAIR NAME]</span><span style="font: 400 14px/20px var(--font-sans); color: var(--ink-muted)">Event Chair</span></div>
+<a class="pe-btn pe-btn--secondary" href="DialogReplaceChair.dc.html">Replace chair</a>
+</div>
+<div style="display: flex; flex-wrap: wrap; align-items: center; gap: var(--space-3); padding: var(--space-3) 0; border-top: 1px solid var(--border)">
+<div style="flex: 1 1 220px; display: flex; flex-direction: column"><span style="font: 600 16px/24px var(--font-sans)">[MEMBER NAME]</span><span style="font: 400 14px/20px var(--font-sans); color: var(--ink-muted)">Board Member</span></div>
+<a class="pe-btn pe-btn--secondary" href="#">Remove from board</a>
+</div>
+<div style="display: flex; flex-wrap: wrap; align-items: center; gap: var(--space-3); padding: var(--space-3) 0; border-top: 1px solid var(--border)">
+<div style="flex: 1 1 220px; display: flex; flex-direction: column"><span style="font: 600 16px/24px var(--font-sans)">[MEMBER NAME]</span><span style="font: 400 14px/20px var(--font-sans); color: var(--ink-muted)">Board Member</span></div>
+<a class="pe-btn pe-btn--secondary" href="#">Remove from board</a>
+</div>
+<p style="margin: 0; font: 400 14px/20px var(--font-sans)">Appointing a person to the board makes them a participant of Halloween Bash, with no separate approval.</p>
+<div style="display: flex; flex-direction: column; gap: var(--space-3); padding-top: var(--space-4); border-top: 1px solid var(--border)">
+<div style="display: flex; flex-wrap: wrap; align-items: center; gap: var(--space-3)"><h3 style="margin: 0; font: 600 19px/26px var(--font-sans); flex-grow: 1">Event Administrator</h3><a class="pe-btn pe-btn--secondary" href="#">Change</a></div>
+<div style="display: flex; flex-direction: column"><span style="font: 600 16px/24px var(--font-sans)">[ADMINISTRATOR NAME]</span><span style="font: 400 14px/20px var(--font-sans); color: var(--ink-muted)">Event Administrator</span></div>
+<p style="margin: 0; font: 400 14px/20px var(--font-sans); color: var(--ink-muted)">Organization Leadership enters the name. The Event Administrator may be an Organization Administrator, a member of the Event Board, or a participant from the Event Pool.</p>
+</div>
+<div style="display: flex; flex-direction: column; gap: var(--space-3); padding-top: var(--space-4); border-top: 1px solid var(--border)">
+<div style="display: flex; flex-wrap: wrap; align-items: center; gap: var(--space-3)"><h3 style="margin: 0; font: 600 19px/26px var(--font-sans); flex-grow: 1">Participants</h3><a class="pe-btn pe-btn--secondary" href="#">Change limit</a></div>
+<div class="pe-meter"><div class="pe-meter__track" role="img" aria-label="42 of 60 participants"><div class="pe-meter__fill" style="width: 70%"></div></div><div class="pe-meter__row"><span>42 of 60 participants</span><span class="pe-meter__note">Limit set by the event board</span></div></div>
+<p style="margin: 0; font: 400 14px/20px var(--font-sans); color: var(--ink-muted)">The event board sets the limit on participants. Registration opened when the board was formed. A registration waiting for approval holds a place. The limit cannot be lowered below the places held.</p>
+</div>
+</section>
+<aside style="flex: 1 1 320px; display: flex; flex-direction: column; gap: var(--space-6)">
+<section class="pe-card" style="display: flex; flex-direction: column; gap: var(--space-3)">
+<h2 style="margin: 0; font: 600 19px/26px var(--font-sans)">Waiting lists</h2>
+<p style="margin: 0; font: 400 14px/20px var(--font-sans); color: var(--ink-muted)">Organization determination: left to the event board.</p>
+<fieldset style="margin: 0; padding: 0; border: 0; display: flex; flex-direction: column; gap: var(--space-1)">
+<legend style="padding: 0; font: 600 14px/20px var(--font-sans)">Board decision</legend>
+<label style="display: flex; align-items: center; gap: var(--space-2); min-height: 44px; font: 400 16px/24px var(--font-sans)"><input type="radio" name="board-waiting" defaultChecked="checked" style="width: 20px; height: 20px">Waiting lists on</label>
+<label style="display: flex; align-items: center; gap: var(--space-2); min-height: 44px; font: 400 16px/24px var(--font-sans)"><input type="radio" name="board-waiting" style="width: 20px; height: 20px">Waiting lists off</label>
+</fieldset>
+<p style="margin: 0; font: 400 14px/20px var(--font-sans); color: var(--ink-muted)">[When the organization prohibits waiting lists, this choice shows as locked off]</p>
+</section>
+<section class="pe-card" style="display: flex; flex-direction: column; gap: var(--space-3)">
+<h2 style="margin: 0; font: 600 19px/26px var(--font-sans)">Lowering a station's capacity</h2>
+<p style="margin: 0; font: 400 14px/20px var(--font-sans); color: var(--ink-muted)">Organization setting: refuse. Event boards may change it.</p>
+<fieldset style="margin: 0; padding: 0; border: 0; display: flex; flex-direction: column; gap: var(--space-1)">
+<legend style="padding: 0; font: 600 14px/20px var(--font-sans)">For Halloween Bash</legend>
+<label style="display: flex; align-items: flex-start; gap: var(--space-2); min-height: 44px; font: 400 16px/24px var(--font-sans)"><input type="radio" name="board-lowering" defaultChecked="checked" style="flex: none; width: 20px; height: 20px; margin-top: 2px"><span>Refuse. The board removes people first, then lowers the number. (Default)</span></label>
+<label style="display: flex; align-items: flex-start; gap: var(--space-2); min-height: 44px; font: 400 16px/24px var(--font-sans)"><input type="radio" name="board-lowering" style="flex: none; width: 20px; height: 20px; margin-top: 2px"><span>Allow, and remove no one. The station shows Full until enough people leave.</span></label>
+<label style="display: flex; align-items: flex-start; gap: var(--space-2); min-height: 44px; font: 400 16px/24px var(--font-sans)"><input type="radio" name="board-lowering" style="flex: none; width: 20px; height: 20px; margin-top: 2px"><span>Allow, and remove the people who joined most recently. Each is emailed.</span></label>
+</fieldset>
+<p style="margin: 0; font: 400 14px/20px var(--font-sans); color: var(--ink-muted)">When the organization fixes this setting, the choice shows locked to the organization's answer. This setting comes in a later release. The first release always refuses.</p>
+</section>
+<section class="pe-card" style="display: flex; flex-direction: column; gap: var(--space-3)">
+<h2 style="margin: 0; font: 600 19px/26px var(--font-sans)">Role titles for this event</h2>
+<p style="margin: 0; font: 400 14px/20px var(--font-sans)">This event uses the organization's titles.</p>
+<div><a class="pe-btn pe-btn--secondary" href="OrgTerms.dc.html">Set titles for this event</a></div>
+</section>
+</aside>
+</div>
+</main>
+</div>
+</x-dc>
+<script type="text/x-dc" data-dc-script data-props='{"theme":{"editor":"enum","options":["greystone","sunbeam","moonshadow"],"default":"greystone"},"$preview":{"width":1280,"height":1320}}'>
+class Component extends DCLogic {
+renderVals() {
+return { theme: this.props.theme ?? 'greystone' };
+}
+}
+</script>
+</body>
+</html>

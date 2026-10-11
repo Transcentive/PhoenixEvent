@@ -1,0 +1,798 @@
+{
+  "v": 3,
+  "attachments": {},
+  "boards": {
+    "AccountConfirm.dc.html": {
+      "expand": "fill",
+      "h": 800,
+      "is_interactive": true,
+      "page": "accounts",
+      "title": "A4. Confirm email",
+      "w": 1280,
+      "x": 4080,
+      "y": 0
+    },
+    "AccountCreate.dc.html": {
+      "expand": "fill",
+      "h": 800,
+      "is_interactive": true,
+      "page": "accounts",
+      "title": "A3. Create account",
+      "w": 1280,
+      "x": 2720,
+      "y": 0
+    },
+    "AccountForgot.dc.html": {
+      "expand": "fill",
+      "h": 800,
+      "is_interactive": true,
+      "page": "accounts",
+      "title": "A5. Forgot password",
+      "w": 1280,
+      "x": 5440,
+      "y": 0
+    },
+    "AccountLoggedOut.dc.html": {
+      "expand": "fill",
+      "h": 800,
+      "is_interactive": true,
+      "page": "accounts",
+      "title": "A7. Logged out",
+      "w": 1280,
+      "x": 8160,
+      "y": 0
+    },
+    "AccountLogin.dc.html": {
+      "expand": "fill",
+      "h": 800,
+      "is_interactive": true,
+      "page": "accounts",
+      "title": "A2. Log in",
+      "w": 1280,
+      "x": 1360,
+      "y": 0
+    },
+    "AccountOrg.dc.html": {
+      "expand": "fill",
+      "h": 800,
+      "is_interactive": true,
+      "page": "accounts",
+      "title": "A1. Find your organization",
+      "w": 1280,
+      "x": 0,
+      "y": 0
+    },
+    "AccountReset.dc.html": {
+      "expand": "fill",
+      "h": 800,
+      "is_interactive": true,
+      "page": "accounts",
+      "title": "A6. Set a new password",
+      "w": 1280,
+      "x": 6800,
+      "y": 0
+    },
+    "BillIndividual.dc.html": {
+      "expand": "fill",
+      "h": 900,
+      "is_interactive": true,
+      "page": "billing",
+      "title": "B3. Individual payment",
+      "w": 1280,
+      "x": 2720,
+      "y": 0
+    },
+    "BillPlan.dc.html": {
+      "expand": "fill",
+      "h": 900,
+      "is_interactive": true,
+      "page": "billing",
+      "title": "B1. Organization payment",
+      "w": 1280,
+      "x": 0,
+      "y": 0
+    },
+    "BillSeats.dc.html": {
+      "expand": "fill",
+      "h": 900,
+      "is_interactive": true,
+      "page": "billing",
+      "title": "B2. Organization payment for an event",
+      "w": 1280,
+      "x": 1360,
+      "y": 0
+    },
+    "ChatActivate.dc.html": {
+      "expand": "fill",
+      "h": 900,
+      "is_interactive": true,
+      "page": "chat",
+      "title": "H2. Chat activation",
+      "w": 1280,
+      "x": 1360,
+      "y": 0
+    },
+    "ChatMain.dc.html": {
+      "expand": "fill",
+      "h": 900,
+      "is_interactive": true,
+      "page": "chat",
+      "title": "H1. Conversations",
+      "w": 1280,
+      "x": 0,
+      "y": 0
+    },
+    "CommCompose.dc.html": {
+      "expand": "fill",
+      "h": 1240,
+      "is_interactive": true,
+      "page": "communication",
+      "title": "C3. Post announcement",
+      "w": 1280,
+      "x": 2720,
+      "y": 0
+    },
+    "CommExternal.dc.html": {
+      "expand": "fill",
+      "h": 900,
+      "is_interactive": true,
+      "page": "communication",
+      "title": "C4. External link warning",
+      "w": 1280,
+      "x": 4080,
+      "y": 0
+    },
+    "CommList.dc.html": {
+      "expand": "fill",
+      "h": 1070,
+      "is_interactive": true,
+      "page": "communication",
+      "title": "C2. Announcements",
+      "w": 1280,
+      "x": 1360,
+      "y": 0
+    },
+    "CommPublic.dc.html": {
+      "expand": "fill",
+      "h": 900,
+      "is_interactive": true,
+      "page": "communication",
+      "title": "C1. Public event page",
+      "w": 1280,
+      "x": 0,
+      "y": 0
+    },
+    "CommThemes.dc.html": {
+      "expand": "fill",
+      "h": 900,
+      "is_interactive": true,
+      "page": "communication",
+      "title": "C5. Theme settings",
+      "w": 1280,
+      "x": 5440,
+      "y": 0
+    },
+    "DialogAppoint.dc.html": {
+      "expand": "fill",
+      "h": 750,
+      "is_interactive": true,
+      "page": "dialogs",
+      "title": "D1. Appoint board member",
+      "w": 1280,
+      "x": 0,
+      "y": 0
+    },
+    "DialogAssign.dc.html": {
+      "expand": "fill",
+      "h": 750,
+      "is_interactive": true,
+      "page": "dialogs",
+      "title": "D3. Assign member",
+      "w": 1280,
+      "x": 2720,
+      "y": 0
+    },
+    "DialogInvite.dc.html": {
+      "expand": "fill",
+      "h": 750,
+      "is_interactive": true,
+      "page": "dialogs",
+      "title": "D6. Invite member",
+      "w": 1280,
+      "x": 6800,
+      "y": 0
+    },
+    "DialogRemove.dc.html": {
+      "expand": "fill",
+      "h": 750,
+      "is_interactive": true,
+      "page": "dialogs",
+      "title": "D4. Confirm removal",
+      "w": 1280,
+      "x": 4080,
+      "y": 0
+    },
+    "DialogReplaceChair.dc.html": {
+      "expand": "fill",
+      "h": 800,
+      "is_interactive": true,
+      "page": "dialogs",
+      "title": "D2. Replace chair",
+      "w": 1280,
+      "x": 1360,
+      "y": 0
+    },
+    "DialogRoles.dc.html": {
+      "expand": "fill",
+      "h": 750,
+      "is_interactive": true,
+      "page": "dialogs",
+      "title": "D5. Change roles",
+      "w": 1280,
+      "x": 5440,
+      "y": 0
+    },
+    "DialogTheme.dc.html": {
+      "expand": "fill",
+      "h": 750,
+      "is_interactive": true,
+      "page": "dialogs",
+      "title": "D7. Add theme",
+      "w": 1280,
+      "x": 8160,
+      "y": 0
+    },
+    "GovBodies.dc.html": {
+      "expand": "fill",
+      "h": 1100,
+      "is_interactive": true,
+      "page": "governance",
+      "title": "G2. Bodies",
+      "w": 1280,
+      "x": 1360,
+      "y": 0
+    },
+    "GovMine.dc.html": {
+      "expand": "fill",
+      "h": 1190,
+      "is_interactive": true,
+      "page": "governance",
+      "title": "G5. My proposals",
+      "w": 1280,
+      "x": 5440,
+      "y": 0
+    },
+    "GovPropose.dc.html": {
+      "expand": "fill",
+      "h": 1110,
+      "is_interactive": true,
+      "page": "governance",
+      "title": "G3. Propose event",
+      "w": 1280,
+      "x": 2720,
+      "y": 0
+    },
+    "GovReview.dc.html": {
+      "expand": "fill",
+      "h": 1100,
+      "is_interactive": true,
+      "page": "governance",
+      "title": "G4. Proposal review",
+      "w": 1280,
+      "x": 4080,
+      "y": 0
+    },
+    "GovRules.dc.html": {
+      "expand": "fill",
+      "h": 1270,
+      "is_interactive": true,
+      "page": "governance",
+      "title": "G1. Event creation rules",
+      "w": 1280,
+      "x": 0,
+      "y": 0
+    },
+    "JoinApprovals.dc.html": {
+      "expand": "fill",
+      "h": 1040,
+      "is_interactive": true,
+      "title": "9. Requests to join a station",
+      "w": 1280,
+      "x": 10880,
+      "y": 0
+    },
+    "JoinRequest.dc.html": {
+      "expand": "fill",
+      "h": 1040,
+      "is_interactive": true,
+      "title": "7. Station that requires approval",
+      "w": 1280,
+      "x": 8160,
+      "y": 0
+    },
+    "JoinWaiting.dc.html": {
+      "expand": "fill",
+      "h": 1120,
+      "is_interactive": true,
+      "title": "8. Request to join, waiting and decided",
+      "w": 1280,
+      "x": 9520,
+      "y": 0
+    },
+    "Main.dc.html": {
+      "expand": "fill",
+      "h": 1040,
+      "is_interactive": true,
+      "title": "1. Event page, before registering",
+      "w": 1280,
+      "x": 0,
+      "y": 0
+    },
+    "MyRegistrations.dc.html": {
+      "expand": "fill",
+      "h": 1040,
+      "is_interactive": true,
+      "title": "6. My registrations",
+      "w": 1280,
+      "x": 6800,
+      "y": 0
+    },
+    "OrgHome.dc.html": {
+      "expand": "fill",
+      "h": 900,
+      "is_interactive": true,
+      "page": "organization",
+      "title": "O1. Organization home",
+      "w": 1280,
+      "x": 0,
+      "y": 0
+    },
+    "OrgMembers.dc.html": {
+      "expand": "fill",
+      "h": 900,
+      "is_interactive": true,
+      "page": "organization",
+      "title": "O2. Members and roles",
+      "w": 1280,
+      "x": 1360,
+      "y": 0
+    },
+    "OrgPolicies.dc.html": {
+      "expand": "fill",
+      "h": 1760,
+      "is_interactive": true,
+      "page": "organization",
+      "title": "O3. Policies",
+      "w": 1280,
+      "x": 2720,
+      "y": 0
+    },
+    "OrgSupport.dc.html": {
+      "expand": "fill",
+      "h": 1470,
+      "is_interactive": true,
+      "page": "organization",
+      "title": "O5. Support access",
+      "w": 1280,
+      "x": 5440,
+      "y": 0
+    },
+    "OrgTerms.dc.html": {
+      "expand": "fill",
+      "h": 1050,
+      "is_interactive": true,
+      "page": "organization",
+      "title": "O4. Terminology and role titles",
+      "w": 1280,
+      "x": 4080,
+      "y": 0
+    },
+    "Pending.dc.html": {
+      "expand": "fill",
+      "h": 1040,
+      "is_interactive": true,
+      "title": "2. Registration pending approval",
+      "w": 1280,
+      "x": 1360,
+      "y": 0
+    },
+    "SetupApprovals.dc.html": {
+      "expand": "fill",
+      "h": 1000,
+      "is_interactive": true,
+      "page": "setup",
+      "title": "S4. Approval queue",
+      "w": 1280,
+      "x": 4080,
+      "y": 0
+    },
+    "SetupBoard.dc.html": {
+      "expand": "fill",
+      "h": 1320,
+      "is_interactive": true,
+      "page": "setup",
+      "title": "S2. Event board",
+      "w": 1280,
+      "x": 1360,
+      "y": 0
+    },
+    "SetupBoardFirst.dc.html": {
+      "expand": "fill",
+      "h": 1120,
+      "is_interactive": true,
+      "page": "setup",
+      "title": "S7. Forming the board, board first",
+      "w": 1280,
+      "x": 8160,
+      "y": 0
+    },
+    "SetupChairFirst.dc.html": {
+      "expand": "fill",
+      "h": 1000,
+      "is_interactive": true,
+      "page": "setup",
+      "title": "S8. Forming the board, chair first",
+      "w": 1280,
+      "x": 9520,
+      "y": 0
+    },
+    "SetupEvent.dc.html": {
+      "expand": "fill",
+      "h": 1180,
+      "is_interactive": true,
+      "page": "setup",
+      "title": "S1. Create event",
+      "w": 1280,
+      "x": 0,
+      "y": 0
+    },
+    "SetupRoster.dc.html": {
+      "expand": "fill",
+      "h": 1000,
+      "is_interactive": true,
+      "page": "setup",
+      "title": "S5. Station roster",
+      "w": 1280,
+      "x": 5440,
+      "y": 0
+    },
+    "SetupStation.dc.html": {
+      "expand": "fill",
+      "h": 1140,
+      "is_interactive": true,
+      "page": "setup",
+      "title": "S3. Create station",
+      "w": 1280,
+      "x": 2720,
+      "y": 0
+    },
+    "SetupWaiting.dc.html": {
+      "expand": "fill",
+      "h": 1000,
+      "is_interactive": true,
+      "page": "setup",
+      "title": "S6. Waiting list management",
+      "w": 1280,
+      "x": 6800,
+      "y": 0
+    },
+    "StateEmpty.dc.html": {
+      "expand": "fill",
+      "h": 950,
+      "is_interactive": true,
+      "page": "states",
+      "title": "E5. Empty states",
+      "w": 1280,
+      "x": 5440,
+      "y": 0
+    },
+    "StateFormError.dc.html": {
+      "expand": "fill",
+      "h": 900,
+      "is_interactive": true,
+      "page": "states",
+      "title": "E4. Form with errors",
+      "w": 1280,
+      "x": 4080,
+      "y": 0
+    },
+    "StateLinkExpired.dc.html": {
+      "expand": "fill",
+      "h": 800,
+      "is_interactive": true,
+      "page": "states",
+      "title": "E2. Link expired",
+      "w": 1280,
+      "x": 1360,
+      "y": 0
+    },
+    "StateLoginError.dc.html": {
+      "expand": "fill",
+      "h": 800,
+      "is_interactive": true,
+      "page": "states",
+      "title": "E1. Log in, error",
+      "w": 1280,
+      "x": 0,
+      "y": 0
+    },
+    "StateNoAccess.dc.html": {
+      "expand": "fill",
+      "h": 800,
+      "is_interactive": true,
+      "page": "states",
+      "title": "E3. Outside your access",
+      "w": 1280,
+      "x": 2720,
+      "y": 0
+    },
+    "Station.dc.html": {
+      "expand": "fill",
+      "h": 1040,
+      "is_interactive": true,
+      "title": "4. Station with open places",
+      "w": 1280,
+      "x": 4080,
+      "y": 0
+    },
+    "StationChairVote.dc.html": {
+      "expand": "fill",
+      "h": 1000,
+      "is_interactive": true,
+      "page": "setup",
+      "title": "S9. Station with no chair, members vote",
+      "w": 1280,
+      "x": 10880,
+      "y": 0
+    },
+    "Stations.dc.html": {
+      "expand": "fill",
+      "h": 1040,
+      "is_interactive": true,
+      "title": "3. Approved, choosing stations",
+      "w": 1280,
+      "x": 2720,
+      "y": 0
+    },
+    "SupportOrgs.dc.html": {
+      "expand": "fill",
+      "h": 920,
+      "is_interactive": true,
+      "page": "organization",
+      "title": "O6. Support sessions, for the System Administrator",
+      "w": 1280,
+      "x": 6800,
+      "y": 0
+    },
+    "SupportSession.dc.html": {
+      "expand": "fill",
+      "h": 900,
+      "is_interactive": true,
+      "page": "organization",
+      "title": "O7. Inside a support session",
+      "w": 1280,
+      "x": 8160,
+      "y": 0
+    },
+    "WaitingList.dc.html": {
+      "expand": "fill",
+      "h": 1040,
+      "is_interactive": true,
+      "title": "5. Full station, waiting list",
+      "w": 1280,
+      "x": 5440,
+      "y": 0
+    }
+  },
+  "createdOnFiles": {
+    "at": "2026-10-03T17:00:00Z",
+    "v": 1
+  },
+  "designSystems": [
+    {
+      "artifact": "https://claude.ai/artifact/LiN9xyts9t51qw9DCKk5mM",
+      "copiedAt": "2026-10-03T17:00:00Z",
+      "namespace": "phoenixevent",
+      "title": "PhoenixEvent",
+      "version": "1791004245-17c5"
+    }
+  ],
+  "launch": {
+    "view": "canvas"
+  },
+  "notes": {
+    "accounts-title": {
+      "kind": "title1",
+      "maxW": 8000,
+      "page": "accounts",
+      "text": "Accounts",
+      "w": 240,
+      "x": 0,
+      "y": -300
+    },
+    "billing-title": {
+      "kind": "title1",
+      "maxW": 4000,
+      "page": "billing",
+      "text": "Billing",
+      "w": 240,
+      "x": 0,
+      "y": -300
+    },
+    "chat-title": {
+      "kind": "title1",
+      "maxW": 2640,
+      "page": "chat",
+      "text": "Chat",
+      "w": 240,
+      "x": 0,
+      "y": -300
+    },
+    "communication-title": {
+      "kind": "title1",
+      "maxW": 6720,
+      "page": "communication",
+      "text": "Communication and public pages",
+      "w": 240,
+      "x": 0,
+      "y": -300
+    },
+    "dialogs-title": {
+      "kind": "title1",
+      "maxW": 8000,
+      "page": "dialogs",
+      "text": "Dialogs",
+      "w": 240,
+      "x": 0,
+      "y": -300
+    },
+    "flow-title": {
+      "kind": "title1",
+      "maxW": 8000,
+      "text": "Event and station registration",
+      "w": 240,
+      "x": 0,
+      "y": -300
+    },
+    "governance-title": {
+      "kind": "title1",
+      "maxW": 6720,
+      "page": "governance",
+      "text": "Who may create an event",
+      "w": 240,
+      "x": 0,
+      "y": -300
+    },
+    "organization-title": {
+      "kind": "title1",
+      "maxW": 8000,
+      "page": "organization",
+      "text": "Organization",
+      "w": 240,
+      "x": 0,
+      "y": -300
+    },
+    "setup-title": {
+      "kind": "title1",
+      "maxW": 8000,
+      "page": "setup",
+      "text": "Event setup",
+      "w": 240,
+      "x": 0,
+      "y": -300
+    },
+    "states-title": {
+      "kind": "title1",
+      "maxW": 6720,
+      "page": "states",
+      "text": "Error and empty states",
+      "w": 240,
+      "x": 0,
+      "y": -300
+    }
+  },
+  "order": [
+    "Main.dc.html",
+    "Pending.dc.html",
+    "Stations.dc.html",
+    "Station.dc.html",
+    "WaitingList.dc.html",
+    "MyRegistrations.dc.html",
+    "JoinRequest.dc.html",
+    "JoinWaiting.dc.html",
+    "JoinApprovals.dc.html",
+    "AccountOrg.dc.html",
+    "AccountLogin.dc.html",
+    "AccountCreate.dc.html",
+    "AccountConfirm.dc.html",
+    "AccountForgot.dc.html",
+    "AccountReset.dc.html",
+    "AccountLoggedOut.dc.html",
+    "OrgHome.dc.html",
+    "OrgMembers.dc.html",
+    "OrgPolicies.dc.html",
+    "OrgTerms.dc.html",
+    "OrgSupport.dc.html",
+    "SupportOrgs.dc.html",
+    "SupportSession.dc.html",
+    "SetupEvent.dc.html",
+    "SetupBoard.dc.html",
+    "SetupStation.dc.html",
+    "SetupApprovals.dc.html",
+    "SetupRoster.dc.html",
+    "SetupWaiting.dc.html",
+    "SetupBoardFirst.dc.html",
+    "SetupChairFirst.dc.html",
+    "StationChairVote.dc.html",
+    "CommPublic.dc.html",
+    "CommList.dc.html",
+    "CommCompose.dc.html",
+    "CommExternal.dc.html",
+    "CommThemes.dc.html",
+    "BillPlan.dc.html",
+    "BillSeats.dc.html",
+    "BillIndividual.dc.html",
+    "ChatMain.dc.html",
+    "ChatActivate.dc.html",
+    "StateLoginError.dc.html",
+    "StateLinkExpired.dc.html",
+    "StateNoAccess.dc.html",
+    "StateFormError.dc.html",
+    "StateEmpty.dc.html",
+    "DialogAppoint.dc.html",
+    "DialogReplaceChair.dc.html",
+    "DialogAssign.dc.html",
+    "DialogRemove.dc.html",
+    "DialogRoles.dc.html",
+    "DialogInvite.dc.html",
+    "DialogTheme.dc.html",
+    "GovRules.dc.html",
+    "GovBodies.dc.html",
+    "GovPropose.dc.html",
+    "GovReview.dc.html",
+    "GovMine.dc.html"
+  ],
+  "pages": [
+    {
+      "id": "registration",
+      "name": "Registration"
+    },
+    {
+      "id": "accounts",
+      "name": "Accounts"
+    },
+    {
+      "id": "organization",
+      "name": "Organization"
+    },
+    {
+      "id": "setup",
+      "name": "Event setup"
+    },
+    {
+      "id": "communication",
+      "name": "Communication"
+    },
+    {
+      "id": "billing",
+      "name": "Billing"
+    },
+    {
+      "id": "chat",
+      "name": "Chat"
+    },
+    {
+      "id": "states",
+      "name": "States"
+    },
+    {
+      "id": "dialogs",
+      "name": "Dialogs"
+    },
+    {
+      "id": "governance",
+      "name": "Governance"
+    }
+  ],
+  "title": "PhoenixEvent Wireframes"
+}

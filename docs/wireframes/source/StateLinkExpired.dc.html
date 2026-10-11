@@ -1,0 +1,44 @@
+<!doctype html>
+<html lang="en">
+<head>
+<meta charset="utf-8">
+<title>Link expired</title>
+<script src="./support.js"></script>
+<link rel="stylesheet" href="theme.css">
+<link rel="stylesheet" href="ds/phoenixevent/components/bundle.css">
+</head>
+<body>
+<x-dc>
+<helmet>
+<style>
+body{margin:0}
+a{color:#1c1c1c}a:hover{color:#000000}
+</style>
+</helmet>
+<div data-theme="{{theme}}" style="min-height: 800px; background: var(--surface); color: var(--ink); font-family: var(--font-sans)">
+<header style="display: flex; align-items: center; gap: var(--space-4); padding: var(--space-3) var(--space-8); background: var(--surface-raised); border-bottom: 1px solid var(--border)">
+<span style="font: 700 19px/26px var(--font-sans)">PhoenixEvent</span>
+</header>
+<main style="padding: var(--space-12) var(--space-6); display: flex; justify-content: center">
+<div class="pe-login">
+<h1 class="pe-login__title">This link has ended</h1>
+<div><span class="pe-badge pe-badge--critical"><svg class="pe-icon" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M12 4l9 16H3z"></path><path d="M12 10v4M12 17v.5"></path></svg>Expired or already used</span></div>
+<p style="margin: 0; font: 400 16px/24px var(--font-sans)">Each link works once. A confirmation link expires after 24 hours, and a password reset link after 1 hour. Send a new one to continue.</p>
+<div class="pe-login__foot">
+<a class="pe-link" href="AccountLogin.dc.html">Back to log in</a>
+<a class="pe-btn pe-btn--primary" href="AccountForgot.dc.html">Send a new link</a>
+</div>
+<p style="margin: 0; font: 400 14px/20px var(--font-sans); color: var(--ink-muted)">[One screen serves both password reset links and email confirmation links]</p>
+</div>
+</main>
+</div>
+</x-dc>
+<script type="text/x-dc" data-dc-script data-props='{"theme":{"editor":"enum","options":["greystone","sunbeam","moonshadow"],"default":"greystone"},"$preview":{"width":1280,"height":800}}'>
+class Component extends DCLogic {
+renderVals() {
+return { theme: this.props.theme ?? 'greystone' };
+}
+}
+</script>
+</body>
+</html>

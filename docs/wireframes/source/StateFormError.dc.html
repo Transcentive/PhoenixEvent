@@ -1,0 +1,55 @@
+<!doctype html>
+<html lang="en">
+<head>
+<meta charset="utf-8">
+<title>Form with errors</title>
+<script src="./support.js"></script>
+<link rel="stylesheet" href="theme.css">
+<link rel="stylesheet" href="ds/phoenixevent/components/bundle.css">
+</head>
+<body>
+<x-dc>
+<helmet>
+<style>
+body{margin:0}
+a{color:#1c1c1c}a:hover{color:#000000}
+</style>
+</helmet>
+<div data-theme="{{theme}}" style="min-height: 900px; background: var(--surface); color: var(--ink); font-family: var(--font-sans)">
+<header style="display: flex; flex-wrap: wrap; align-items: center; gap: var(--space-4); padding: var(--space-3) var(--space-8); background: var(--surface-raised); border-bottom: 1px solid var(--border)">
+<span style="font: 700 19px/26px var(--font-sans)">PhoenixEvent</span>
+<span style="display: inline-flex; align-items: center; gap: var(--space-1); font: 400 14px/20px var(--font-sans); color: var(--ink-muted)"><svg class="pe-icon" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><rect x="5" y="4" width="14" height="16" rx="1"></rect><path d="M9 8h2M13 8h2M9 12h2M13 12h2M10 20v-4h4v4"></path></svg>Lincoln Elementary PTA</span>
+<span style="flex-grow: 1"></span>
+<span style="font: 400 14px/20px var(--font-sans); color: var(--ink-muted)">[MEMBER NAME]</span>
+<a class="pe-btn pe-btn--secondary" href="AccountLoggedOut.dc.html">Log out</a>
+</header>
+<main style="max-width: 720px; margin: 0 auto; padding: var(--space-8); display: flex; flex-direction: column; gap: var(--space-6)">
+<div><a class="pe-link" href="SetupBoard.dc.html">Back to Halloween Bash</a></div>
+<h1 style="margin: 0; font: 700 30px/36px var(--font-sans)">Create station</h1>
+<div role="alert" style="display: flex; flex-direction: column; gap: var(--space-2); padding: var(--space-4); background: var(--critical-surface); border: 1px solid var(--critical); border-radius: var(--radius-md); color: var(--critical)">
+<div style="display: flex; align-items: center; gap: var(--space-2); font: 600 16px/24px var(--font-sans)"><svg class="pe-icon" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M12 4l9 16H3z"></path><path d="M12 10v4M12 17v.5"></path></svg>Fix 2 fields to create the station</div>
+<a href="#station-name" style="font: 400 14px/20px var(--font-sans); color: var(--critical)">Station name: enter a name</a>
+<a href="#station-capacity" style="font: 400 14px/20px var(--font-sans); color: var(--critical)">Capacity: enter 1 or more</a>
+</div>
+<section class="pe-card" style="display: flex; flex-direction: column; gap: var(--space-4)">
+<div class="pe-field pe-field--error"><label class="pe-field__label" for="station-name">Station name</label><input class="pe-input" id="station-name" name="station-name" aria-invalid="true" aria-describedby="station-name-error"><span class="pe-field__error" id="station-name-error"><svg class="pe-icon" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M12 4l9 16H3z"></path><path d="M12 10v4M12 17v.5"></path></svg>Enter a name for this station.</span></div>
+<div class="pe-field pe-field--error"><label class="pe-field__label" for="station-capacity">Capacity</label><input class="pe-input" id="station-capacity" name="station-capacity" inputmode="numeric" defaultValue="0" aria-invalid="true" aria-describedby="station-capacity-error" style="max-width: 160px"><span class="pe-field__error" id="station-capacity-error"><svg class="pe-icon" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M12 4l9 16H3z"></path><path d="M12 10v4M12 17v.5"></path></svg>Enter 1 or more. Capacity includes the chair.</span></div>
+<div class="pe-field"><label class="pe-field__label" for="station-chair">Station chair</label><select class="pe-input" id="station-chair" name="station-chair"><option>Dana Reyes</option><option>[MEMBER NAME]</option></select><span class="pe-field__hint">The chair takes 1 spot in this station.</span></div>
+</section>
+<div style="display: flex; flex-wrap: wrap; gap: var(--space-3)">
+<a class="pe-btn pe-btn--primary" href="SetupRoster.dc.html">Create station</a>
+<a class="pe-btn pe-btn--secondary" href="SetupBoard.dc.html">Cancel</a>
+</div>
+<p style="margin: 0; font: 400 14px/20px var(--font-sans); color: var(--ink-muted)">[Every form follows this pattern: a summary at the top that links to each field, the field outlined, and a line under the field that says how to fix it. Valid entries stay as typed.]</p>
+</main>
+</div>
+</x-dc>
+<script type="text/x-dc" data-dc-script data-props='{"theme":{"editor":"enum","options":["greystone","sunbeam","moonshadow"],"default":"greystone"},"$preview":{"width":1280,"height":900}}'>
+class Component extends DCLogic {
+renderVals() {
+return { theme: this.props.theme ?? 'greystone' };
+}
+}
+</script>
+</body>
+</html>

@@ -1,0 +1,35 @@
+<!-- @dsCard height=288 -->
+<!doctype html>
+<html lang="en">
+<head>
+<meta charset="utf-8">
+<title>Cover</title>
+<style>
+html,body{margin:0}
+body{position:relative;width:960px;height:288px;overflow:hidden;background:var(--surface);font-family:var(--font-sans)}
+svg{position:absolute;left:0;top:0}
+.brand{fill:var(--brand)}.ink{fill:var(--ink)}.positive{fill:var(--positive)}.tint{fill:var(--positive-surface)}.critical{fill:var(--critical)}
+.sun{fill:var(--surface);r:var(--radius-lg)}
+.text{position:absolute;left:var(--space-8);bottom:var(--space-8)}
+.name{font:700 64px/.95 var(--font-sans);letter-spacing:-0.02em;color:var(--ink)}
+.tag{margin-top:var(--space-3);font:400 14px/20px var(--font-sans);color:var(--ink-muted)}
+</style>
+</head>
+<body>
+<!--
+blocks: brand 384x104, ink 192x104, positive 144x104, positive-surface 144x104, critical 96x104 (widths are multiples of space-12)
+arrangement: top-band skeleton, a flush strip of unequal bands, because the one-word name measures wider than 440px at 64px
+pattern: literal motif row. Sunbeam and Moonshadow name a disc on a horizon, so twenty half-rounds in the ground color rise along the band's lower edge
+scales: pitch space-12, radius radius-lg, text inset space-8, tagline gap space-3
+-->
+<svg width="960" height="288" viewBox="0 0 960 288" aria-hidden="true">
+<rect class="brand" x="0" y="0" width="384" height="104"/>
+<rect class="ink" x="384" y="0" width="192" height="104"/>
+<rect class="positive" x="576" y="0" width="144" height="104"/>
+<rect class="tint" x="720" y="0" width="144" height="104"/>
+<rect class="critical" x="864" y="0" width="96" height="104"/>
+<circle class="sun" cx="24" cy="104" r="16"/><circle class="sun" cx="72" cy="104" r="16"/><circle class="sun" cx="120" cy="104" r="16"/><circle class="sun" cx="168" cy="104" r="16"/><circle class="sun" cx="216" cy="104" r="16"/><circle class="sun" cx="264" cy="104" r="16"/><circle class="sun" cx="312" cy="104" r="16"/><circle class="sun" cx="360" cy="104" r="16"/><circle class="sun" cx="408" cy="104" r="16"/><circle class="sun" cx="456" cy="104" r="16"/><circle class="sun" cx="504" cy="104" r="16"/><circle class="sun" cx="552" cy="104" r="16"/><circle class="sun" cx="600" cy="104" r="16"/><circle class="sun" cx="648" cy="104" r="16"/><circle class="sun" cx="696" cy="104" r="16"/><circle class="sun" cx="744" cy="104" r="16"/><circle class="sun" cx="792" cy="104" r="16"/><circle class="sun" cx="840" cy="104" r="16"/><circle class="sun" cx="888" cy="104" r="16"/><circle class="sun" cx="936" cy="104" r="16"/>
+</svg>
+<div class="text"><div class="name">PhoenixEvent</div><div class="tag">People working an event together, station by station.</div></div>
+</body>
+</html>

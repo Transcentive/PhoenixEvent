@@ -1,0 +1,22 @@
+<!-- @dsCard group="Forms" height=420 -->
+<!doctype html>
+<html lang="en">
+<head>
+<meta charset="utf-8">
+<title>LoginForm</title>
+<style>html,body{margin:0}body{padding:24px;background:var(--surface);color:var(--ink);font-family:var(--font-sans)}</style>
+</head>
+<body>
+<form class="pe-login" onsubmit="return false">
+<div><h1 class="pe-login__title">Log in</h1><p class="pe-login__org">Lincoln Elementary PTA</p></div>
+<div class="pe-field"><label class="pe-field__label" for="u">Username</label><input class="pe-input" id="u" autocomplete="username" value="tom@example.org"></div>
+<div class="pe-field"><label class="pe-field__label" for="p">Password</label>
+<div class="pe-password"><input class="pe-input" id="p" type="password" autocomplete="current-password" value="lantern-parade"><button class="pe-btn pe-btn--secondary" type="button" id="t" aria-controls="p" aria-pressed="false">Show</button></div></div>
+<div class="pe-login__foot"><a class="pe-link" href="#">Forgot password?</a><button class="pe-btn pe-btn--primary">Log in</button></div>
+</form>
+<script>
+var p=document.getElementById('p'),t=document.getElementById('t');
+t.addEventListener('click',function(){var show=p.type==='password';p.type=show?'text':'password';t.textContent=show?'Hide':'Show';t.setAttribute('aria-pressed',String(show));});
+</script>
+</body>
+</html>

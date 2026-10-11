@@ -1,0 +1,58 @@
+<!doctype html>
+<html lang="en">
+<head>
+<meta charset="utf-8">
+<title>Log in, error</title>
+<script src="./support.js"></script>
+<link rel="stylesheet" href="theme.css">
+<link rel="stylesheet" href="ds/phoenixevent/components/bundle.css">
+</head>
+<body>
+<x-dc>
+<helmet>
+<style>
+body{margin:0}
+a{color:#1c1c1c}a:hover{color:#000000}
+</style>
+</helmet>
+<div data-theme="{{theme}}" style="min-height: 800px; background: var(--surface); color: var(--ink); font-family: var(--font-sans)">
+<header style="display: flex; align-items: center; gap: var(--space-4); padding: var(--space-3) var(--space-8); background: var(--surface-raised); border-bottom: 1px solid var(--border)">
+<span style="font: 700 19px/26px var(--font-sans)">PhoenixEvent</span>
+</header>
+<main style="padding: var(--space-12) var(--space-6); display: flex; justify-content: center">
+<div class="pe-login">
+<div style="display: flex; flex-direction: column; gap: var(--space-1)">
+<h1 class="pe-login__title">Log in</h1>
+<p class="pe-login__org">Lincoln Elementary PTA · <a class="pe-link" href="AccountOrg.dc.html">Change organization</a></p>
+</div>
+<div role="alert" style="display: flex; align-items: flex-start; gap: var(--space-2); padding: var(--space-3); background: var(--critical-surface); border: 1px solid var(--critical); border-radius: var(--radius-md); font: 600 14px/20px var(--font-sans); color: var(--critical)"><svg class="pe-icon" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M12 4l9 16H3z"></path><path d="M12 10v4M12 17v.5"></path></svg><span>That username and password do not match an account in this organization. Check both and try again, or reset your password.</span></div>
+<div class="pe-field">
+<label class="pe-field__label" for="username">Username</label>
+<input class="pe-input" id="username" name="username" autocomplete="username" defaultValue="[USERNAME AS TYPED]">
+</div>
+<div class="pe-field">
+<label class="pe-field__label" for="password">Password</label>
+<div class="pe-password">
+<input class="pe-input" id="password" name="password" type="password" autocomplete="current-password">
+<button class="pe-btn pe-btn--secondary" type="button" aria-controls="password" aria-pressed="false">Show</button>
+</div>
+<span class="pe-field__hint">The password field clears after a failed attempt.</span>
+</div>
+<div class="pe-login__foot">
+<a class="pe-link" href="AccountForgot.dc.html">Forgot password?</a>
+<a class="pe-btn pe-btn--primary" href="AccountLogin.dc.html">Log in</a>
+</div>
+<p style="margin: 0; font: 400 14px/20px var(--font-sans); color: var(--ink-muted)">The same message shows for every failed attempt. After 5 failed attempts for one username within 15 minutes, the message reads "Too many attempts. Try again in 15 minutes." and logins for that username pause for 15 minutes.</p>
+</div>
+</main>
+</div>
+</x-dc>
+<script type="text/x-dc" data-dc-script data-props='{"theme":{"editor":"enum","options":["greystone","sunbeam","moonshadow"],"default":"greystone"},"$preview":{"width":1280,"height":800}}'>
+class Component extends DCLogic {
+renderVals() {
+return { theme: this.props.theme ?? 'greystone' };
+}
+}
+</script>
+</body>
+</html>

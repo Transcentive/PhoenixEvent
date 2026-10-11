@@ -1,0 +1,60 @@
+<!doctype html>
+<html lang="en">
+<head>
+<meta charset="utf-8">
+<title>Post announcement</title>
+<script src="./support.js"></script>
+<link rel="stylesheet" href="theme.css">
+<link rel="stylesheet" href="ds/phoenixevent/components/bundle.css">
+</head>
+<body>
+<x-dc>
+<helmet>
+<style>
+body{margin:0}
+a{color:#1c1c1c}a:hover{color:#000000}
+</style>
+</helmet>
+<div data-theme="{{theme}}" style="min-height: 900px; background: var(--surface); color: var(--ink); font-family: var(--font-sans)">
+<header style="display: flex; flex-wrap: wrap; align-items: center; gap: var(--space-4); padding: var(--space-3) var(--space-8); background: var(--surface-raised); border-bottom: 1px solid var(--border)">
+<span style="font: 700 19px/26px var(--font-sans)">PhoenixEvent</span>
+<span style="display: inline-flex; align-items: center; gap: var(--space-1); font: 400 14px/20px var(--font-sans); color: var(--ink-muted)"><svg class="pe-icon" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><rect x="5" y="4" width="14" height="16" rx="1"></rect><path d="M9 8h2M13 8h2M9 12h2M13 12h2M10 20v-4h4v4"></path></svg>Lincoln Elementary PTA</span>
+<span style="flex-grow: 1"></span>
+<span style="font: 400 14px/20px var(--font-sans); color: var(--ink-muted)">[MEMBER NAME]</span>
+<a class="pe-btn pe-btn--secondary" href="AccountLoggedOut.dc.html">Log out</a>
+</header>
+<main style="max-width: 720px; margin: 0 auto; padding: var(--space-8); display: flex; flex-direction: column; gap: var(--space-6)">
+<div><a class="pe-link" href="CommList.dc.html">Back to announcements</a></div>
+<h1 style="margin: 0; font: 700 30px/36px var(--font-sans)">Post announcement</h1>
+<section class="pe-card" style="display: flex; flex-direction: column; gap: var(--space-4)">
+<div class="pe-field"><label class="pe-field__label" for="level">Post to</label><select class="pe-input" id="level" name="level"><option>Organization: Lincoln Elementary PTA</option><option>Event: Halloween Bash</option><option>Station: Haunted Hallway</option></select><span class="pe-field__hint">The list holds the levels your role may post to.</span></div>
+<div class="pe-field"><label class="pe-field__label" for="title">Title</label><input class="pe-input" id="title" name="title"></div>
+<div class="pe-field"><label class="pe-field__label" for="body">Message</label><textarea class="pe-input" id="body" name="body" rows="6" style="padding: var(--space-2) var(--space-3); min-height: 160px"></textarea><span class="pe-field__hint">Links to outside sites show a warning with the address before a person leaves.</span></div>
+</section>
+<section class="pe-card" style="display: flex; flex-direction: column; gap: var(--space-3)">
+<h2 style="margin: 0; font: 600 19px/26px var(--font-sans)">Files and images</h2>
+<div><button class="pe-btn pe-btn--secondary" type="button"><svg class="pe-icon" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M20 11.5l-8 8a5 5 0 0 1-7-7l8.5-8.5a3.3 3.3 0 0 1 4.7 4.7L9.7 17.2a1.7 1.7 0 0 1-2.4-2.4L15 7.2"></path></svg>Add file</button></div>
+<p style="margin: 0; font: 400 14px/20px var(--font-sans); color: var(--ink-muted)">Images: jpg, jpeg, png. Documents: md, html, pdf, doc, docx. [Size limits pending]</p>
+</section>
+<section class="pe-card" style="display: flex; flex-direction: column; gap: var(--space-3)">
+<h2 style="margin: 0; font: 600 19px/26px var(--font-sans)">Video</h2>
+<div><button class="pe-btn pe-btn--secondary" type="button">Upload video</button></div>
+<div class="pe-field"><label class="pe-field__label" for="embed">Or embed a video from another site</label><input class="pe-input" id="embed" name="embed" type="url" inputmode="url"><span class="pe-field__hint">Paste the video's address.</span></div>
+<p style="margin: 0; font: 400 14px/20px var(--font-sans); color: var(--ink-muted)">[Video formats and upload size limits are pending task-review items]</p>
+</section>
+<div style="display: flex; flex-wrap: wrap; gap: var(--space-3)">
+<a class="pe-btn pe-btn--primary" href="CommList.dc.html">Post announcement</a>
+<a class="pe-btn pe-btn--secondary" href="CommList.dc.html">Cancel</a>
+</div>
+</main>
+</div>
+</x-dc>
+<script type="text/x-dc" data-dc-script data-props='{"theme":{"editor":"enum","options":["greystone","sunbeam","moonshadow"],"default":"greystone"},"$preview":{"width":1280,"height":1240}}'>
+class Component extends DCLogic {
+renderVals() {
+return { theme: this.props.theme ?? 'greystone' };
+}
+}
+</script>
+</body>
+</html>

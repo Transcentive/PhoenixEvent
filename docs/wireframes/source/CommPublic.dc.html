@@ -1,0 +1,66 @@
+<!doctype html>
+<html lang="en">
+<head>
+<meta charset="utf-8">
+<title>Public event page</title>
+<script src="./support.js"></script>
+<link rel="stylesheet" href="theme.css">
+<link rel="stylesheet" href="ds/phoenixevent/components/bundle.css">
+</head>
+<body>
+<x-dc>
+<helmet>
+<style>
+body{margin:0}
+a{color:#1c1c1c}a:hover{color:#000000}
+</style>
+</helmet>
+<div data-theme="{{theme}}" style="min-height: 900px; background: var(--surface); color: var(--ink); font-family: var(--font-sans)">
+<header style="display: flex; flex-wrap: wrap; align-items: center; gap: var(--space-4); padding: var(--space-3) var(--space-8); background: var(--surface-raised); border-bottom: 1px solid var(--border)">
+<span style="font: 700 19px/26px var(--font-sans)">PhoenixEvent</span>
+<span style="flex-grow: 1"></span>
+<a class="pe-btn pe-btn--secondary" href="AccountLogin.dc.html">Log in</a>
+</header>
+<main style="max-width: 1120px; margin: 0 auto; padding: var(--space-8); display: flex; flex-direction: column; gap: var(--space-8)">
+<section style="display: flex; flex-direction: column; gap: var(--space-3)">
+<div style="display: flex; align-items: center; gap: var(--space-1); font: 600 13px/20px var(--font-sans); letter-spacing: .01em; color: var(--ink-muted)"><svg class="pe-icon" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><rect x="5" y="4" width="14" height="16" rx="1"></rect><path d="M9 8h2M13 8h2M9 12h2M13 12h2M10 20v-4h4v4"></path></svg>Lincoln Elementary PTA</div>
+<h1 style="margin: 0; font: 700 40px/44px var(--font-sans); letter-spacing: -0.01em">Halloween Bash</h1>
+<p style="margin: 0; font: 400 16px/24px var(--font-sans); color: var(--ink-muted)">[EVENT DATE] · [LOCATION]</p>
+<p style="margin: 0; max-width: 720px; font: 400 16px/24px var(--font-sans)">[Public event description written by the event board]</p>
+</section>
+<div style="display: flex; flex-wrap: wrap; gap: var(--space-8); align-items: flex-start">
+<section style="flex: 999 1 560px; min-width: 0; display: flex; flex-direction: column; gap: var(--space-4)">
+<h2 style="margin: 0; font: 600 24px/30px var(--font-sans)">Ways to help</h2>
+<div class="pe-card" style="display: flex; flex-direction: column; gap: var(--space-2)">
+<div style="display: flex; justify-content: space-between; align-items: center; gap: var(--space-3)"><h3 style="margin: 0; font: 600 19px/26px var(--font-sans)">Face Painting</h3><span class="pe-badge pe-badge--positive"><svg class="pe-icon" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><circle cx="12" cy="12" r="9"></circle><path d="M8 12.5l2.5 2.5L16 9.5"></path></svg>Open</span></div>
+<p style="margin: 0; font: 400 14px/20px var(--font-sans)">6 spots open</p>
+</div>
+<div class="pe-card" style="display: flex; flex-direction: column; gap: var(--space-2)">
+<div style="display: flex; justify-content: space-between; align-items: center; gap: var(--space-3)"><h3 style="margin: 0; font: 600 19px/26px var(--font-sans)">Haunted Hallway</h3><span class="pe-badge pe-badge--positive"><svg class="pe-icon" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><circle cx="12" cy="12" r="9"></circle><path d="M8 12.5l2.5 2.5L16 9.5"></path></svg>Open</span></div>
+<p style="margin: 0; font: 400 14px/20px var(--font-sans)">1 spot open</p>
+</div>
+<div class="pe-card" style="display: flex; flex-direction: column; gap: var(--space-2)">
+<div style="display: flex; justify-content: space-between; align-items: center; gap: var(--space-3)"><h3 style="margin: 0; font: 600 19px/26px var(--font-sans)">Bake Sale</h3><span class="pe-badge pe-badge--critical"><svg class="pe-icon" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><circle cx="12" cy="12" r="9"></circle><path d="M5.6 5.6l12.8 12.8"></path></svg>Full</span></div>
+<p style="margin: 0; font: 400 14px/20px var(--font-sans)">Waiting list open</p>
+</div>
+<p style="margin: 0; font: 400 14px/20px var(--font-sans); color: var(--ink-muted)">[The organization chooses which details are public. Names of people, private stations and attachments stay behind login.]</p>
+</section>
+<aside class="pe-card" style="flex: 1 1 320px; display: flex; flex-direction: column; gap: var(--space-4)">
+<h2 style="margin: 0; font: 600 19px/26px var(--font-sans)">Take part</h2>
+<p style="margin: 0; font: 400 16px/24px var(--font-sans)">Log in or create an account to register for this event.</p>
+<a class="pe-btn pe-btn--primary" href="AccountLogin.dc.html">Register for event</a>
+<a class="pe-link" href="AccountCreate.dc.html">Create account</a>
+</aside>
+</div>
+</main>
+</div>
+</x-dc>
+<script type="text/x-dc" data-dc-script data-props='{"theme":{"editor":"enum","options":["greystone","sunbeam","moonshadow"],"default":"greystone"},"$preview":{"width":1280,"height":900}}'>
+class Component extends DCLogic {
+renderVals() {
+return { theme: this.props.theme ?? 'greystone' };
+}
+}
+</script>
+</body>
+</html>

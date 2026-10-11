@@ -1,0 +1,65 @@
+<!doctype html>
+<html lang="en">
+<head>
+<meta charset="utf-8">
+<title>Announcements</title>
+<script src="./support.js"></script>
+<link rel="stylesheet" href="theme.css">
+<link rel="stylesheet" href="ds/phoenixevent/components/bundle.css">
+</head>
+<body>
+<x-dc>
+<helmet>
+<style>
+body{margin:0}
+a{color:#1c1c1c}a:hover{color:#000000}
+</style>
+</helmet>
+<div data-theme="{{theme}}" style="min-height: 900px; background: var(--surface); color: var(--ink); font-family: var(--font-sans)">
+<header style="display: flex; flex-wrap: wrap; align-items: center; gap: var(--space-4); padding: var(--space-3) var(--space-8); background: var(--surface-raised); border-bottom: 1px solid var(--border)">
+<span style="font: 700 19px/26px var(--font-sans)">PhoenixEvent</span>
+<span style="display: inline-flex; align-items: center; gap: var(--space-1); font: 400 14px/20px var(--font-sans); color: var(--ink-muted)"><svg class="pe-icon" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><rect x="5" y="4" width="14" height="16" rx="1"></rect><path d="M9 8h2M13 8h2M9 12h2M13 12h2M10 20v-4h4v4"></path></svg>Lincoln Elementary PTA</span>
+<span style="flex-grow: 1"></span>
+<span style="font: 400 14px/20px var(--font-sans); color: var(--ink-muted)">[MEMBER NAME]</span>
+<a class="pe-btn pe-btn--secondary" href="AccountLoggedOut.dc.html">Log out</a>
+</header>
+<main style="max-width: 880px; margin: 0 auto; padding: var(--space-8); display: flex; flex-direction: column; gap: var(--space-6)">
+<div><a class="pe-link" href="OrgHome.dc.html">Back to Lincoln Elementary PTA</a></div>
+<div style="display: flex; flex-wrap: wrap; align-items: center; gap: var(--space-4)">
+<h1 style="margin: 0; font: 700 30px/36px var(--font-sans); flex-grow: 1">Announcements</h1>
+<a class="pe-btn pe-btn--primary" href="CommCompose.dc.html">Post announcement</a>
+</div>
+<nav aria-label="Announcement level" style="display: flex; flex-wrap: wrap; gap: var(--space-2)">
+<a class="pe-btn pe-btn--secondary" href="#" aria-current="page" style="border-width: 2px">Organization</a>
+<a class="pe-btn pe-btn--secondary" href="#">Event: Halloween Bash</a>
+<a class="pe-btn pe-btn--secondary" href="#">Station: Haunted Hallway</a>
+</nav>
+<p style="margin: 0; font: 400 14px/20px var(--font-sans); color: var(--ink-muted)">[The same page form serves all three levels. Post announcement shows to leadership and the relevant chairs.]</p>
+<article class="pe-card pe-announcement" style="max-width: none">
+<div class="pe-announcement__scope"><svg class="pe-icon" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><rect x="5" y="4" width="14" height="16" rx="1"></rect><path d="M9 8h2M13 8h2M9 12h2M13 12h2M10 20v-4h4v4"></path></svg>Organization announcement</div>
+<h2 class="pe-announcement__title">[Announcement title]</h2>
+<p class="pe-announcement__body">[Announcement body.] <a class="pe-link" href="CommExternal.dc.html">[Link to an outside site] <svg class="pe-icon" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true" style="width: 16px; height: 16px; vertical-align: -3px"><path d="M14 5h5v5M19 5l-8 8M11 7H6a1 1 0 0 0-1 1v10a1 1 0 0 0 1 1h10a1 1 0 0 0 1-1v-5"></path></svg></a></p>
+<div style="aspect-ratio: 16 / 9; max-width: 480px; display: flex; align-items: center; justify-content: center; background: var(--surface-sunken); border: 1px solid var(--border-strong); border-radius: var(--radius-sm); font: 400 14px/20px var(--font-sans); color: var(--ink-muted)">[Uploaded or embedded video]</div>
+<p class="pe-announcement__meta">Posted by [AUTHOR NAME], [ROLE TITLE] · [DATE POSTED]</p>
+<ul class="pe-attachments">
+<li class="pe-attachment"><svg class="pe-icon" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M20 11.5l-8 8a5 5 0 0 1-7-7l8.5-8.5a3.3 3.3 0 0 1 4.7 4.7L9.7 17.2a1.7 1.7 0 0 1-2.4-2.4L15 7.2"></path></svg><a class="pe-link" href="#">[attachment-name.pdf]</a><span class="pe-attachment__size">PDF · [SIZE]</span></li>
+</ul>
+</article>
+<article class="pe-card pe-announcement" style="max-width: none">
+<div class="pe-announcement__scope"><svg class="pe-icon" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><rect x="5" y="4" width="14" height="16" rx="1"></rect><path d="M9 8h2M13 8h2M9 12h2M13 12h2M10 20v-4h4v4"></path></svg>Organization announcement</div>
+<h2 class="pe-announcement__title">[Announcement title]</h2>
+<p class="pe-announcement__body">[Announcement body, with a displayed image]</p>
+<p class="pe-announcement__meta">Posted by [AUTHOR NAME], [ROLE TITLE] · [DATE POSTED]</p>
+</article>
+</main>
+</div>
+</x-dc>
+<script type="text/x-dc" data-dc-script data-props='{"theme":{"editor":"enum","options":["greystone","sunbeam","moonshadow"],"default":"greystone"},"$preview":{"width":1280,"height":1070}}'>
+class Component extends DCLogic {
+renderVals() {
+return { theme: this.props.theme ?? 'greystone' };
+}
+}
+</script>
+</body>
+</html>

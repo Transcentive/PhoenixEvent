@@ -1,0 +1,15 @@
+<!-- @dsCard group="Forms" height=220 -->
+<!doctype html>
+<html lang="en">
+<head>
+<meta charset="utf-8">
+<title>TextField</title>
+<style>html,body{margin:0}body{padding:24px;background:var(--surface);color:var(--ink);font-family:var(--font-sans)}.grid{display:grid;grid-template-columns:repeat(auto-fit,minmax(240px,1fr));gap:var(--space-6);max-width:640px}</style>
+</head>
+<body>
+<div class="grid">
+<div class="pe-field"><label class="pe-field__label" for="u">Username</label><input class="pe-input" id="u" value="tom@example.org" autocomplete="username"><span class="pe-field__hint">Your email address is your username unless you chose another.</span></div>
+<div class="pe-field pe-field--error"><label class="pe-field__label" for="c">Station capacity</label><input class="pe-input" id="c" value="0" inputmode="numeric" aria-invalid="true" aria-describedby="ce"><span class="pe-field__error" id="ce"><svg class="pe-icon" viewBox="0 0 24 24" fill="none" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" stroke="currentColor" aria-hidden="true"><path d="M12 4l9 16H3z"/><path d="M12 10v4M12 17v.5"/></svg>Enter 1 or more. Capacity includes the chair.</span></div>
+</div>
+</body>
+</html>

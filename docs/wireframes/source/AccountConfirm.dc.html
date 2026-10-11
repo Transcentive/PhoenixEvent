@@ -1,0 +1,45 @@
+<!doctype html>
+<html lang="en">
+<head>
+<meta charset="utf-8">
+<title>Confirm email</title>
+<script src="./support.js"></script>
+<link rel="stylesheet" href="theme.css">
+<link rel="stylesheet" href="ds/phoenixevent/components/bundle.css">
+</head>
+<body>
+<x-dc>
+<helmet>
+<style>
+body{margin:0}
+a{color:#1c1c1c}a:hover{color:#000000}
+</style>
+</helmet>
+<div data-theme="{{theme}}" style="min-height: 800px; background: var(--surface); color: var(--ink); font-family: var(--font-sans)">
+<header style="display: flex; align-items: center; gap: var(--space-4); padding: var(--space-3) var(--space-8); background: var(--surface-raised); border-bottom: 1px solid var(--border)">
+<span style="font: 700 19px/26px var(--font-sans)">PhoenixEvent</span>
+</header>
+<main style="padding: var(--space-12) var(--space-6); display: flex; justify-content: center">
+<div class="pe-login">
+<h1 class="pe-login__title">Check your email</h1>
+<div><span class="pe-badge pe-badge--caution"><svg class="pe-icon" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><circle cx="12" cy="12" r="9"></circle><path d="M12 7v5l3 2"></path></svg>Waiting for confirmation</span></div>
+<p style="margin: 0; font: 400 16px/24px var(--font-sans)">We sent a confirmation link to [EMAIL ADDRESS]. Open the link to confirm your account.</p>
+<p style="margin: 0; font: 400 14px/20px var(--font-sans); color: var(--ink-muted)">The link works once and expires after 24 hours.</p>
+<p style="margin: 0; font: 400 14px/20px var(--font-sans); color: var(--ink-muted)">You can log in once your email address is confirmed.</p>
+<div class="pe-login__foot">
+<a class="pe-link" href="AccountLogin.dc.html">Back to log in</a>
+<a class="pe-btn pe-btn--secondary" href="#">Send the email again</a>
+</div>
+</div>
+</main>
+</div>
+</x-dc>
+<script type="text/x-dc" data-dc-script data-props='{"theme":{"editor":"enum","options":["greystone","sunbeam","moonshadow"],"default":"greystone"},"$preview":{"width":1280,"height":800}}'>
+class Component extends DCLogic {
+renderVals() {
+return { theme: this.props.theme ?? 'greystone' };
+}
+}
+</script>
+</body>
+</html>

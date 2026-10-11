@@ -1,0 +1,133 @@
+{
+  "v": 3,
+  "layout": "files",
+  "createdOnFiles": {
+    "v": 1,
+    "at": "2026-10-03T05:10:37Z"
+  },
+  "title": "PhoenixEvent",
+  "namespace": "PhoenixEvent",
+  "libraries": [],
+  "sections": {},
+  "groups": [
+    "Icons"
+  ],
+  "assetGroups": {
+    "Icons": {
+      "name": "Icons",
+      "tile": "s",
+      "order": [
+        "organization.svg",
+        "event.svg",
+        "station.svg",
+        "check-circle.svg",
+        "globe.svg",
+        "clock.svg",
+        "hourglass.svg",
+        "ban.svg",
+        "alert.svg",
+        "x-circle.svg",
+        "eye-off.svg",
+        "lock.svg",
+        "external-link.svg",
+        "paperclip.svg"
+      ],
+      "files": {
+        "organization.svg": {
+          "name": "organization.svg",
+          "blob": "b3436af3d88f93495e833597707824c2",
+          "size": 285,
+          "type": "image/svg+xml"
+        },
+        "event.svg": {
+          "name": "event.svg",
+          "blob": "193e257743ae689bd0aef4d106c710d4",
+          "size": 265,
+          "type": "image/svg+xml"
+        },
+        "station.svg": {
+          "name": "station.svg",
+          "blob": "023a90d7c2381dfae4ba017e26ea4ec5",
+          "size": 224,
+          "type": "image/svg+xml"
+        },
+        "check-circle.svg": {
+          "name": "check-circle.svg",
+          "blob": "feab3b1b627690dcd68129213b15295a",
+          "size": 248,
+          "type": "image/svg+xml"
+        },
+        "globe.svg": {
+          "name": "globe.svg",
+          "blob": "da46a8faef558be08a84b3900067d721",
+          "size": 273,
+          "type": "image/svg+xml"
+        },
+        "clock.svg": {
+          "name": "clock.svg",
+          "blob": "0ff14d5da85926a5c3da355aa984d0d6",
+          "size": 237,
+          "type": "image/svg+xml"
+        },
+        "hourglass.svg": {
+          "name": "hourglass.svg",
+          "blob": "f62073efabcb41da2292fde8d75e59aa",
+          "size": 260,
+          "type": "image/svg+xml"
+        },
+        "ban.svg": {
+          "name": "ban.svg",
+          "blob": "8d5968f7e670ddc2b989cefabbfa06ea",
+          "size": 244,
+          "type": "image/svg+xml"
+        },
+        "alert.svg": {
+          "name": "alert.svg",
+          "blob": "b4d9c5f3abab525361f418bb541a2da7",
+          "size": 237,
+          "type": "image/svg+xml"
+        },
+        "x-circle.svg": {
+          "name": "x-circle.svg",
+          "blob": "0a24df40966df9801d6f6ecf942238b5",
+          "size": 244,
+          "type": "image/svg+xml"
+        },
+        "eye-off.svg": {
+          "name": "eye-off.svg",
+          "blob": "65afe82bc3ba681892ca111c7dd7eb39",
+          "size": 310,
+          "type": "image/svg+xml"
+        },
+        "lock.svg": {
+          "name": "lock.svg",
+          "blob": "9c81789b55f39930bd950d8181478868",
+          "size": 267,
+          "type": "image/svg+xml"
+        },
+        "external-link.svg": {
+          "name": "external-link.svg",
+          "blob": "e26f918d61ff0f25927b035fbfb350d4",
+          "size": 272,
+          "type": "image/svg+xml"
+        },
+        "paperclip.svg": {
+          "name": "paperclip.svg",
+          "blob": "6c6f66c34b7ea499214c977d137cc648",
+          "size": 290,
+          "type": "image/svg+xml"
+        }
+      }
+    }
+  },
+  "blobs": {},
+  "docs": {
+    "sections": []
+  },
+  "lastChange": {
+    "by": "Epistóletes",
+    "at": "2026-10-03T05:10:37Z",
+    "via": "Claude (Cowork)",
+    "note": "First build from the specification and roadmap v0.1."
+  }
+}

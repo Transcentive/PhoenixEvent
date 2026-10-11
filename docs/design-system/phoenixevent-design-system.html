@@ -1,0 +1,386 @@
+<!doctype html>
+<html lang="en">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<title>PhoenixEvent design system</title>
+<style>
+body{max-width:960px;margin:32px auto;padding:0 24px;font:16px/1.6 system-ui,sans-serif;color:#243246;background:#fff}
+h1,h2,h3,h4,h5{color:#173a61;line-height:1.25}
+h1.part{font-size:2.2em;margin:1.2em 0 .2em;padding-top:.4em;border-top:6px solid #173a61}
+h2{margin-top:2em;border-bottom:1px solid #ccd5df;padding-bottom:.4em}
+li{margin:.45em 0}
+table{border-collapse:collapse;width:100%;margin:1em 0;font-size:.94em}
+th,td{border:1px solid #ccd5df;padding:6px 10px;text-align:left;vertical-align:top}
+th{background:#eef3f8}
+code{font:0.92em ui-monospace,Menlo,Consolas,monospace;background:#eef3f8;padding:1px 4px;border-radius:3px}
+a{color:#173a61;word-break:break-word}
+.tw{overflow-x:auto}
+.lede{color:#4a5a70}
+.cover{padding:8vh 0 4vh}
+.cover h1{font-size:3em;margin:0 0 .2em}
+.toc td:first-child{white-space:nowrap;font-weight:600}
+figure{margin:1.2em 0}
+figure img{display:block;max-width:100%;height:auto;border:1px solid #ccd5df}
+figcaption{font-size:.9em;color:#4a5a70;margin-top:.4em}
+.screen h4,.comp h4{margin:.2em 0 .4em}
+.chip{display:inline-block;width:1.1em;height:1.1em;border:1px solid #8a94a3;border-radius:3px;vertical-align:-3px;margin-right:6px}
+.icons{display:grid;grid-template-columns:repeat(auto-fill,minmax(130px,1fr));gap:12px;margin:1em 0}
+.icons div{border:1px solid #ccd5df;border-radius:6px;padding:10px;text-align:center;font-size:.85em}
+.icons svg{display:block;margin:0 auto 6px;width:32px;height:32px}
+.wide{overflow-x:auto}
+@page{size:Letter;margin:16mm 14mm 18mm}
+@page wide{size:Letter landscape;margin:12mm 12mm 16mm}
+@media print{
+ body{max-width:none;margin:0;padding:0;font-size:10pt}
+ h1,h2,h3,h4{break-after:avoid}
+ tr,figure,.screen,.comp-shot{break-inside:avoid}
+ h1.part{break-before:page}
+ .wide{page:wide;overflow:visible}
+ .screen{break-before:page}
+ .screen img{max-height:6.5in;width:auto;max-width:100%;margin:0 auto}
+ .screen.first{break-before:auto}
+ .wide h1.part{break-before:page}
+ .tw{overflow:visible}
+}
+</style>
+</head>
+<body>
+<main>
+<h1>PhoenixEvent design system</h1><p class="lede">The brand book, tokens, components and icons of the PhoenixEvent design system. The live version, with each component as a working preview, is at <a href="https://claude.ai/artifact/LiN9xyts9t51qw9DCKk5mM">https://claude.ai/artifact/LiN9xyts9t51qw9DCKk5mM</a>.</p>
+<figure><img alt="Design system cover in the Sunbeam theme" src="previews/Cover-sunbeam.png"><figcaption>The cover, in the Sunbeam theme.</figcaption></figure>
+<h2>Brand book</h2>
+<p>PhoenixEvent is the interface for people working an organization's event together, divided into stations. It serves PTAs, community committees, banks and businesses, so it reads plainly, works for a first-time volunteer, and keeps its meaning in every theme.</p>
+<h3>Content fundamentals</h3>
+<ul>
+<li><strong>Labels and names are separate.</strong> "Event" and "Station" are default labels an administrator can replace with terms such as Function, Activity, Festival or Department. "Halloween Bash" and "Valentine Dance" are names. Write copy with the label as a variable in singular and plural form: "Join a {station}", "3 {stations} open".</li>
+<li><strong>Role titles are display text.</strong> Show the event's title for a role when it has one (Event Director, Event Chair, Event Executive, Event Manager) and the organization's title otherwise. Permissions keep their own stable names.</li>
+<li><strong>Sentence case everywhere:</strong> "Log in", "Forgot password?", "Join waiting list". Names keep their own capitals.</li>
+<li><strong>Buttons are a verb and its object:</strong> "Approve registration", "Appoint chair", "Remove from station". The toggle on a password reads "Show" or "Hide".</li>
+<li><strong>State what is true, in numbers:</strong> "9 of 10 places taken. Includes the chair." "3 on the waiting list."</li>
+<li><strong>Address the person as "you".</strong> The organization is named: "This link opens a site outside Lincoln Elementary PTA."</li>
+<li><strong>Errors say how to fix the value:</strong> "Enter 1 or more. Capacity includes the chair."</li>
+<li><strong>Words only.</strong> Emoji stay out of interface copy. Icons come from the Icons group.</li>
+</ul>
+<h3>Visual foundations</h3>
+<p><strong>Themes.</strong> Three built-in themes share every token name. Set one with <code>data-theme</code> on the root or on any container.</p>
+<div class="tw"><table>
+<thead>
+<tr>
+<th>Theme</th>
+<th>id</th>
+<th>Character</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td>Sunbeam</td>
+<td><code>sunbeam</code></td>
+<td>Light. Warm paper <code>surface</code>, sun-gold <code>brand</code>. The default.</td>
+</tr>
+<tr>
+<td>Moonshadow</td>
+<td><code>moonshadow</code></td>
+<td>Dark. Night-blue <code>surface</code>, pale moon <code>brand</code>.</td>
+</tr>
+<tr>
+<td>Greystone</td>
+<td><code>greystone</code></td>
+<td>Neutral greys for people who see color differently. Roles differ by lightness, and icons and words carry the meaning.</td>
+</tr>
+</tbody>
+</table></div>
+<p><strong>Color.</strong></p>
+<ul>
+<li>Set the page on <code>surface</code>. Put cards, inputs, dialogs and the login panel on <code>surface-raised</code>. Use <code>surface-sunken</code> for meter tracks and inset boxes.</li>
+<li>Set text in <code>ink</code>. Set hints and metadata in <code>ink-muted</code>.</li>
+<li>Use <code>brand</code> as a fill only, with <code>on-brand</code> on top. It marks the one primary button in a view.</li>
+<li>Set links and quiet buttons in <code>brand-ink</code>, always underlined.</li>
+<li>Use <code>border-strong</code> for every edge a person needs to find: inputs, buttons, meter tracks, dialogs. Use <code>border</code> for decorative hairlines.</li>
+<li>States use four roles, each a solid color on its own <code>-surface</code> tint: <code>positive</code> (open, approved, public), <code>caution</code> (pending, waiting list, nearly full), <code>critical</code> (full, error, destructive), <code>neutral</code> (cancelled, private, unlisted). <code>positive</code> is blue and <code>critical</code> is red, and they differ in lightness.</li>
+<li>A state always appears as icon, word and color together. See StatusBadge.</li>
+<li>Put <code>scrim</code> behind dialogs.</li>
+</ul>
+<p><strong>Contrast.</strong> <code>ink</code>, <code>ink-muted</code> and <code>brand-ink</code> hold 4.5:1 on all three surfaces in all three themes. Each state role holds 4.5:1 on its tint, on <code>surface</code> and on <code>surface-raised</code>. <code>border-strong</code> and <code>focus</code> hold 3:1 on all three surfaces. <code>on-brand</code> on <code>brand</code> and <code>on-critical</code> on <code>critical</code> hold 4.5:1. A new theme passes the same pairs.</p>
+<p><strong>Focus.</strong> Every interactive element shows a solid 3px <code>focus</code> outline with a 2px offset on keyboard focus.</p>
+<p><strong>Type.</strong> One family, <code>sans</code>, the system interface face, so pages load with no font download. <code>mono</code> shows addresses. Use <code>display</code> for the event name on a public page, <code>heading-1</code> to <code>heading-3</code> for titles, <code>body</code> for copy and inputs, <code>small</code> for hints and metadata, <code>label</code> for badges and scope lines. Body copy is 16px on a 24px line.</p>
+<p><strong>Spacing.</strong> A 4px base: <code>space-1</code> to <code>space-12</code>. Use <code>space-4</code> between form fields, <code>space-6</code> inside cards and dialogs, <code>space-8</code> between page sections.</p>
+<p><strong>Radius.</strong> <code>radius-md</code> for buttons and inputs, <code>radius-lg</code> for cards and dialogs, <code>radius-pill</code> for badges and meter tracks, <code>radius-sm</code> for inset boxes.</p>
+<p><strong>Shadow.</strong> <code>shadow-raised</code> lifts cards from <code>surface</code>. <code>shadow-overlay</code> lifts dialogs above <code>scrim</code>. Borders define edges, and shadows only add depth.</p>
+<p><strong>Layout.</strong> Controls are at least 44px tall. Forms are one column, with labels above inputs. Cards hold one subject each.</p>
+<p><strong>Motion.</strong> Still by default. State changes apply at once.</p>
+<h3>Iconography</h3>
+<p>Fourteen line icons on a 24px grid with a 2px stroke, in the Icons group. Inline them with <code>stroke="currentColor"</code> so each icon takes the color of its label.</p>
+<ul>
+<li><strong>Levels:</strong> <code>organization</code>, <code>event</code>, <code>station</code>. In <code>ink</code>, leading the scope line of announcements, navigation and page titles.</li>
+<li><strong>States:</strong> <code>check-circle</code> (approved, open), <code>clock</code> (pending approval), <code>hourglass</code> (waiting list), <code>ban</code> (full), <code>x-circle</code> (cancelled), <code>alert</code> (error, warning).</li>
+<li><strong>Visibility:</strong> <code>globe</code> (public), <code>eye-off</code> (unlisted), <code>lock</code> (private).</li>
+<li><strong>Links and files:</strong> <code>external-link</code> after any link that leaves the application, <code>paperclip</code> before an attachment.</li>
+</ul>
+<p>Each icon sits beside its word. An icon standing alone takes an <code>aria-label</code> with the same word.</p>
+<h3>Logo</h3>
+<p>PhoenixEvent has no mark yet. Set the name in <code>sans</code> at weight 700, as one word with a capital P and a capital E.</p>
+<h3>Components</h3>
+<p>All components are CSS classes in <code>components/bundle.css</code>, prefixed <code>pe-</code>, and read only tokens. Button, TextField, PasswordField and LoginForm cover account screens. StatusBadge and CapacityMeter cover registration and station capacity. AnnouncementCard and ExternalLinkDialog cover communication. ThemeSampler shows one card in all three themes.</p>
+<h2>Color tokens</h2>
+<div class="tw"><table><thead><tr><th>Token</th><th>Sunbeam</th><th>Moonshadow</th><th>Greystone</th><th>Usage</th></tr></thead><tbody><tr><td><code>surface</code></td><td><span class="chip" style="background:#fffaf0"></span>#fffaf0</td><td><span class="chip" style="background:#141a2b"></span>#141a2b</td><td><span class="chip" style="background:#f4f4f3"></span>#f4f4f3</td><td>Page background in every screen.</td></tr><tr><td><code>surface-raised</code></td><td><span class="chip" style="background:#ffffff"></span>#ffffff</td><td><span class="chip" style="background:#1e2640"></span>#1e2640</td><td><span class="chip" style="background:#ffffff"></span>#ffffff</td><td>Cards, dialogs, inputs and the login panel, on surface.</td></tr><tr><td><code>surface-sunken</code></td><td><span class="chip" style="background:#f7ecd6"></span>#f7ecd6</td><td><span class="chip" style="background:#0e1322"></span>#0e1322</td><td><span class="chip" style="background:#e6e6e4"></span>#e6e6e4</td><td>Meter tracks, the destination box in the external link warning, disabled controls.</td></tr><tr><td><code>ink</code></td><td><span class="chip" style="background:#2a2118"></span>#2a2118</td><td><span class="chip" style="background:#eef1f8"></span>#eef1f8</td><td><span class="chip" style="background:#1c1c1c"></span>#1c1c1c</td><td>Body copy and headings on surface, surface-raised and surface-sunken.</td></tr><tr><td><code>ink-muted</code></td><td><span class="chip" style="background:#63574a"></span>#63574a</td><td><span class="chip" style="background:#a9b2c9"></span>#a9b2c9</td><td><span class="chip" style="background:#555555"></span>#555555</td><td>Hints, metadata and timestamps on surface, surface-raised and surface-sunken.</td></tr><tr><td><code>border</code></td><td><span class="chip" style="background:#e5d7bd"></span>#e5d7bd</td><td><span class="chip" style="background:#333d5c"></span>#333d5c</td><td><span class="chip" style="background:#c9c9c6"></span>#c9c9c6</td><td>Decorative hairline around cards and between rows. Carries no meaning on its own.</td></tr><tr><td><code>border-strong</code></td><td><span class="chip" style="background:#8a7758"></span>#8a7758</td><td><span class="chip" style="background:#7683a8"></span>#7683a8</td><td><span class="chip" style="background:#6b6b6b"></span>#6b6b6b</td><td>Borders of inputs, buttons, meter tracks and dialogs: every edge a person needs to find. 3:1 on surface, surface-raised and surface-sunken.</td></tr><tr><td><code>brand</code></td><td><span class="chip" style="background:#f2b632"></span>#f2b632</td><td><span class="chip" style="background:#b8c4ff"></span>#b8c4ff</td><td><span class="chip" style="background:#2b2b2b"></span>#2b2b2b</td><td>Fill of the primary button and the large identity fields. Always paired with on-brand.</td></tr><tr><td><code>on-brand</code></td><td><span class="chip" style="background:#2a2118"></span>#2a2118</td><td><span class="chip" style="background:#141a2b"></span>#141a2b</td><td><span class="chip" style="background:#ffffff"></span>#ffffff</td><td>Text and icons on brand.</td></tr><tr><td><code>brand-ink</code></td><td><span class="chip" style="background:#7a4f00"></span>#7a4f00</td><td><span class="chip" style="background:#c3cdff"></span>#c3cdff</td><td><span class="chip" style="background:#1c1c1c"></span>#1c1c1c</td><td>Links and quiet buttons on surface, surface-raised and surface-sunken. Always underlined, so Greystone reads without hue.</td></tr><tr><td><code>focus</code></td><td><span class="chip" style="background:#1d4ed8"></span>#1d4ed8</td><td><span class="chip" style="background:#ffd166"></span>#ffd166</td><td><span class="chip" style="background:#000000"></span>#000000</td><td>Solid 3px focus ring with a 2px offset, on surface, surface-raised and surface-sunken.</td></tr><tr><td><code>positive</code></td><td><span class="chip" style="background:#0b5394"></span>#0b5394</td><td><span class="chip" style="background:#7cc4ff"></span>#7cc4ff</td><td><span class="chip" style="background:#1c1c1c"></span>#1c1c1c</td><td>Icon, text and meter fill for open, approved and public states. Reads on positive-surface, surface and surface-raised.</td></tr><tr><td><code>positive-surface</code></td><td><span class="chip" style="background:#e3effa"></span>#e3effa</td><td><span class="chip" style="background:#12304d"></span>#12304d</td><td><span class="chip" style="background:#ededeb"></span>#ededeb</td><td>Badge ground behind positive.</td></tr><tr><td><code>caution</code></td><td><span class="chip" style="background:#7a4f00"></span>#7a4f00</td><td><span class="chip" style="background:#ffcf70"></span>#ffcf70</td><td><span class="chip" style="background:#444444"></span>#444444</td><td>Icon, text and meter fill for pending, waiting list and nearly full states. Reads on caution-surface, surface and surface-raised.</td></tr><tr><td><code>caution-surface</code></td><td><span class="chip" style="background:#fdf0c8"></span>#fdf0c8</td><td><span class="chip" style="background:#40300a"></span>#40300a</td><td><span class="chip" style="background:#dededb"></span>#dededb</td><td>Badge ground behind caution.</td></tr><tr><td><code>critical</code></td><td><span class="chip" style="background:#a3151b"></span>#a3151b</td><td><span class="chip" style="background:#ff9d94"></span>#ff9d94</td><td><span class="chip" style="background:#000000"></span>#000000</td><td>Icon, text and meter fill for full stations, errors and destructive actions. Reads on critical-surface, surface and surface-raised. Fill of the danger button.</td></tr><tr><td><code>critical-surface</code></td><td><span class="chip" style="background:#fde7e4"></span>#fde7e4</td><td><span class="chip" style="background:#4a1a17"></span>#4a1a17</td><td><span class="chip" style="background:#cfcfcc"></span>#cfcfcc</td><td>Badge ground behind critical.</td></tr><tr><td><code>on-critical</code></td><td><span class="chip" style="background:#ffffff"></span>#ffffff</td><td><span class="chip" style="background:#141a2b"></span>#141a2b</td><td><span class="chip" style="background:#ffffff"></span>#ffffff</td><td>Text and icons on a critical fill, such as the danger button.</td></tr><tr><td><code>neutral</code></td><td><span class="chip" style="background:#5a5148"></span>#5a5148</td><td><span class="chip" style="background:#b4bccf"></span>#b4bccf</td><td><span class="chip" style="background:#555555"></span>#555555</td><td>Icon and text for cancelled, private, unlisted and draft states. Reads on neutral-surface, surface and surface-raised.</td></tr><tr><td><code>neutral-surface</code></td><td><span class="chip" style="background:#efe8dc"></span>#efe8dc</td><td><span class="chip" style="background:#2a3350"></span>#2a3350</td><td><span class="chip" style="background:#f4f4f3"></span>#f4f4f3</td><td>Badge ground behind neutral.</td></tr><tr><td><code>scrim</code></td><td><span class="chip" style="background:rgba(42,33,24,0.55)"></span>rgba(42,33,24,0.55)</td><td><span class="chip" style="background:rgba(5,8,16,0.7)"></span>rgba(5,8,16,0.7)</td><td><span class="chip" style="background:rgba(0,0,0,0.6)"></span>rgba(0,0,0,0.6)</td><td>Layer behind the external link warning and any other dialog.</td></tr></tbody></table></div>
+<h2>Type styles</h2>
+<div class="tw"><table><thead><tr><th>Style</th><th>Size</th><th>Line height</th><th>Weight</th><th>Usage</th></tr></thead><tbody><tr><td><code>display</code></td><td>40px</td><td>44px</td><td>700</td><td>Event name at the top of a public event page.</td></tr><tr><td><code>heading-1</code></td><td>30px</td><td>36px</td><td>700</td><td>Page title.</td></tr><tr><td><code>heading-2</code></td><td>24px</td><td>30px</td><td>600</td><td>Section title.</td></tr><tr><td><code>heading-3</code></td><td>19px</td><td>26px</td><td>600</td><td>Card and dialog title, station name.</td></tr><tr><td><code>body</code></td><td>16px</td><td>24px</td><td>400</td><td>Body copy, inputs, announcements.</td></tr><tr><td><code>body-strong</code></td><td>16px</td><td>24px</td><td>600</td><td>Button labels and emphasis inside body copy.</td></tr><tr><td><code>small</code></td><td>14px</td><td>20px</td><td>400</td><td>Hints, metadata, field labels at weight 600.</td></tr><tr><td><code>label</code></td><td>13px</td><td>20px</td><td>600</td><td>Status badges and scope labels.</td></tr><tr><td><code>mono</code></td><td>14px</td><td>20px</td><td>400</td><td>The destination address in the external link warning.</td></tr></tbody></table></div>
+<p>Font families: <code>sans</code> is system-ui, -apple-system, &quot;Segoe UI&quot;, &quot;Helvetica Neue&quot;, Arial, sans-serif. <code>mono</code> is ui-monospace, &quot;SF Mono&quot;, Menlo, Consolas, monospace.</p>
+<h2>Spacing tokens</h2>
+<div class="tw"><table><thead><tr><th>Token</th><th>Value</th><th>Usage</th></tr></thead><tbody><tr><td><code>space-1</code></td><td>4px</td><td>Gap between an icon and its label.</td></tr><tr><td><code>space-2</code></td><td>8px</td><td>Gap between a label and its control, badge padding.</td></tr><tr><td><code>space-3</code></td><td>12px</td><td>Input padding, gap between list rows.</td></tr><tr><td><code>space-4</code></td><td>16px</td><td>Button padding, gap between form fields.</td></tr><tr><td><code>space-6</code></td><td>24px</td><td>Card and dialog padding.</td></tr><tr><td><code>space-8</code></td><td>32px</td><td>Gap between page sections.</td></tr><tr><td><code>space-12</code></td><td>48px</td><td>Page margins on wide screens.</td></tr></tbody></table></div>
+<h2>Radius tokens</h2>
+<div class="tw"><table><thead><tr><th>Token</th><th>Value</th><th>Usage</th></tr></thead><tbody><tr><td><code>radius-sm</code></td><td>4px</td><td>The destination box, small insets.</td></tr><tr><td><code>radius-md</code></td><td>8px</td><td>Buttons and inputs.</td></tr><tr><td><code>radius-lg</code></td><td>16px</td><td>Cards, dialogs, the login panel.</td></tr><tr><td><code>radius-pill</code></td><td>999px</td><td>Status badges and meter tracks.</td></tr></tbody></table></div>
+<h2>Shadow tokens</h2>
+<div class="tw"><table><thead><tr><th>Token</th><th>Value</th><th>Usage</th></tr></thead><tbody><tr><td><code>shadow-raised</code></td><td>sunbeam: 0 1px 2px rgba(42,33,24,0.14); moonshadow: 0 1px 2px rgba(0,0,0,0.5); greystone: 0 1px 2px rgba(0,0,0,0.16)</td><td>Cards on surface.</td></tr><tr><td><code>shadow-overlay</code></td><td>sunbeam: 0 12px 32px rgba(42,33,24,0.24); moonshadow: 0 12px 32px rgba(0,0,0,0.6); greystone: 0 12px 32px rgba(0,0,0,0.28)</td><td>Dialogs above the scrim.</td></tr></tbody></table></div>
+<h2>Components</h2>
+<div class="comp"><h3>Button</h3>
+<p>Starts a domain action such as Register, Approve, Appoint chair or Join waiting list. Classes: <code>pe-btn</code> plus one of <code>pe-btn--primary</code>, <code>pe-btn--secondary</code>, <code>pe-btn--quiet</code>, <code>pe-btn--danger</code>.</p>
+<p>You provide: the label, the variant, and an optional leading icon (inline SVG with class <code>pe-icon</code>).</p>
+<ul>
+<li>One <code>pe-btn--primary</code> per view, for the action the screen exists for.</li>
+<li>Label the action with a verb and its object: "Remove from station", "Approve registration".</li>
+<li><code>pe-btn--danger</code> carries the <code>alert</code> icon and names what is removed. In Greystone its fill is close to the primary fill, so the words and the icon carry the meaning.</li>
+<li>A button the person lacks permission or entitlement for is left out of the page. Use <code>aria-disabled="true"</code> for an action that exists and is waiting on something, such as a station at capacity, and say why beside it.</li>
+<li>Minimum height is 44px in every variant.</li>
+</ul>
+<figure class="comp-shot"><img alt="Button in Sunbeam" src="previews/Button-sunbeam.png" style="width:100%"><figcaption>Button: Sunbeam</figcaption></figure>
+<figure class="comp-shot"><img alt="Button in Moonshadow" src="previews/Button-moonshadow.png" style="width:100%"><figcaption>Button: Moonshadow</figcaption></figure>
+<figure class="comp-shot"><img alt="Button in Greystone" src="previews/Button-greystone.png" style="width:100%"><figcaption>Button: Greystone</figcaption></figure>
+</div>
+<div class="comp"><h3>TextField</h3>
+<p>A labelled single-line input with an optional hint and an error state. Classes: <code>pe-field</code> wrapping <code>pe-field__label</code>, <code>pe-input</code>, and <code>pe-field__hint</code> or <code>pe-field__error</code>.</p>
+<p>You provide: the label text, the input's <code>id</code>, <code>name</code> and <code>autocomplete</code>, and hint or error copy.</p>
+<ul>
+<li>The label sits above the input and is always visible. Placeholder text stays empty.</li>
+<li>For an error, add <code>pe-field--error</code> to the wrapper, set <code>aria-invalid="true"</code>, and point <code>aria-describedby</code> at the error line. The error line leads with the <code>alert</code> icon and says how to fix the value.</li>
+<li>When an organization renames Event or Station, the label uses the configured term in its singular or plural form.</li>
+</ul>
+<figure class="comp-shot"><img alt="TextField in Sunbeam" src="previews/TextField-sunbeam.png" style="width:100%"><figcaption>TextField: Sunbeam</figcaption></figure>
+<figure class="comp-shot"><img alt="TextField in Moonshadow" src="previews/TextField-moonshadow.png" style="width:100%"><figcaption>TextField: Moonshadow</figcaption></figure>
+<figure class="comp-shot"><img alt="TextField in Greystone" src="previews/TextField-greystone.png" style="width:100%"><figcaption>TextField: Greystone</figcaption></figure>
+</div>
+<div class="comp"><h3>PasswordField</h3>
+<p>A password input with a Show/Hide button. The password is hidden by default. Classes: <code>pe-field</code>, <code>pe-password</code> wrapping a <code>pe-input</code> and a <code>pe-btn pe-btn--secondary</code>.</p>
+<p>You provide: the label, the input's <code>id</code> and <code>autocomplete</code> value (<code>current-password</code> at login, <code>new-password</code> at reset), and the click handler that swaps the input type.</p>
+<ul>
+<li>The button reads "Show" while hidden and "Hide" while visible. It is a real <code>button type="button"</code> with <code>aria-controls</code> pointing at the input and <code>aria-pressed</code> reflecting the state.</li>
+<li>A <code>role="status"</code> line announces "Password is visible." or "Password is hidden." after each press.</li>
+<li>The button keeps a fixed minimum width so the field holds its size when the word changes.</li>
+</ul>
+<figure class="comp-shot"><img alt="PasswordField in Sunbeam" src="previews/PasswordField-sunbeam.png" style="width:100%"><figcaption>PasswordField: Sunbeam</figcaption></figure>
+<figure class="comp-shot"><img alt="PasswordField in Moonshadow" src="previews/PasswordField-moonshadow.png" style="width:100%"><figcaption>PasswordField: Moonshadow</figcaption></figure>
+<figure class="comp-shot"><img alt="PasswordField in Greystone" src="previews/PasswordField-greystone.png" style="width:100%"><figcaption>PasswordField: Greystone</figcaption></figure>
+</div>
+<div class="comp"><h3>LoginForm</h3>
+<p>The login panel: a Username field, a Password field with Show/Hide, a "Forgot password?" link and one primary button. Class: <code>pe-login</code> on the <code>form</code>, composed from TextField, PasswordField and Button.</p>
+<p>You provide: the organization name shown under the title, the form action, and the reset link target.</p>
+<ul>
+<li>Exactly two fields: Username and Password. An email address is accepted in Username.</li>
+<li>The organization name under the title shows which organization the session will belong to. How a person picks the organization is an open decision in the specification, so this panel displays the name and leaves the picker out.</li>
+<li>A failed login shows one message above the fields that covers both fields together, so the response stays the same for every account.</li>
+</ul>
+<figure class="comp-shot"><img alt="LoginForm in Sunbeam" src="previews/LoginForm-sunbeam.png" style="width:100%"><figcaption>LoginForm: Sunbeam</figcaption></figure>
+<figure class="comp-shot"><img alt="LoginForm in Moonshadow" src="previews/LoginForm-moonshadow.png" style="width:100%"><figcaption>LoginForm: Moonshadow</figcaption></figure>
+<figure class="comp-shot"><img alt="LoginForm in Greystone" src="previews/LoginForm-greystone.png" style="width:100%"><figcaption>LoginForm: Greystone</figcaption></figure>
+</div>
+<div class="comp"><h3>StatusBadge</h3>
+<p>A pill that states one state with an icon, a word and a color role. Classes: <code>pe-badge</code> plus <code>pe-badge--positive</code>, <code>pe-badge--caution</code>, <code>pe-badge--critical</code> or <code>pe-badge--neutral</code>.</p>
+<p>You provide: the state. The icon, word and role come from this table.</p>
+<div class="tw"><table>
+<thead>
+<tr>
+<th>State</th>
+<th>Icon</th>
+<th>Role</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td>Approved, Open</td>
+<td><code>check-circle</code></td>
+<td>positive</td>
+</tr>
+<tr>
+<td>Public</td>
+<td><code>globe</code></td>
+<td>positive</td>
+</tr>
+<tr>
+<td>Pending approval</td>
+<td><code>clock</code></td>
+<td>caution</td>
+</tr>
+<tr>
+<td>Waiting list</td>
+<td><code>hourglass</code></td>
+<td>caution</td>
+</tr>
+<tr>
+<td>Full</td>
+<td><code>ban</code></td>
+<td>critical</td>
+</tr>
+<tr>
+<td>Cancelled</td>
+<td><code>x-circle</code></td>
+<td>neutral</td>
+</tr>
+<tr>
+<td>Unlisted</td>
+<td><code>eye-off</code></td>
+<td>neutral</td>
+</tr>
+<tr>
+<td>Private</td>
+<td><code>lock</code></td>
+<td>neutral</td>
+</tr>
+</tbody>
+</table></div>
+<ul>
+<li>Every badge carries all three: icon, word, color. In Greystone the four roles are greys of different lightness, so the icon and the word identify the state.</li>
+<li>The word is the state itself in sentence case, one or two words.</li>
+<li>One badge per fact. A station that is full and private shows two badges.</li>
+</ul>
+<figure class="comp-shot"><img alt="StatusBadge in Sunbeam" src="previews/StatusBadge-sunbeam.png" style="width:100%"><figcaption>StatusBadge: Sunbeam</figcaption></figure>
+<figure class="comp-shot"><img alt="StatusBadge in Moonshadow" src="previews/StatusBadge-moonshadow.png" style="width:100%"><figcaption>StatusBadge: Moonshadow</figcaption></figure>
+<figure class="comp-shot"><img alt="StatusBadge in Greystone" src="previews/StatusBadge-greystone.png" style="width:100%"><figcaption>StatusBadge: Greystone</figcaption></figure>
+</div>
+<div class="comp"><h3>CapacityMeter</h3>
+<p>Shows how many places of a station or event board are taken. Classes: <code>pe-meter</code>, with <code>pe-meter--caution</code> or <code>pe-meter--critical</code>, wrapping <code>pe-meter__row</code>, <code>pe-meter__track</code> and <code>pe-meter__fill</code>.</p>
+<p>You provide: the station or board name, the count taken, the capacity, and the fill width as a percentage.</p>
+<ul>
+<li>The count always appears in words: "9 of 10 places taken". The bar supports the sentence.</li>
+<li>The chair counts toward capacity. Say "Includes the chair" beside the count.</li>
+<li>Fill role: <code>positive</code> below 80 percent, <code>pe-meter--caution</code> from 80 percent, <code>pe-meter--critical</code> at capacity. These thresholds are a starting proposal.</li>
+<li>At capacity, pair the meter with the Full StatusBadge and, where the waiting list is enabled, the number waiting.</li>
+</ul>
+<figure class="comp-shot"><img alt="CapacityMeter in Sunbeam" src="previews/CapacityMeter-sunbeam.png" style="width:100%"><figcaption>CapacityMeter: Sunbeam</figcaption></figure>
+<figure class="comp-shot"><img alt="CapacityMeter in Moonshadow" src="previews/CapacityMeter-moonshadow.png" style="width:100%"><figcaption>CapacityMeter: Moonshadow</figcaption></figure>
+<figure class="comp-shot"><img alt="CapacityMeter in Greystone" src="previews/CapacityMeter-greystone.png" style="width:100%"><figcaption>CapacityMeter: Greystone</figcaption></figure>
+</div>
+<div class="comp"><h3>AnnouncementCard</h3>
+<p>One announcement at organization, event or station level, with its links and attachments. Classes: <code>pe-card pe-announcement</code>, with <code>pe-announcement__scope</code>, <code>__title</code>, <code>__body</code>, <code>__meta</code> and a <code>pe-attachments</code> list.</p>
+<p>You provide: the level and its name, the title, the body, the author's name and displayed role title, the date, and the attachment list (file name, type, size).</p>
+<ul>
+<li>The scope line leads with the level icon (<code>organization</code>, <code>event</code> or <code>station</code>) and the configured label for that level.</li>
+<li>The author line shows the role title as displayed for that event: the event override when one exists, the organization title otherwise.</li>
+<li>A link that leaves the application carries the <code>external-link</code> icon and opens the ExternalLinkDialog.</li>
+<li>Each attachment row shows the <code>paperclip</code> icon, the file name as a link, then type and size. Supported types: jpg, jpeg, png, md, html, pdf, doc, docx.</li>
+<li>Images display inside the body. Uploaded and embedded video sit in a 16:9 frame between the body and the attachments.</li>
+</ul>
+<figure class="comp-shot"><img alt="AnnouncementCard in Sunbeam" src="previews/AnnouncementCard-sunbeam.png" style="width:100%"><figcaption>AnnouncementCard: Sunbeam</figcaption></figure>
+<figure class="comp-shot"><img alt="AnnouncementCard in Moonshadow" src="previews/AnnouncementCard-moonshadow.png" style="width:100%"><figcaption>AnnouncementCard: Moonshadow</figcaption></figure>
+<figure class="comp-shot"><img alt="AnnouncementCard in Greystone" src="previews/AnnouncementCard-greystone.png" style="width:100%"><figcaption>AnnouncementCard: Greystone</figcaption></figure>
+</div>
+<div class="comp"><h3>ExternalLinkDialog</h3>
+<p>The warning shown when a person follows a link that leaves the application. It shows the destination and offers Continue and Cancel. Classes: <code>pe-scrim</code> behind a <code>pe-dialog</code> with <code>pe-dialog__title</code>, <code>__body</code>, <code>__dest</code> and <code>__actions</code>.</p>
+<p>You provide: the full destination address and the organization name.</p>
+<ul>
+<li>The destination shows in full in <code>mono</code>, wrapping at any character, so the whole address is readable.</li>
+<li>Two actions, in this order: Cancel (secondary), then Continue (primary, with the <code>external-link</code> icon). Focus starts on Cancel. Escape cancels.</li>
+<li>Use <code>role="alertdialog"</code> with <code>aria-modal="true"</code>, labelled by the title and described by the body line.</li>
+<li>Internal links go straight to their target, where the access check runs.</li>
+</ul>
+<figure class="comp-shot"><img alt="ExternalLinkDialog in Sunbeam" src="previews/ExternalLinkDialog-sunbeam.png" style="width:100%"><figcaption>ExternalLinkDialog: Sunbeam</figcaption></figure>
+<figure class="comp-shot"><img alt="ExternalLinkDialog in Moonshadow" src="previews/ExternalLinkDialog-moonshadow.png" style="width:100%"><figcaption>ExternalLinkDialog: Moonshadow</figcaption></figure>
+<figure class="comp-shot"><img alt="ExternalLinkDialog in Greystone" src="previews/ExternalLinkDialog-greystone.png" style="width:100%"><figcaption>ExternalLinkDialog: Greystone</figcaption></figure>
+</div>
+<div class="comp"><h3>ThemeSampler</h3>
+<p>The same card in the three built-in themes, side by side: Sunbeam, Moonshadow and Greystone. Use it to judge a new theme against the built-in ones.</p>
+<p>You provide: nothing. To apply a theme, set <code>data-theme="sunbeam"</code>, <code>data-theme="moonshadow"</code> or <code>data-theme="greystone"</code> on the root element or on any container.</p>
+<ul>
+<li>A theme added by a system, organization or event administrator supplies a value for every color token and passes the contrast pairs listed in the brand book before it ships.</li>
+<li>A theme changes color and shadow tokens. Spacing, radius and type tokens stay shared.</li>
+</ul>
+<figure class="comp-shot"><img alt="ThemeSampler in All three themes side by side" src="previews/ThemeSampler-sunbeam.png" style="width:100%"><figcaption>ThemeSampler: All three themes side by side</figcaption></figure>
+</div>
+<h2>Icons</h2>
+<div class="icons"><div><svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24" fill="none" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" stroke="#2a2118"><path d="M12 4l9 16H3z"/><path d="M12 10v4M12 17v.5"/></svg>alert</div><div><svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24" fill="none" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" stroke="#2a2118"><circle cx="12" cy="12" r="9"/><path d="M5.6 5.6l12.8 12.8"/></svg>ban</div><div><svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24" fill="none" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" stroke="#2a2118"><circle cx="12" cy="12" r="9"/><path d="M8 12.5l2.5 2.5L16 9.5"/></svg>check-circle</div><div><svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24" fill="none" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" stroke="#2a2118"><circle cx="12" cy="12" r="9"/><path d="M12 7v5l3 2"/></svg>clock</div><div><svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24" fill="none" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" stroke="#2a2118"><rect x="4" y="6" width="16" height="14" rx="2"/><path d="M4 10h16M8 4v4M16 4v4"/></svg>event</div><div><svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24" fill="none" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" stroke="#2a2118"><path d="M14 5h5v5M19 5l-8 8M11 7H6a1 1 0 0 0-1 1v10a1 1 0 0 0 1 1h10a1 1 0 0 0 1-1v-5"/></svg>external-link</div><div><svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24" fill="none" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" stroke="#2a2118"><path d="M3 12c2.5-4 5.5-6 9-6s6.5 2 9 6c-2.5 4-5.5 6-9 6s-6.5-2-9-6z"/><circle cx="12" cy="12" r="2.5"/><path d="M4 4l16 16"/></svg>eye-off</div><div><svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24" fill="none" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" stroke="#2a2118"><circle cx="12" cy="12" r="9"/><path d="M3 12h18M12 3c3 3 3 15 0 18M12 3c-3 3-3 15 0 18"/></svg>globe</div><div><svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24" fill="none" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" stroke="#2a2118"><path d="M7 4h10M7 20h10M8 4c0 4 4 5 4 8s-4 4-4 8M16 4c0 4-4 5-4 8s4 4 4 8"/></svg>hourglass</div><div><svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24" fill="none" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" stroke="#2a2118"><rect x="5" y="11" width="14" height="9" rx="2"/><path d="M8 11V8a4 4 0 0 1 8 0v3"/></svg>lock</div><div><svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24" fill="none" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" stroke="#2a2118"><rect x="5" y="4" width="14" height="16" rx="1"/><path d="M9 8h2M13 8h2M9 12h2M13 12h2M10 20v-4h4v4"/></svg>organization</div><div><svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24" fill="none" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" stroke="#2a2118"><path d="M20 11.5l-8 8a5 5 0 0 1-7-7l8.5-8.5a3.3 3.3 0 0 1 4.7 4.7L9.7 17.2a1.7 1.7 0 0 1-2.4-2.4L15 7.2"/></svg>paperclip</div><div><svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24" fill="none" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" stroke="#2a2118"><path d="M6 21V4M6 5h11l-2 3.5 2 3.5H6"/></svg>station</div><div><svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24" fill="none" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" stroke="#2a2118"><circle cx="12" cy="12" r="9"/><path d="M9 9l6 6M15 9l-6 6"/></svg>x-circle</div></div>
+<p>Fourteen line icons on a 24px grid: 2px stroke, round caps and joins, no fill. The files are drawn in a single ink, <code>#2a2118</code> (Sunbeam <code>ink</code>). In product code, inline the same paths with <code>stroke="currentColor"</code> so the icon takes the color of its label in every theme.</p>
+<div class="tw"><table>
+<thead>
+<tr>
+<th>Icon</th>
+<th>Meaning</th>
+<th>Color role</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td><code>organization</code></td>
+<td>Organization level</td>
+<td><code>ink</code></td>
+</tr>
+<tr>
+<td><code>event</code></td>
+<td>Event level</td>
+<td><code>ink</code></td>
+</tr>
+<tr>
+<td><code>station</code></td>
+<td>Station level</td>
+<td><code>ink</code></td>
+</tr>
+<tr>
+<td><code>check-circle</code></td>
+<td>Approved, open</td>
+<td><code>positive</code></td>
+</tr>
+<tr>
+<td><code>globe</code></td>
+<td>Public</td>
+<td><code>positive</code></td>
+</tr>
+<tr>
+<td><code>clock</code></td>
+<td>Pending approval</td>
+<td><code>caution</code></td>
+</tr>
+<tr>
+<td><code>hourglass</code></td>
+<td>Waiting list</td>
+<td><code>caution</code></td>
+</tr>
+<tr>
+<td><code>ban</code></td>
+<td>Full</td>
+<td><code>critical</code></td>
+</tr>
+<tr>
+<td><code>alert</code></td>
+<td>Error, warning before leaving the site</td>
+<td><code>critical</code></td>
+</tr>
+<tr>
+<td><code>x-circle</code></td>
+<td>Cancelled</td>
+<td><code>neutral</code></td>
+</tr>
+<tr>
+<td><code>eye-off</code></td>
+<td>Unlisted</td>
+<td><code>neutral</code></td>
+</tr>
+<tr>
+<td><code>lock</code></td>
+<td>Private</td>
+<td><code>neutral</code></td>
+</tr>
+<tr>
+<td><code>external-link</code></td>
+<td>A link that leaves the application</td>
+<td>color of its link</td>
+</tr>
+<tr>
+<td><code>paperclip</code></td>
+<td>Attachment</td>
+<td><code>ink-muted</code></td>
+</tr>
+</tbody>
+</table></div>
+<p>Every icon sits beside a text label. An icon on its own takes an <code>aria-label</code> with the same words.</p>
+</main>
+</body>
+</html>

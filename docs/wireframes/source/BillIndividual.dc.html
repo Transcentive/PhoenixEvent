@@ -1,0 +1,65 @@
+<!doctype html>
+<html lang="en">
+<head>
+<meta charset="utf-8">
+<title>Individual payment</title>
+<script src="./support.js"></script>
+<link rel="stylesheet" href="theme.css">
+<link rel="stylesheet" href="ds/phoenixevent/components/bundle.css">
+</head>
+<body>
+<x-dc>
+<helmet>
+<style>
+body{margin:0}
+a{color:#1c1c1c}a:hover{color:#000000}
+</style>
+</helmet>
+<div data-theme="{{theme}}" style="min-height: 900px; background: var(--surface); color: var(--ink); font-family: var(--font-sans)">
+<header style="display: flex; flex-wrap: wrap; align-items: center; gap: var(--space-4); padding: var(--space-3) var(--space-8); background: var(--surface-raised); border-bottom: 1px solid var(--border)">
+<span style="font: 700 19px/26px var(--font-sans)">PhoenixEvent</span>
+<span style="display: inline-flex; align-items: center; gap: var(--space-1); font: 400 14px/20px var(--font-sans); color: var(--ink-muted)"><svg class="pe-icon" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><rect x="5" y="4" width="14" height="16" rx="1"></rect><path d="M9 8h2M13 8h2M9 12h2M13 12h2M10 20v-4h4v4"></path></svg>Lincoln Elementary PTA</span>
+<span style="flex-grow: 1"></span>
+<span style="font: 400 14px/20px var(--font-sans); color: var(--ink-muted)">[MEMBER NAME]</span>
+<a class="pe-btn pe-btn--secondary" href="AccountLoggedOut.dc.html">Log out</a>
+</header>
+<main style="max-width: 720px; margin: 0 auto; padding: var(--space-8); display: flex; flex-direction: column; gap: var(--space-6)">
+<div><a class="pe-link" href="Main.dc.html">Back to Halloween Bash</a></div>
+<div style="display: flex; flex-direction: column; gap: var(--space-2)">
+<h1 style="margin: 0; font: 700 30px/36px var(--font-sans)">Individual payment</h1>
+<p style="margin: 0; font: 400 16px/24px var(--font-sans)">An individual payment is a payment for you. You pay for yourself to participate in an event, and paying makes you a subscriber of that event.</p>
+</div>
+<section class="pe-card" style="display: flex; flex-direction: column; gap: var(--space-3)">
+<div style="display: flex; flex-wrap: wrap; align-items: center; gap: var(--space-3)">
+<h2 style="margin: 0; font: 600 19px/26px var(--font-sans); flex-grow: 1">Halloween Bash</h2>
+<span class="pe-badge pe-badge--neutral"><svg class="pe-icon" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><circle cx="12" cy="12" r="9"></circle><path d="M9 9l6 6M15 9l-6 6"></path></svg>Yet to subscribe</span>
+</div>
+<p style="margin: 0; font: 400 14px/20px var(--font-sans); color: var(--ink-muted)">Lincoln Elementary PTA · [EVENT DATE] · [LOCATION]</p>
+<div style="display: flex; flex-wrap: wrap; align-items: center; gap: var(--space-3); padding: var(--space-3) 0; border-top: 1px solid var(--border)">
+<span style="flex-grow: 1; font: 400 16px/24px var(--font-sans)">Participation in Halloween Bash</span>
+<span style="font: 600 16px/24px var(--font-sans)">[PRICE]</span>
+</div>
+<div style="display: flex; flex-wrap: wrap; gap: var(--space-3); padding-top: var(--space-3); border-top: 1px solid var(--border)">
+<a class="pe-btn pe-btn--primary" href="Stations.dc.html">Pay to participate</a>
+</div>
+<p style="margin: 0; font: 400 14px/20px var(--font-sans); color: var(--ink-muted)">Payment opens with [PAYMENT PROVIDER]. Once you have paid, you are a participant of Halloween Bash and you sign up for stations.</p>
+</section>
+<section class="pe-card" style="display: flex; flex-direction: column; gap: var(--space-3)">
+<h2 style="margin: 0; font: 600 19px/26px var(--font-sans)">When the organization pays for you</h2>
+<div><span class="pe-badge pe-badge--positive"><svg class="pe-icon" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><circle cx="12" cy="12" r="9"></circle><path d="M8 12.5l2.5 2.5L16 9.5"></path></svg>Paid by the organization</span></div>
+<p style="margin: 0; font: 400 16px/24px var(--font-sans)">Lincoln Elementary PTA pays for you to participate in Halloween Bash. You are a participant, and no individual payment is asked of you.</p>
+<p style="margin: 0; font: 400 14px/20px var(--font-sans); color: var(--ink-muted)">[A person sees one of these two panels: the payment above, or this one when the organization pays for them]</p>
+</section>
+<p style="margin: 0; font: 400 14px/20px var(--font-sans); color: var(--ink-muted)">[Whether an event takes registrants, subscribers or both, the price, refunds, and what happens when a subscriber leaves the event are open decisions]</p>
+</main>
+</div>
+</x-dc>
+<script type="text/x-dc" data-dc-script data-props='{"theme":{"editor":"enum","options":["greystone","sunbeam","moonshadow"],"default":"greystone"},"$preview":{"width":1280,"height":900}}'>
+class Component extends DCLogic {
+renderVals() {
+return { theme: this.props.theme ?? 'greystone' };
+}
+}
+</script>
+</body>
+</html>

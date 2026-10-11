@@ -1,0 +1,73 @@
+<!doctype html>
+<html lang="en">
+<head>
+<meta charset="utf-8">
+<title>Forming the board, board first</title>
+<script src="./support.js"></script>
+<link rel="stylesheet" href="theme.css">
+<link rel="stylesheet" href="ds/phoenixevent/components/bundle.css">
+</head>
+<body>
+<x-dc>
+<helmet>
+<style>
+body{margin:0}
+a{color:#1c1c1c}a:hover{color:#000000}
+</style>
+</helmet>
+<div data-theme="{{theme}}" style="min-height: 1120px; background: var(--surface); color: var(--ink); font-family: var(--font-sans)">
+<header style="display: flex; flex-wrap: wrap; align-items: center; gap: var(--space-4); padding: var(--space-3) var(--space-8); background: var(--surface-raised); border-bottom: 1px solid var(--border)">
+<span style="font: 700 19px/26px var(--font-sans)">PhoenixEvent</span>
+<span style="display: inline-flex; align-items: center; gap: var(--space-1); font: 400 14px/20px var(--font-sans); color: var(--ink-muted)"><svg class="pe-icon" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><rect x="5" y="4" width="14" height="16" rx="1"></rect><path d="M9 8h2M13 8h2M9 12h2M13 12h2M10 20v-4h4v4"></path></svg>Lincoln Elementary PTA</span>
+<span style="flex-grow: 1"></span>
+<span style="font: 400 14px/20px var(--font-sans); color: var(--ink-muted)">[ORGANIZATION LEADERSHIP NAME]</span>
+<a class="pe-btn pe-btn--secondary" href="AccountLoggedOut.dc.html">Log out</a>
+</header>
+<main style="max-width: 1120px; margin: 0 auto; padding: var(--space-8); display: flex; flex-direction: column; gap: var(--space-6)">
+<div><a class="pe-link" href="OrgHome.dc.html">Back to Lincoln Elementary PTA</a></div>
+<section style="display: flex; flex-direction: column; gap: var(--space-3)">
+<div style="display: flex; align-items: center; gap: var(--space-1); font: 600 13px/20px var(--font-sans); letter-spacing: .01em; color: var(--ink-muted)"><svg class="pe-icon" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><rect x="4" y="6" width="16" height="14" rx="2"></rect><path d="M4 10h16M8 4v4M16 4v4"></path></svg>Event · Valentine Dance</div>
+<h1 style="margin: 0; font: 700 30px/36px var(--font-sans)">Event board</h1>
+<p style="margin: 0; max-width: 720px; font: 400 16px/24px var(--font-sans)">The Organization created Valentine Dance. This event forms its board first, and the board members then choose the chair.</p>
+<p style="margin: 0; max-width: 720px; font: 400 14px/20px var(--font-sans); color: var(--ink-muted)">Registration for Valentine Dance opens once the board is formed. The board is formed once there is a chair and board members.</p>
+</section>
+<section class="pe-card" style="display: flex; flex-direction: column">
+<h2 style="margin: 0 0 var(--space-3); font: 600 19px/26px var(--font-sans)">Forming the board</h2>
+<div style="display: flex; flex-wrap: wrap; align-items: center; gap: var(--space-3); padding: var(--space-3) 0; border-top: 1px solid var(--border)"><span style="flex: 1 1 320px; font: 400 16px/24px var(--font-sans)"><strong>Step 1.</strong> The Organization appoints the board members.</span><span class="pe-badge pe-badge--caution"><svg class="pe-icon" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><circle cx="12" cy="12" r="9"></circle><path d="M12 7v5l3 2"></path></svg>In progress</span></div>
+<div style="display: flex; flex-wrap: wrap; align-items: center; gap: var(--space-3); padding: var(--space-3) 0; border-top: 1px solid var(--border)"><span style="flex: 1 1 320px; font: 400 16px/24px var(--font-sans)"><strong>Step 2.</strong> The board members choose a chair from among themselves.</span><span class="pe-badge pe-badge--neutral"><svg class="pe-icon" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><circle cx="12" cy="12" r="9"></circle><path d="M12 7v5l3 2"></path></svg>Waiting for step 1</span></div>
+</section>
+<div style="display: flex; flex-wrap: wrap; gap: var(--space-8); align-items: flex-start">
+<section class="pe-card" style="flex: 999 1 560px; min-width: 0; display: flex; flex-direction: column; gap: var(--space-3)">
+<div style="display: flex; flex-wrap: wrap; align-items: center; gap: var(--space-3)">
+<h2 style="margin: 0; font: 600 19px/26px var(--font-sans); flex-grow: 1">Board members</h2>
+<a class="pe-btn pe-btn--primary" href="DialogAppoint.dc.html">Appoint board member</a>
+</div>
+<div class="pe-meter"><div class="pe-meter__track" role="img" aria-label="3 of 5 seats taken"><div class="pe-meter__fill" style="width: 60%"></div></div><div class="pe-meter__row"><span>3 of 5 seats taken</span><span class="pe-meter__note">Includes the chair</span></div></div>
+<div style="display: flex; flex-wrap: wrap; align-items: center; gap: var(--space-3); padding: var(--space-3) 0; border-top: 1px solid var(--border)"><div style="flex: 1 1 220px; display: flex; flex-direction: column"><span style="font: 600 16px/24px var(--font-sans)">[MEMBER NAME]</span><span style="font: 400 14px/20px var(--font-sans); color: var(--ink-muted)">Board Member</span></div></div>
+<div style="display: flex; flex-wrap: wrap; align-items: center; gap: var(--space-3); padding: var(--space-3) 0; border-top: 1px solid var(--border)"><div style="flex: 1 1 220px; display: flex; flex-direction: column"><span style="font: 600 16px/24px var(--font-sans)">[MEMBER NAME]</span><span style="font: 400 14px/20px var(--font-sans); color: var(--ink-muted)">Board Member</span></div></div>
+<div style="display: flex; flex-wrap: wrap; align-items: center; gap: var(--space-3); padding: var(--space-3) 0; border-top: 1px solid var(--border)"><div style="flex: 1 1 220px; display: flex; flex-direction: column"><span style="font: 600 16px/24px var(--font-sans)">[MEMBER NAME]</span><span style="font: 400 14px/20px var(--font-sans); color: var(--ink-muted)">Board Member</span></div></div>
+<p style="margin: 0; font: 400 14px/20px var(--font-sans)">Appointing a person to the board makes them a participant of Valentine Dance.</p>
+<p style="margin: 0; font: 400 14px/20px var(--font-sans); color: var(--ink-muted)">Organization Leadership acts for the Organization here.</p>
+</section>
+<aside class="pe-card" style="flex: 1 1 320px; display: flex; flex-direction: column; gap: var(--space-3)">
+<h2 style="margin: 0; font: 600 19px/26px var(--font-sans)">Chair</h2>
+<div><span class="pe-badge pe-badge--neutral"><svg class="pe-icon" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><circle cx="12" cy="12" r="9"></circle><path d="M12 7v5l3 2"></path></svg>No chair yet</span></div>
+<p style="margin: 0; font: 400 16px/24px var(--font-sans)">The board members choose the chair from among themselves.</p>
+<div class="pe-field"><label class="pe-field__label" for="board-choice">The board's choice</label><select class="pe-input" id="board-choice" name="board-choice"><option>Choose a board member</option><option>[MEMBER NAME]</option><option>[MEMBER NAME]</option><option>[MEMBER NAME]</option></select></div>
+<div><a class="pe-btn pe-btn--secondary" href="SetupBoard.dc.html">Record the board's choice</a></div>
+<p style="margin: 0; font: 400 14px/20px var(--font-sans); color: var(--ink-muted)">The board members agree on their chair among themselves. Organization Leadership records the choice here. The choice may be recorded before every seat is filled.</p>
+<p style="margin: 0; font: 400 14px/20px var(--font-sans); color: var(--ink-muted)">[While the event has no chair, who decides station join requests that fall to the Event Board Chair is an open decision]</p>
+</aside>
+</div>
+</main>
+</div>
+</x-dc>
+<script type="text/x-dc" data-dc-script data-props='{"theme":{"editor":"enum","options":["greystone","sunbeam","moonshadow"],"default":"greystone"},"$preview":{"width":1280,"height":1120}}'>
+class Component extends DCLogic {
+renderVals() {
+return { theme: this.props.theme ?? 'greystone' };
+}
+}
+</script>
+</body>
+</html>

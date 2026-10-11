@@ -1,0 +1,26 @@
+# Environment and secrets
+.env
+.env.*
+!.env.example
+
+# Local development scratch: logs, stored files, the built server
+.local/
+
+# Go
+*.test
+*.out
+/backend/vendor/
+
+# Node / React
+/frontend/node_modules/
+/frontend/dist/
+/frontend/tsconfig.tsbuildinfo
+
+# Backups
+*.dump
+*.sql.gz
+
+# IDE and OS
+.vscode/
+.idea/
+.DS_Store

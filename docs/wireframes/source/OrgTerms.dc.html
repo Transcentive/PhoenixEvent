@@ -1,0 +1,68 @@
+<!doctype html>
+<html lang="en">
+<head>
+<meta charset="utf-8">
+<title>Terminology and role titles</title>
+<script src="./support.js"></script>
+<link rel="stylesheet" href="theme.css">
+<link rel="stylesheet" href="ds/phoenixevent/components/bundle.css">
+</head>
+<body>
+<x-dc>
+<helmet>
+<style>
+body{margin:0}
+a{color:#1c1c1c}a:hover{color:#000000}
+</style>
+</helmet>
+<div data-theme="{{theme}}" style="min-height: 1050px; background: var(--surface); color: var(--ink); font-family: var(--font-sans)">
+<header style="display: flex; flex-wrap: wrap; align-items: center; gap: var(--space-4); padding: var(--space-3) var(--space-8); background: var(--surface-raised); border-bottom: 1px solid var(--border)">
+<span style="font: 700 19px/26px var(--font-sans)">PhoenixEvent</span>
+<span style="display: inline-flex; align-items: center; gap: var(--space-1); font: 400 14px/20px var(--font-sans); color: var(--ink-muted)"><svg class="pe-icon" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><rect x="5" y="4" width="14" height="16" rx="1"></rect><path d="M9 8h2M13 8h2M9 12h2M13 12h2M10 20v-4h4v4"></path></svg>Lincoln Elementary PTA</span>
+<span style="flex-grow: 1"></span>
+<span style="font: 400 14px/20px var(--font-sans); color: var(--ink-muted)">[MEMBER NAME]</span>
+<a class="pe-btn pe-btn--secondary" href="AccountLoggedOut.dc.html">Log out</a>
+</header>
+<main style="max-width: 880px; margin: 0 auto; padding: var(--space-8); display: flex; flex-direction: column; gap: var(--space-6)">
+<div><a class="pe-link" href="OrgHome.dc.html">Back to Lincoln Elementary PTA</a></div>
+<h1 style="margin: 0; font: 700 30px/36px var(--font-sans)">Terminology and role titles</h1>
+<section class="pe-card" style="display: flex; flex-direction: column; gap: var(--space-4)">
+<h2 style="margin: 0; font: 600 19px/26px var(--font-sans)">Labels</h2>
+<p style="margin: 0; font: 400 16px/24px var(--font-sans)">A label is the word for a kind of thing. Names such as Halloween Bash stay as written.</p>
+<div style="display: grid; grid-template-columns: repeat(auto-fit, minmax(240px, 1fr)); gap: var(--space-4)">
+<div class="pe-field"><label class="pe-field__label" for="event-one">Event, singular</label><input class="pe-input" id="event-one" defaultValue="Event"></div>
+<div class="pe-field"><label class="pe-field__label" for="event-many">Event, plural</label><input class="pe-input" id="event-many" defaultValue="Events"></div>
+<div class="pe-field"><label class="pe-field__label" for="station-one">Station, singular</label><input class="pe-input" id="station-one" defaultValue="Station"></div>
+<div class="pe-field"><label class="pe-field__label" for="station-many">Station, plural</label><input class="pe-input" id="station-many" defaultValue="Stations"></div>
+</div>
+<p style="margin: 0; font: 400 14px/20px var(--font-sans); color: var(--ink-muted)">[Where labels are set, organization or wider, is an open decision]</p>
+</section>
+<section class="pe-card" style="display: flex; flex-direction: column; gap: var(--space-4)">
+<h2 style="margin: 0; font: 600 19px/26px var(--font-sans)">Role titles</h2>
+<p style="margin: 0; font: 400 16px/24px var(--font-sans)">A title is display text. Renaming a title keeps the role's permissions as they are. An event may set its own titles.</p>
+<div style="display: grid; grid-template-columns: repeat(auto-fit, minmax(240px, 1fr)); gap: var(--space-4)">
+<div class="pe-field"><label class="pe-field__label" for="title-event-chair">Chair of an event board</label><input class="pe-input" id="title-event-chair" defaultValue="Event Chair"></div>
+<div class="pe-field"><label class="pe-field__label" for="title-board">Member of an event board</label><input class="pe-input" id="title-board" defaultValue="Board Member"></div>
+<div class="pe-field"><label class="pe-field__label" for="title-event-admin">Administrator of an event</label><input class="pe-input" id="title-event-admin" defaultValue="Event Administrator"></div>
+<div class="pe-field"><label class="pe-field__label" for="title-station-chair">Chair of a station</label><input class="pe-input" id="title-station-chair" defaultValue="Station Chair"></div>
+<div class="pe-field"><label class="pe-field__label" for="title-station-member">Member of a station</label><input class="pe-input" id="title-station-member" defaultValue="Station Member"></div>
+<div class="pe-field"><label class="pe-field__label" for="title-org-leadership">Organization leadership</label><input class="pe-input" id="title-org-leadership" defaultValue="Organization Leadership"></div>
+<div class="pe-field"><label class="pe-field__label" for="title-org-admin">Organization administrator</label><input class="pe-input" id="title-org-admin" defaultValue="Organization Administrator"></div>
+</div>
+</section>
+<div style="display: flex; flex-wrap: wrap; gap: var(--space-3)">
+<a class="pe-btn pe-btn--primary" href="OrgHome.dc.html">Save labels and titles</a>
+<a class="pe-btn pe-btn--secondary" href="OrgHome.dc.html">Cancel</a>
+</div>
+</main>
+</div>
+</x-dc>
+<script type="text/x-dc" data-dc-script data-props='{"theme":{"editor":"enum","options":["greystone","sunbeam","moonshadow"],"default":"greystone"},"$preview":{"width":1280,"height":1050}}'>
+class Component extends DCLogic {
+renderVals() {
+return { theme: this.props.theme ?? 'greystone' };
+}
+}
+</script>
+</body>
+</html>

@@ -1,0 +1,18 @@
+<!-- @dsCard group="Forms" height=130 -->
+<!doctype html>
+<html lang="en">
+<head>
+<meta charset="utf-8">
+<title>PasswordField</title>
+<style>html,body{margin:0}body{padding:24px;background:var(--surface);color:var(--ink);font-family:var(--font-sans)}</style>
+</head>
+<body>
+<div class="pe-field" style="max-width:360px"><label class="pe-field__label" for="p">Password</label>
+<div class="pe-password"><input class="pe-input" id="p" type="password" value="lantern-parade" autocomplete="current-password"><button class="pe-btn pe-btn--secondary" type="button" id="t" aria-controls="p" aria-pressed="false">Show</button></div>
+<span class="pe-field__hint" id="s" role="status">Password is hidden.</span></div>
+<script>
+var p=document.getElementById('p'),t=document.getElementById('t'),s=document.getElementById('s');
+t.addEventListener('click',function(){var show=p.type==='password';p.type=show?'text':'password';t.textContent=show?'Hide':'Show';t.setAttribute('aria-pressed',String(show));s.textContent=show?'Password is visible.':'Password is hidden.';});
+</script>
+</body>
+</html>

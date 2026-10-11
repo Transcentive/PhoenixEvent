@@ -1,0 +1,74 @@
+<!doctype html>
+<html lang="en">
+<head>
+<meta charset="utf-8">
+<title>Station with no chair, members vote</title>
+<script src="./support.js"></script>
+<link rel="stylesheet" href="theme.css">
+<link rel="stylesheet" href="ds/phoenixevent/components/bundle.css">
+</head>
+<body>
+<x-dc>
+<helmet>
+<style>
+body{margin:0}
+a{color:#1c1c1c}a:hover{color:#000000}
+</style>
+</helmet>
+<div data-theme="{{theme}}" style="min-height: 1000px; background: var(--surface); color: var(--ink); font-family: var(--font-sans)">
+<header style="display: flex; flex-wrap: wrap; align-items: center; gap: var(--space-4); padding: var(--space-3) var(--space-8); background: var(--surface-raised); border-bottom: 1px solid var(--border)">
+<span style="font: 700 19px/26px var(--font-sans)">PhoenixEvent</span>
+<span style="display: inline-flex; align-items: center; gap: var(--space-1); font: 400 14px/20px var(--font-sans); color: var(--ink-muted)"><svg class="pe-icon" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><rect x="5" y="4" width="14" height="16" rx="1"></rect><path d="M9 8h2M13 8h2M9 12h2M13 12h2M10 20v-4h4v4"></path></svg>Lincoln Elementary PTA</span>
+<span style="flex-grow: 1"></span>
+<span style="font: 400 14px/20px var(--font-sans); color: var(--ink-muted)">[MEMBER NAME]</span>
+<a class="pe-btn pe-btn--secondary" href="AccountLoggedOut.dc.html">Log out</a>
+</header>
+<main style="max-width: 1120px; margin: 0 auto; padding: var(--space-8); display: flex; flex-direction: column; gap: var(--space-6)">
+<div><a class="pe-link" href="Stations.dc.html">Back to Halloween Bash</a></div>
+<section style="display: flex; flex-direction: column; gap: var(--space-3)">
+<div style="display: flex; align-items: center; gap: var(--space-1); font: 600 13px/20px var(--font-sans); letter-spacing: .01em; color: var(--ink-muted)"><svg class="pe-icon" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M6 21V4M6 5h11l-2 3.5 2 3.5H6"></path></svg>Station · Halloween Bash</div>
+<div style="display: flex; flex-wrap: wrap; align-items: center; gap: var(--space-4)">
+<h1 style="margin: 0; font: 700 30px/36px var(--font-sans)">Cake Walk</h1>
+<span class="pe-badge pe-badge--neutral"><svg class="pe-icon" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><circle cx="12" cy="12" r="9"></circle><path d="M12 7v5l3 2"></path></svg>No Station Chair yet</span>
+</div>
+<p style="margin: 0; max-width: 720px; font: 400 16px/24px var(--font-sans)">The event board of Halloween Bash appoints the Station Chair. While Cake Walk still has none, its members may vote one in.</p>
+</section>
+<div style="display: flex; flex-wrap: wrap; gap: var(--space-8); align-items: flex-start">
+<section class="pe-card" style="flex: 999 1 560px; min-width: 0; display: flex; flex-direction: column; gap: var(--space-3)">
+<h2 style="margin: 0; font: 600 19px/26px var(--font-sans)">Vote for a Station Chair</h2>
+<p style="margin: 0; font: 400 16px/24px var(--font-sans)">You are a member of Cake Walk, so you have 1 vote. 3 of 4 members have voted.</p>
+<fieldset style="margin: 0; padding: 0; border: 0; display: flex; flex-direction: column">
+<legend style="padding: 0 0 var(--space-2); font: 600 14px/20px var(--font-sans)">Members of Cake Walk</legend>
+<label style="display: flex; align-items: center; gap: var(--space-2); min-height: 44px; padding: var(--space-2) 0; border-top: 1px solid var(--border); font: 400 16px/24px var(--font-sans)"><input type="radio" name="chair-vote" defaultChecked="checked" style="width: 20px; height: 20px"><span style="flex-grow: 1">[MEMBER NAME]</span><span style="font: 400 14px/20px var(--font-sans); color: var(--ink-muted)">2 votes</span></label>
+<label style="display: flex; align-items: center; gap: var(--space-2); min-height: 44px; padding: var(--space-2) 0; border-top: 1px solid var(--border); font: 400 16px/24px var(--font-sans)"><input type="radio" name="chair-vote" style="width: 20px; height: 20px"><span style="flex-grow: 1">[MEMBER NAME]</span><span style="font: 400 14px/20px var(--font-sans); color: var(--ink-muted)">1 vote</span></label>
+<label style="display: flex; align-items: center; gap: var(--space-2); min-height: 44px; padding: var(--space-2) 0; border-top: 1px solid var(--border); font: 400 16px/24px var(--font-sans)"><input type="radio" name="chair-vote" style="width: 20px; height: 20px"><span style="flex-grow: 1">[MEMBER NAME]</span><span style="font: 400 14px/20px var(--font-sans); color: var(--ink-muted)">0 votes</span></label>
+<label style="display: flex; align-items: center; gap: var(--space-2); min-height: 44px; padding: var(--space-2) 0; border-top: 1px solid var(--border); font: 400 16px/24px var(--font-sans)"><input type="radio" name="chair-vote" style="width: 20px; height: 20px"><span style="flex-grow: 1">[MEMBER NAME], you</span><span style="font: 400 14px/20px var(--font-sans); color: var(--ink-muted)">0 votes</span></label>
+</fieldset>
+<div><a class="pe-btn pe-btn--primary" href="SetupRoster.dc.html">Cast my vote</a></div>
+<p style="margin: 0; font: 400 14px/20px var(--font-sans); color: var(--ink-muted)">[How many votes win, who may stand, when voting closes, who starts the vote, and whether a member may change a vote are open decisions]</p>
+</section>
+<aside style="flex: 1 1 320px; display: flex; flex-direction: column; gap: var(--space-6)">
+<section class="pe-card" style="display: flex; flex-direction: column; gap: var(--space-3)">
+<h2 style="margin: 0; font: 600 19px/26px var(--font-sans)">Spots</h2>
+<div class="pe-meter"><div class="pe-meter__track" role="img" aria-label="4 of 6 spots taken"><div class="pe-meter__fill" style="width: 67%"></div></div><div class="pe-meter__row"><span>4 of 6 spots taken</span><span class="pe-meter__note">Includes the chair</span></div></div>
+<p style="margin: 0; font: 400 14px/20px var(--font-sans)">A chair voted in from among the members already holds a spot.</p>
+</section>
+<section class="pe-card" style="display: flex; flex-direction: column; gap: var(--space-3)">
+<h2 style="margin: 0; font: 600 19px/26px var(--font-sans)">The event board</h2>
+<p style="margin: 0; font: 400 14px/20px var(--font-sans)">The event board sees "Appoint Station Chair" on this station in spot of the vote.</p>
+<p style="margin: 0; font: 400 14px/20px var(--font-sans); color: var(--ink-muted)">[Whether an appointment by the board ends a vote in progress, and whether the board may replace a chair the members voted in, are open decisions]</p>
+</section>
+</aside>
+</div>
+</main>
+</div>
+</x-dc>
+<script type="text/x-dc" data-dc-script data-props='{"theme":{"editor":"enum","options":["greystone","sunbeam","moonshadow"],"default":"greystone"},"$preview":{"width":1280,"height":1000}}'>
+class Component extends DCLogic {
+renderVals() {
+return { theme: this.props.theme ?? 'greystone' };
+}
+}
+</script>
+</body>
+</html>

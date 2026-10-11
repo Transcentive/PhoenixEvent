@@ -1,0 +1,349 @@
+<!doctype html>
+<html lang="en">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<title>PhoenixEvent roadmap</title>
+<style>
+body{max-width:960px;margin:32px auto;padding:0 24px;font:16px/1.6 system-ui,sans-serif;color:#243246;background:#fff}
+h1,h2,h3,h4,h5{color:#173a61;line-height:1.25}
+h1.part{font-size:2.2em;margin:1.2em 0 .2em;padding-top:.4em;border-top:6px solid #173a61}
+h2{margin-top:2em;border-bottom:1px solid #ccd5df;padding-bottom:.4em}
+li{margin:.45em 0}
+table{border-collapse:collapse;width:100%;margin:1em 0;font-size:.94em}
+th,td{border:1px solid #ccd5df;padding:6px 10px;text-align:left;vertical-align:top}
+th{background:#eef3f8}
+code{font:0.92em ui-monospace,Menlo,Consolas,monospace;background:#eef3f8;padding:1px 4px;border-radius:3px}
+a{color:#173a61;word-break:break-word}
+.tw{overflow-x:auto}
+.lede{color:#4a5a70}
+.cover{padding:8vh 0 4vh}
+.cover h1{font-size:3em;margin:0 0 .2em}
+.toc td:first-child{white-space:nowrap;font-weight:600}
+figure{margin:1.2em 0}
+figure img{display:block;max-width:100%;height:auto;border:1px solid #ccd5df}
+figcaption{font-size:.9em;color:#4a5a70;margin-top:.4em}
+.screen h4,.comp h4{margin:.2em 0 .4em}
+.chip{display:inline-block;width:1.1em;height:1.1em;border:1px solid #8a94a3;border-radius:3px;vertical-align:-3px;margin-right:6px}
+.icons{display:grid;grid-template-columns:repeat(auto-fill,minmax(130px,1fr));gap:12px;margin:1em 0}
+.icons div{border:1px solid #ccd5df;border-radius:6px;padding:10px;text-align:center;font-size:.85em}
+.icons svg{display:block;margin:0 auto 6px;width:32px;height:32px}
+.wide{overflow-x:auto}
+@page{size:Letter;margin:16mm 14mm 18mm}
+@page wide{size:Letter landscape;margin:12mm 12mm 16mm}
+@media print{
+ body{max-width:none;margin:0;padding:0;font-size:10pt}
+ h1,h2,h3,h4{break-after:avoid}
+ tr,figure,.screen,.comp-shot{break-inside:avoid}
+ h1.part{break-before:page}
+ .wide{page:wide;overflow:visible}
+ .screen{break-before:page}
+ .screen img{max-height:6.5in;width:auto;max-width:100%;margin:0 auto}
+ .screen.first{break-before:auto}
+ .wide h1.part{break-before:page}
+ .tw{overflow:visible}
+}
+</style>
+</head>
+<body>
+<main>
+<div class="wide"><style>.rm{
+  --bg:#fffaf0; --raised:#ffffff; --sunken:#f7ecd6; --ink:#2a2118; --muted:#63574a;
+  --line:#e5d7bd; --edge:#8a7758; --brand:#f2b632; --on-brand:#2a2118;
+  --done:#0b5394; --on-done:#ffffff; --doing:#fdf0c8; --doing-ink:#7a4f00; --focus:#1d4ed8;
+  --sans:system-ui,-apple-system,"Segoe UI","Helvetica Neue",Arial,sans-serif;
+}
+.rm{background:var(--bg);color:var(--ink);font:16px/1.5 var(--sans)}
+.rm .wrap{max-width:1120px;margin:0 auto;padding-inline:24px;padding-block:40px 64px;display:flex;flex-direction:column;gap:48px}
+.rm h1{margin:0;font:700 40px/1.1 var(--sans);letter-spacing:-0.01em;text-wrap:balance}
+.rm h2{margin:0;font:600 24px/1.25 var(--sans);text-wrap:balance}
+.rm h3{margin:0;font:600 17px/1.35 var(--sans)}
+.rm p{margin:0;max-width:68ch}
+.rm .lede{color:var(--muted)}
+.rm section{display:flex;flex-direction:column;gap:16px}
+.rm .note{font-size:14px;line-height:20px;color:var(--muted)}
+.rm a{color:var(--ink);text-underline-offset:2px}
+.rm a:focus-visible{outline:3px solid var(--focus);outline-offset:2px}
+.rm .scroll{overflow-x:auto;background:var(--raised);border:1px solid var(--line);border-radius:16px;padding:16px}
+.rm .scroll svg{display:block;min-width:920px;width:100%;height:auto;color:var(--ink)}
+.rm figure{margin:0;display:flex;flex-direction:column;gap:8px}
+.rm figcaption{font-size:14px;line-height:20px;color:var(--muted);max-width:76ch}
+.rm svg text{font-family:var(--sans);fill:currentColor}
+.rm .t-lane{font-size:13px;font-weight:600;fill:var(--muted)}
+.rm .t-name{font-size:13px;font-weight:600}
+.rm .t-sub{font-size:12px}
+.rm .t-arrow{font-size:11.5px;fill:var(--muted)}
+.rm .b-done{fill:var(--done)}
+.rm .on-done{fill:var(--on-done)}
+.rm .b-doing{fill:var(--doing);stroke:var(--doing-ink);stroke-width:2}
+.rm .on-doing{fill:var(--doing-ink)}
+.rm .b-todo{fill:var(--raised);stroke:var(--edge);stroke-width:1.5}
+.rm .b-plan{fill:var(--raised);stroke:var(--edge);stroke-width:1.5;stroke-dasharray:5 4}
+.rm .edge{stroke:var(--edge);stroke-width:1.5;fill:none}
+.rm .head{fill:var(--edge)}
+.rm .legend{display:flex;flex-wrap:wrap;gap:16px;font-size:14px;line-height:20px;color:var(--muted)}
+.rm .legend span{display:inline-flex;align-items:center;gap:8px}
+.rm .sw{width:22px;height:14px;border-radius:4px;box-sizing:border-box}
+.rm .sw.done{background:var(--done)}
+.rm .sw.doing{background:var(--doing);border:2px solid var(--doing-ink)}
+.rm .sw.todo{background:var(--raised);border:1.5px solid var(--edge)}
+.rm .sw.plan{background:var(--raised);border:1.5px dashed var(--edge)}
+.rm .charts{display:grid;grid-template-columns:repeat(auto-fit,minmax(300px,1fr));gap:24px}
+.rm .chart{background:var(--raised);border:1px solid var(--line);border-radius:16px;padding:20px;display:flex;flex-direction:column;gap:12px;min-width:0}
+.rm .chart p{font-size:14px;line-height:20px;color:var(--muted)}
+.rm .bars{display:grid;grid-template-columns:max-content 1fr max-content;gap:8px 12px;align-items:center;font-size:14px;line-height:20px}
+.rm .bars .v{font-variant-numeric:tabular-nums;font-weight:600;text-align:right}
+.rm .track{height:14px;min-width:0}
+.rm .bar{height:100%;border-radius:0 4px 4px 0;background:var(--done);box-sizing:border-box;min-width:2px}
+.rm .bar.plan{background:var(--raised);border:1.5px dashed var(--edge);border-left:0}
+.rm .bars > div:hover + .track .bar,.rm .track:hover .bar{filter:brightness(1.15)}
+.rm table.sr{border-collapse:collapse;font-size:14px;line-height:20px;width:100%}
+.rm table.sr th,.rm table.sr td{text-align:left;padding:8px 12px 8px 0;border-top:1px solid var(--line);vertical-align:top}
+.rm table.sr th{font-weight:600}
+.rm .tablebox{overflow-x:auto}
+.rm .phases{display:grid;grid-template-columns:repeat(auto-fit,minmax(320px,1fr));gap:24px}
+.rm .phase{background:var(--raised);border:1px solid var(--line);border-radius:16px;padding:20px;display:flex;flex-direction:column;gap:10px;min-width:0}
+.rm .phase .k{font:600 13px/20px var(--sans);letter-spacing:.01em;color:var(--muted)}
+.rm .phase dl{margin:0;display:grid;gap:8px;font-size:14px;line-height:20px}
+.rm .phase dt{font-weight:600}
+.rm .phase dd{margin:0}
+.rm .pill{display:inline-flex;align-self:flex-start;padding:1px 10px;border-radius:999px;font:600 13px/20px var(--sans);border:1px solid currentColor}
+.rm .pill.doing{background:var(--doing);color:var(--doing-ink)}
+.rm .pill.todo{color:var(--muted)}
+.rm .added{background:var(--sunken);border:1px solid var(--edge);border-radius:8px;padding:10px 12px}
+.rm{padding:0 0 8px;border-radius:12px}.rm .wrap{padding-block:24px 32px}.rm .scroll svg{min-width:0}
+@media print{.rm .charts,.rm .phases{display:grid}.rm .phase,.rm .chart,.rm figure{break-inside:avoid}.rm section{break-inside:auto}}</style><div class="rm">
+
+<div class="wrap">
+<header style="display:flex;flex-direction:column;gap:12px">
+<h2 style="border:0;margin:0;font:700 32px/1.1 var(--sans)">PhoenixEvent roadmap</h2>
+<p class="lede">The order of work for the new application, from the requirements baseline 0.1 and specification 0.75. This page shows the order and what each phase depends on. The baseline assigns no dates or durations until the architecture, staffing and release scope are known, so the timeline shows sequence only.</p>
+<p class="note">Status as of October 10, 2026: the design system and 59 wireframe screens are complete. The first release is scoped, and the six decisions it needs are settled. A review found four more to settle before Phase 1 starts, and all four are now settled. Of five to settle before their features are built, three are settled, the lookup on screen A1 is proposed, and the limit on participants is partly open (specification 16B.4). No code exists yet.</p>
+</header>
+
+<section aria-labelledby="h-timeline">
+<h2 id="h-timeline">Timeline</h2>
+<figure>
+<div class="scroll">
+<svg viewBox="0 0 1160 236" role="img" aria-label="Timeline with a design lane and a build lane. Design system, wireframes and governance screens G1 to G5 are complete. The governance screens feed Phase 3. In the build lane, Phase 0 is in progress and Phases 1 to 7 follow in order.">
+<defs><marker id="ah1" viewBox="0 0 10 10" refX="9" refY="5" markerWidth="7" markerHeight="7" orient="auto-start-reverse"><path class="head" d="M0 0L10 5L0 10z"></path></marker></defs>
+<text class="t-lane" x="0" y="64">Design</text>
+<text class="t-lane" x="0" y="178">Build</text>
+<rect class="b-done" x="110" y="36" width="220" height="48" rx="8"></rect>
+<text class="t-name on-done" x="220" y="57" text-anchor="middle">Design system</text>
+<text class="t-sub on-done" x="220" y="74" text-anchor="middle">3 themes, 9 components</text>
+<rect class="b-done" x="340" y="36" width="300" height="48" rx="8"></rect>
+<text class="t-name on-done" x="490" y="57" text-anchor="middle">Wireframes</text>
+<text class="t-sub on-done" x="490" y="74" text-anchor="middle">54 screens on 9 pages</text>
+<rect class="b-done" x="650" y="36" width="250" height="48" rx="8"></rect>
+<text class="t-name on-done" x="775" y="57" text-anchor="middle">Governance screens</text>
+<text class="t-sub on-done" x="775" y="74" text-anchor="middle">G1 to G5, 5 screens</text>
+<path class="edge" d="M690 84 L580 144" marker-end="url(#ah1)"></path>
+<text class="t-arrow" x="648" y="120">used by Phase 3</text>
+
+<rect class="b-doing" x="110" y="146" width="124" height="56" rx="8"></rect>
+<text class="t-name on-doing" x="172" y="170" text-anchor="middle">Phase 0</text>
+<text class="t-sub on-doing" x="172" y="188" text-anchor="middle">Decisions</text>
+<rect class="b-todo" x="240" y="146" width="124" height="56" rx="8"></rect>
+<text class="t-name" x="302" y="170" text-anchor="middle">Phase 1</text>
+<text class="t-sub" x="302" y="188" text-anchor="middle">Foundation</text>
+<rect class="b-todo" x="370" y="146" width="124" height="56" rx="8"></rect>
+<text class="t-name" x="432" y="170" text-anchor="middle">Phase 2</text>
+<text class="t-sub" x="432" y="188" text-anchor="middle">Accounts, roles</text>
+<rect class="b-todo" x="500" y="146" width="124" height="56" rx="8"></rect>
+<text class="t-name" x="562" y="170" text-anchor="middle">Phase 3</text>
+<text class="t-sub" x="562" y="188" text-anchor="middle">Events, stations</text>
+<rect class="b-todo" x="630" y="146" width="124" height="56" rx="8"></rect>
+<text class="t-name" x="692" y="170" text-anchor="middle">Phase 4</text>
+<text class="t-sub" x="692" y="188" text-anchor="middle">Public, media</text>
+<rect class="b-todo" x="760" y="146" width="124" height="56" rx="8"></rect>
+<text class="t-name" x="822" y="170" text-anchor="middle">Phase 5</text>
+<text class="t-sub" x="822" y="188" text-anchor="middle">Billing</text>
+<rect class="b-todo" x="890" y="146" width="124" height="56" rx="8"></rect>
+<text class="t-name" x="952" y="170" text-anchor="middle">Phase 6</text>
+<text class="t-sub" x="952" y="188" text-anchor="middle">Chat</text>
+<rect class="b-todo" x="1020" y="146" width="124" height="56" rx="8"></rect>
+<text class="t-name" x="1082" y="170" text-anchor="middle">Phase 7</text>
+<text class="t-sub" x="1082" y="188" text-anchor="middle">Release</text>
+<text class="t-arrow" x="110" y="226">Order only. Block widths carry no meaning about how long a phase takes.</text>
+</svg>
+</div>
+<div class="legend"><span><i class="sw done"></i>Complete</span><span><i class="sw doing"></i>In progress</span><span><i class="sw todo"></i>Yet to start</span></div>
+<figcaption>The design lane feeds the build lane. All 59 screens are drawn, including the five governance screens for event creation rules and proposals, the three screens for joining a station by approval, the three support access screens, the two screens for forming an event board, and the screen where a station's members vote in a chair.</figcaption>
+</figure>
+</section>
+
+<section aria-labelledby="h-deps">
+<h2 id="h-deps">What each phase depends on</h2>
+<figure>
+<div class="scroll">
+<svg viewBox="0 0 1160 300" role="img" aria-label="Dependency diagram. Phase 0 leads to Phase 1, then Phase 2, then Phase 3, then Phase 4, then Phase 7. Phase 2 also leads to Phase 5. Phase 5 and Phase 3 both lead to Phase 6. Phase 6 leads to Phase 7. The governance screens lead into Phase 3.">
+<defs><marker id="ah2" viewBox="0 0 10 10" refX="9" refY="5" markerWidth="7" markerHeight="7" orient="auto-start-reverse"><path class="head" d="M0 0L10 5L0 10z"></path></marker></defs>
+<rect class="b-done" x="620" y="8" width="120" height="50" rx="8"></rect>
+<text class="t-name on-done" x="680" y="30" text-anchor="middle">Screens</text>
+<text class="t-sub on-done" x="680" y="46" text-anchor="middle">G1 to G5</text>
+<path class="edge" d="M680 58 L680 108" marker-end="url(#ah2)"></path>
+
+<rect class="b-doing" x="20" y="110" width="120" height="56" rx="8"></rect>
+<text class="t-name on-doing" x="80" y="134" text-anchor="middle">Phase 0</text>
+<text class="t-sub on-doing" x="80" y="152" text-anchor="middle">Decisions</text>
+<rect class="b-todo" x="220" y="110" width="120" height="56" rx="8"></rect>
+<text class="t-name" x="280" y="134" text-anchor="middle">Phase 1</text>
+<text class="t-sub" x="280" y="152" text-anchor="middle">Foundation</text>
+<rect class="b-todo" x="420" y="110" width="120" height="56" rx="8"></rect>
+<text class="t-name" x="480" y="134" text-anchor="middle">Phase 2</text>
+<text class="t-sub" x="480" y="152" text-anchor="middle">Accounts, roles</text>
+<rect class="b-todo" x="620" y="110" width="120" height="56" rx="8"></rect>
+<text class="t-name" x="680" y="134" text-anchor="middle">Phase 3</text>
+<text class="t-sub" x="680" y="152" text-anchor="middle">Events, stations</text>
+<rect class="b-todo" x="820" y="110" width="120" height="56" rx="8"></rect>
+<text class="t-name" x="880" y="134" text-anchor="middle">Phase 4</text>
+<text class="t-sub" x="880" y="152" text-anchor="middle">Public, media</text>
+<rect class="b-todo" x="1020" y="110" width="120" height="56" rx="8"></rect>
+<text class="t-name" x="1080" y="134" text-anchor="middle">Phase 7</text>
+<text class="t-sub" x="1080" y="152" text-anchor="middle">Release</text>
+
+<rect class="b-todo" x="620" y="232" width="120" height="56" rx="8"></rect>
+<text class="t-name" x="680" y="256" text-anchor="middle">Phase 5</text>
+<text class="t-sub" x="680" y="274" text-anchor="middle">Billing</text>
+<rect class="b-todo" x="820" y="232" width="120" height="56" rx="8"></rect>
+<text class="t-name" x="880" y="256" text-anchor="middle">Phase 6</text>
+<text class="t-sub" x="880" y="274" text-anchor="middle">Chat</text>
+
+<path class="edge" d="M140 138 L218 138" marker-end="url(#ah2)"></path>
+<text class="t-arrow" x="180" y="130" text-anchor="middle">decisions</text>
+<path class="edge" d="M340 138 L418 138" marker-end="url(#ah2)"></path>
+<text class="t-arrow" x="380" y="130" text-anchor="middle">repository</text>
+<path class="edge" d="M540 138 L618 138" marker-end="url(#ah2)"></path>
+<text class="t-arrow" x="580" y="130" text-anchor="middle">permissions</text>
+<path class="edge" d="M740 138 L818 138" marker-end="url(#ah2)"></path>
+<text class="t-arrow" x="780" y="130" text-anchor="middle">events</text>
+<path class="edge" d="M940 138 L1018 138" marker-end="url(#ah2)"></path>
+<text class="t-arrow" x="980" y="130" text-anchor="middle">features</text>
+
+<path class="edge" d="M500 166 L500 260 L618 260" marker-end="url(#ah2)"></path>
+<text class="t-arrow" x="508" y="252">members</text>
+<path class="edge" d="M740 260 L818 260" marker-end="url(#ah2)"></path>
+<text class="t-arrow" x="780" y="252" text-anchor="middle">paid plan</text>
+<path class="edge" d="M720 166 L850 230" marker-end="url(#ah2)"></path>
+<text class="t-arrow" x="800" y="192">stations</text>
+<path class="edge" d="M940 260 L1080 260 L1080 168" marker-end="url(#ah2)"></path>
+<text class="t-arrow" x="1010" y="252" text-anchor="middle">chat</text>
+</svg>
+</div>
+<figcaption>Each arrow names what the later phase needs from the earlier one. The baseline lists the phases in one order, 0 to 7. The side branch through Phases 5 and 6 is a reading of that order: billing needs organizations and members from Phase 2, and chat needs a paid plan from Phase 5 and the stations from Phase 3.</figcaption>
+</figure>
+<div class="tablebox">
+<table class="sr">
+<thead><tr><th>From</th><th>To</th><th>What the later phase needs</th></tr></thead>
+<tbody>
+<tr><td>Phase 0</td><td>Phase 1</td><td>The decisions that shape the data: login per organization, the role set, station spots and seats, participants, payments, the event creation model</td></tr>
+<tr><td>Phase 1</td><td>Phase 2</td><td>The repository, database migrations, checks, and a working setup on a plain Linux host</td></tr>
+<tr><td>Phase 2</td><td>Phase 3</td><td>Accounts, organization sessions, and scoped permissions</td></tr>
+<tr><td>Screens G1 to G5</td><td>Phase 3</td><td>Wireframes for event creation rules, bodies, and proposals</td></tr>
+<tr><td>Phase 3</td><td>Phase 4</td><td>Events and stations to publish, announce in, and attach files to</td></tr>
+<tr><td>Phase 2</td><td>Phase 5</td><td>Organizations, events and participants that payments belong to</td></tr>
+<tr><td>Phases 3 and 5</td><td>Phase 6</td><td>Stations to hold conversations, and a paid plan to unlock chat</td></tr>
+<tr><td>Phases 4 and 6</td><td>Phase 7</td><td>Every feature in place for end-to-end checks and deployment</td></tr>
+</tbody>
+</table>
+</div>
+</section>
+
+<section aria-labelledby="h-counts">
+<h2 id="h-counts">Where things stand, in numbers</h2>
+<div class="charts">
+<div class="chart">
+<h3>Wireframe screens by page</h3>
+<p>59 screens are complete across 10 pages.</p>
+<div class="bars" role="img" aria-label="Screens per page: Registration 9, Event setup 9, Accounts 7, Organization 7, Dialogs 7, Communication 5, States 5, Governance 5, Billing 3, Chat 2.">
+<div>Registration</div><div class="track" title="Registration: 9 screens"><div class="bar" style="width:100.0%"></div></div><div class="v">9</div>
+<div>Event setup</div><div class="track" title="Event setup: 9 screens"><div class="bar" style="width:100.0%"></div></div><div class="v">9</div>
+<div>Accounts</div><div class="track" title="Accounts: 7 screens"><div class="bar" style="width:77.8%"></div></div><div class="v">7</div>
+<div>Organization</div><div class="track" title="Organization: 7 screens"><div class="bar" style="width:77.8%"></div></div><div class="v">7</div>
+<div>Dialogs</div><div class="track" title="Dialogs: 7 screens"><div class="bar" style="width:77.8%"></div></div><div class="v">7</div>
+<div>Communication</div><div class="track" title="Communication: 5 screens"><div class="bar" style="width:55.6%"></div></div><div class="v">5</div>
+<div>States</div><div class="track" title="States: 5 screens"><div class="bar" style="width:55.6%"></div></div><div class="v">5</div>
+<div>Governance</div><div class="track" title="Governance: 5 screens"><div class="bar" style="width:55.6%"></div></div><div class="v">5</div>
+<div>Billing</div><div class="track" title="Billing: 3 screens"><div class="bar" style="width:33.3%"></div></div><div class="v">3</div>
+<div>Chat</div><div class="track" title="Chat: 2 screens"><div class="bar" style="width:22.2%"></div></div><div class="v">2</div>
+</div>
+</div>
+<div class="chart">
+<h3>Rules the wireframes show</h3>
+<p>Section 21 of the specification lists 34 rules visible on screens, each labeled by how settled it is.</p>
+<div class="bars" role="img" aria-label="Of 34 rules: 22 confirmed, 6 partly confirmed, 4 proposed, 2 open.">
+<div>Confirmed</div><div class="track" title="Confirmed: 22 of 34"><div class="bar" style="width:100.0%"></div></div><div class="v">22</div>
+<div>Partly confirmed</div><div class="track" title="Partly confirmed: 6 of 34"><div class="bar" style="width:27.3%"></div></div><div class="v">6</div>
+<div>Proposed</div><div class="track" title="Proposed: 4 of 34"><div class="bar" style="width:18.2%"></div></div><div class="v">4</div>
+<div>Open</div><div class="track" title="Open: 2 of 34"><div class="bar" style="width:9.1%"></div></div><div class="v">2</div>
+</div>
+<p>Confirmed means the owner stated it. Proposed means a design choice awaiting approval. Partly confirmed means the rule is stated and one detail of it is proposed or open.</p>
+</div>
+<div class="chart">
+<h3>Phase 0 decisions</h3>
+<p>The six decisions the first release needs, from section 16B.3 of the specification.</p>
+<div class="bars" role="img" aria-label="First-release decisions: 6 settled, 0 remaining.">
+<div>Settled</div><div class="track" title="Settled: 6 of 6"><div class="bar" style="width:100%"></div></div><div class="v">6</div>
+<div>Remaining</div><div class="track" title="Remaining: 0 of 6"><div class="bar" style="width:0%"></div></div><div class="v">0</div>
+</div>
+<p>Settled: the login address and who sets it; passwords and sign-in; the permission matrix; forming the board and choosing its chair; lowering a station's capacity; testing on the existing droplet and going live on a droplet of its own. Each section of the specification still lists the open details that wait for later releases.</p>
+</div>
+</div>
+</section>
+
+<section aria-labelledby="h-phases">
+<h2 id="h-phases">The phases in words</h2>
+<p class="lede">Each phase lists what it delivers and the condition for leaving it, as the baseline states them. A shaded box marks what the specification adds to the baseline.</p>
+<div class="phases">
+<article class="phase"><span class="k">Phase 0</span><h3>Resolve foundational decisions</h3><span class="pill doing">In progress</span>
+<dl><div><dt>Delivers</dt><dd>A reviewed requirements baseline, lifecycle diagrams, the organization and session model, the permission matrix, the paid-access model, and the scope of the first release. Repository name, runtime versions and hosting targets.</dd></div>
+<div><dt>Leaves when</dt><dd>The architecture and every outstanding assumption have been reviewed, with each proposal either confirmed or still marked as a proposal.</dd></div></dl>
+<div class="added note">Recorded October 5 to 10, 2026. The first release is scoped: 10 of 21 features, on 33 of the 59 screens (section 16B). The six decisions it needs are settled. The stack is The Mighty Queue's (section 2A), with the design system's own stylesheet in place of Bootstrap. The repository is github.com/Transcentive/PhoenixEvent, and no Drupal data is used. Held for later: how one organization per browser holds at an organization's own address, and moving to a supported Node.js version. Settled before Phase 1: sign-in and deployment (2A.3), a separate account at each organization's address, usernames unique within an organization, and the Event Administrator as an organization setting.</div></article>
+
+<article class="phase"><span class="k">Phase 1</span><h3>Repository and development foundation</h3><span class="pill todo">Yet to start</span>
+<dl><div><dt>Delivers</dt><dd>The new repository with a modular Go and React structure, PostgreSQL migrations, typed database access, automated checks, configuration handling, first deployment notes, an email adapter and a file storage interface.</dd></div>
+<div><dt>Leaves when</dt><dd>A repeatable setup on a plain Linux host works, the API and frontend build, migrations run, and health checks pass.</dd></div></dl></article>
+
+<article class="phase"><span class="k">Phase 2</span><h3>Accounts, organization context, and roles</h3><span class="pill todo">Yet to start</span>
+<dl><div><dt>Delivers</dt><dd>Accounts, username and email rules, email confirmation and password reset, login and logout, memberships, scoped permissions, and one active organization per session.</dd></div>
+<div><dt>Leaves when</dt><dd>Access across organizations is refused in the API, the screens, files and session changes, and the login flows work against a test email service.</dd></div>
+<div><dt>Wireframes</dt><dd>Accounts (A1 to A7), Organization (O1 to O7), States E1 to E3, Dialogs D5 and D6</dd></div></dl>
+<div class="added note">Added: bodies and their members, and the five permissions for creating and approving events.</div></article>
+
+<article class="phase"><span class="k">Phase 3</span><h3>Events, boards, stations, and registration</h3><span class="pill todo">Yet to start</span>
+<dl><div><dt>Delivers</dt><dd>Events and their boards, role titles, chairs, capacities, registrations, station assignments, registration policies, optional waiting lists, and the organization's own terms for events and stations.</dd></div>
+<div><dt>Leaves when</dt><dd>A realistic event can be set up and registered for, capacity holds when many people act at once, and waiting list governance is enforced.</dd></div>
+<div><dt>Wireframes</dt><dd>Registration (1 to 9), Event setup (S1 to S9), Dialogs D1 to D4, Governance (G1 to G5)</dd></div></dl>
+<div class="added note">Added, before events themselves: event creation rules, proposals, and approvals.</div></article>
+
+<article class="phase"><span class="k">Phase 4</span><h3>Public pages, announcements, media, and themes</h3><span class="pill todo">Yet to start</span>
+<dl><div><dt>Delivers</dt><dd>Public event pages that search engines can find, attachments, announcements at organization, event and station level, the warning before leaving the site, uploaded and embedded video, and the three themes.</dd></div>
+<div><dt>Leaves when</dt><dd>Public and private behavior, downloads, outside links and accessibility are checked against the agreed limits.</dd></div>
+<div><dt>Wireframes</dt><dd>Communication (C1 to C5), Dialog D7</dd></div></dl></article>
+
+<article class="phase"><span class="k">Phase 5</span><h3>Organization payment and individual payment</h3><span class="pill todo">Yet to start</span>
+<dl><div><dt>Delivers</dt><dd>Organization payment for the use of PhoenixEvent and for the participants it pays for, individual payment by subscribers, paid features, the payment provider, and a record of every payment change.</dd></div>
+<div><dt>Leaves when</dt><dd>Both kinds of payment work with membership, payment and permissions kept separate, and a repeated payment notice cannot grant or charge twice.</dd></div>
+<div><dt>Wireframes</dt><dd>Billing (B1 to B3)</dd></div></dl></article>
+
+<article class="phase"><span class="k">Phase 6</span><h3>Optional chat</h3><span class="pill todo">Yet to start</span>
+<dl><div><dt>Delivers</dt><dd>Conversations for the organization, each event, each station, and direct messages, with switching on by an authorized role, a paid plan as the key, and the agreed moderation and retention.</dd></div>
+<div><dt>Leaves when</dt><dd>Live and past messages respect organization and session boundaries, logging out ends access, and the plan and permission checks hold.</dd></div>
+<div><dt>Wireframes</dt><dd>Chat (H1, H2)</dd></div></dl></article>
+
+<article class="phase"><span class="k">Phase 7</span><h3>Release validation and direct deployment</h3><span class="pill todo">Yet to start</span>
+<dl><div><dt>Delivers</dt><dd>End-to-end runs, an accessibility review, organization isolation checks, load checks, a backup restore, upgrade and rollback practice, the installation guide in Markdown, HTML and PDF, and a staging deployment.</dd></div>
+<div><dt>Leaves when</dt><dd>Required checks pass or each known defect is accepted in writing, the guide has been tested, and production is approved.</dd></div></dl></article>
+</div>
+</section>
+
+<footer class="note" style="display:flex;flex-direction:column;gap:4px">
+<span>Sources: requirements baseline 0.1 (October 2, 2026) and specification 0.75 (October 10, 2026), in the Phoenix Event project.</span>
+<span><a href="https://claude.ai/artifact/VhSCCfeaJ79GLSwcc7eDR1">Wireframes</a> · <a href="https://claude.ai/artifact/LiN9xyts9t51qw9DCKk5mM">Design system</a></span>
+</footer>
+</div>
+</div></div>
+</main>
+</body>
+</html>

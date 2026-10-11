@@ -1,0 +1,80 @@
+<!doctype html>
+<html lang="en">
+<head>
+<meta charset="utf-8">
+<title>Empty states</title>
+<script src="./support.js"></script>
+<link rel="stylesheet" href="theme.css">
+<link rel="stylesheet" href="ds/phoenixevent/components/bundle.css">
+</head>
+<body>
+<x-dc>
+<helmet>
+<style>
+body{margin:0}
+a{color:#1c1c1c}a:hover{color:#000000}
+</style>
+</helmet>
+<div data-theme="{{theme}}" style="min-height: 900px; background: var(--surface); color: var(--ink); font-family: var(--font-sans)">
+<main style="max-width: 1120px; margin: 0 auto; padding: var(--space-8); display: flex; flex-direction: column; gap: var(--space-6)">
+<h1 style="margin: 0; font: 700 30px/36px var(--font-sans)">Empty states</h1>
+<p style="margin: 0; max-width: 720px; font: 400 16px/24px var(--font-sans); color: var(--ink-muted)">Each panel replaces the list on its screen when the list has no items. It says what belongs here and offers the next step to people whose role allows it.</p>
+<div style="display: grid; grid-template-columns: repeat(auto-fit, minmax(320px, 1fr)); gap: var(--space-6)">
+<section class="pe-card" style="display: flex; flex-direction: column; gap: var(--space-3)">
+<span style="font: 600 13px/20px var(--font-sans); letter-spacing: .01em; color: var(--ink-muted)">Organization home · Events</span>
+<h2 style="margin: 0; font: 600 19px/26px var(--font-sans)">No events yet</h2>
+<p style="margin: 0; font: 400 16px/24px var(--font-sans)">Events for Lincoln Elementary PTA appear here.</p>
+<div><a class="pe-btn pe-btn--secondary" href="SetupEvent.dc.html">Create event</a></div>
+</section>
+<section class="pe-card" style="display: flex; flex-direction: column; gap: var(--space-3)">
+<span style="font: 600 13px/20px var(--font-sans); letter-spacing: .01em; color: var(--ink-muted)">Event page · Stations</span>
+<h2 style="margin: 0; font: 600 19px/26px var(--font-sans)">No stations yet</h2>
+<p style="margin: 0; font: 400 16px/24px var(--font-sans)">The event board is setting up Halloween Bash. Stations appear here when they are ready.</p>
+<div><a class="pe-btn pe-btn--secondary" href="SetupStation.dc.html">Create station</a></div>
+</section>
+<section class="pe-card" style="display: flex; flex-direction: column; gap: var(--space-3)">
+<span style="font: 600 13px/20px var(--font-sans); letter-spacing: .01em; color: var(--ink-muted)">Approval queue</span>
+<h2 style="margin: 0; font: 600 19px/26px var(--font-sans)">Every registration has a decision</h2>
+<p style="margin: 0; font: 400 16px/24px var(--font-sans)">New registrations for Halloween Bash appear here.</p>
+</section>
+<section class="pe-card" style="display: flex; flex-direction: column; gap: var(--space-3)">
+<span style="font: 600 13px/20px var(--font-sans); letter-spacing: .01em; color: var(--ink-muted)">Announcements</span>
+<h2 style="margin: 0; font: 600 19px/26px var(--font-sans)">No announcements yet</h2>
+<p style="margin: 0; font: 400 16px/24px var(--font-sans)">Announcements for this level appear here.</p>
+<div><a class="pe-btn pe-btn--secondary" href="CommCompose.dc.html">Post announcement</a></div>
+</section>
+<section class="pe-card" style="display: flex; flex-direction: column; gap: var(--space-3)">
+<span style="font: 600 13px/20px var(--font-sans); letter-spacing: .01em; color: var(--ink-muted)">My registrations</span>
+<h2 style="margin: 0; font: 600 19px/26px var(--font-sans)">You have no registrations yet</h2>
+<p style="margin: 0; font: 400 16px/24px var(--font-sans)">Register for an event to choose stations.</p>
+<div><a class="pe-btn pe-btn--secondary" href="OrgHome.dc.html">See events</a></div>
+</section>
+<section class="pe-card" style="display: flex; flex-direction: column; gap: var(--space-3)">
+<span style="font: 600 13px/20px var(--font-sans); letter-spacing: .01em; color: var(--ink-muted)">Waiting list management</span>
+<h2 style="margin: 0; font: 600 19px/26px var(--font-sans)">The waiting list is empty</h2>
+<p style="margin: 0; font: 400 16px/24px var(--font-sans)">People who join the waiting list for Bake Sale appear here in order.</p>
+</section>
+<section class="pe-card" style="display: flex; flex-direction: column; gap: var(--space-3)">
+<span style="font: 600 13px/20px var(--font-sans); letter-spacing: .01em; color: var(--ink-muted)">Station roster</span>
+<h2 style="margin: 0; font: 600 19px/26px var(--font-sans)">The chair is the only person here so far</h2>
+<p style="margin: 0; font: 400 16px/24px var(--font-sans)">1 of 10 spots taken. Includes the chair.</p>
+<div><a class="pe-btn pe-btn--secondary" href="DialogAssign.dc.html">Assign member</a></div>
+</section>
+<section class="pe-card" style="display: flex; flex-direction: column; gap: var(--space-3)">
+<span style="font: 600 13px/20px var(--font-sans); letter-spacing: .01em; color: var(--ink-muted)">Chat · Conversation</span>
+<h2 style="margin: 0; font: 600 19px/26px var(--font-sans)">No messages yet</h2>
+<p style="margin: 0; font: 400 16px/24px var(--font-sans)">Write the first message to Haunted Hallway.</p>
+</section>
+</div>
+</main>
+</div>
+</x-dc>
+<script type="text/x-dc" data-dc-script data-props='{"theme":{"editor":"enum","options":["greystone","sunbeam","moonshadow"],"default":"greystone"},"$preview":{"width":1280,"height":950}}'>
+class Component extends DCLogic {
+renderVals() {
+return { theme: this.props.theme ?? 'greystone' };
+}
+}
+</script>
+</body>
+</html>

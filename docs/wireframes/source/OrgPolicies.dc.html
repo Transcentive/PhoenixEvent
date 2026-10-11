@@ -1,0 +1,88 @@
+<!doctype html>
+<html lang="en">
+<head>
+<meta charset="utf-8">
+<title>Organization policies</title>
+<script src="./support.js"></script>
+<link rel="stylesheet" href="theme.css">
+<link rel="stylesheet" href="ds/phoenixevent/components/bundle.css">
+</head>
+<body>
+<x-dc>
+<helmet>
+<style>
+body{margin:0}
+a{color:#1c1c1c}a:hover{color:#000000}
+</style>
+</helmet>
+<div data-theme="{{theme}}" style="min-height: 1760px; background: var(--surface); color: var(--ink); font-family: var(--font-sans)">
+<header style="display: flex; flex-wrap: wrap; align-items: center; gap: var(--space-4); padding: var(--space-3) var(--space-8); background: var(--surface-raised); border-bottom: 1px solid var(--border)">
+<span style="font: 700 19px/26px var(--font-sans)">PhoenixEvent</span>
+<span style="display: inline-flex; align-items: center; gap: var(--space-1); font: 400 14px/20px var(--font-sans); color: var(--ink-muted)"><svg class="pe-icon" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><rect x="5" y="4" width="14" height="16" rx="1"></rect><path d="M9 8h2M13 8h2M9 12h2M13 12h2M10 20v-4h4v4"></path></svg>Lincoln Elementary PTA</span>
+<span style="flex-grow: 1"></span>
+<span style="font: 400 14px/20px var(--font-sans); color: var(--ink-muted)">[MEMBER NAME]</span>
+<a class="pe-btn pe-btn--secondary" href="AccountLoggedOut.dc.html">Log out</a>
+</header>
+<main style="max-width: 720px; margin: 0 auto; padding: var(--space-8); display: flex; flex-direction: column; gap: var(--space-6)">
+<div><a class="pe-link" href="OrgHome.dc.html">Back to Lincoln Elementary PTA</a></div>
+<h1 style="margin: 0; font: 700 30px/36px var(--font-sans)">Policies</h1>
+<section class="pe-card" style="display: flex; flex-direction: column; gap: var(--space-4)">
+<h2 style="margin: 0; font: 600 19px/26px var(--font-sans)">Registration</h2>
+<label style="display: flex; align-items: center; gap: var(--space-2); min-height: 44px; font: 400 16px/24px var(--font-sans)"><input type="checkbox" defaultChecked="checked" style="width: 20px; height: 20px">Approve each registration before the person chooses stations</label>
+<fieldset style="margin: 0; padding: 0; border: 0; display: flex; flex-direction: column; gap: var(--space-1)">
+<legend style="padding: 0; font: 600 14px/20px var(--font-sans)">Who participates in an event</legend>
+<label style="display: flex; align-items: flex-start; gap: var(--space-2); min-height: 44px; font: 400 16px/24px var(--font-sans)"><input type="radio" name="take" style="width: 20px; height: 20px; margin-top: 2px"><span>Subscribers. A person pays to participate.</span></label>
+<label style="display: flex; align-items: flex-start; gap: var(--space-2); min-height: 44px; font: 400 16px/24px var(--font-sans)"><input type="radio" name="take" style="width: 20px; height: 20px; margin-top: 2px"><span>Registrants. A person registers to participate.</span></label>
+<label style="display: flex; align-items: flex-start; gap: var(--space-2); min-height: 44px; font: 400 16px/24px var(--font-sans)"><input type="radio" name="take" defaultChecked="checked" style="width: 20px; height: 20px; margin-top: 2px"><span>Both. A person either registers or pays.</span></label>
+</fieldset>
+<p style="margin: 0; font: 400 14px/20px var(--font-sans); color: var(--ink-muted)">[Whether the organization sets this once for all its events or event by event is an open decision]</p>
+<p style="margin: 0; font: 400 14px/20px var(--font-sans)">A person becomes a participant of an event first. A participant then signs up for a station.</p>
+</section>
+<section class="pe-card" style="display: flex; flex-direction: column; gap: var(--space-3)">
+<h2 style="margin: 0; font: 600 19px/26px var(--font-sans)">Waiting lists</h2>
+<p style="margin: 0; font: 400 16px/24px var(--font-sans)">Set this before an event board forms. The board's own choice depends on yours.</p>
+<fieldset style="margin: 0; padding: 0; border: 0; display: flex; flex-direction: column; gap: var(--space-2)">
+<legend style="padding: 0; font: 600 14px/20px var(--font-sans)">Organization determination</legend>
+<label style="display: flex; align-items: flex-start; gap: var(--space-2); min-height: 44px; font: 400 16px/24px var(--font-sans)"><input type="radio" name="waiting" style="width: 20px; height: 20px; margin-top: 2px"><span>Prohibit waiting lists. The event board keeps them off.</span></label>
+<label style="display: flex; align-items: flex-start; gap: var(--space-2); min-height: 44px; font: 400 16px/24px var(--font-sans)"><input type="radio" name="waiting" style="width: 20px; height: 20px; margin-top: 2px"><span>Request waiting lists. The event board may turn them off.</span></label>
+<label style="display: flex; align-items: flex-start; gap: var(--space-2); min-height: 44px; font: 400 16px/24px var(--font-sans)"><input type="radio" name="waiting" defaultChecked="checked" style="width: 20px; height: 20px; margin-top: 2px"><span>Leave it to the event board. The board may turn them on or off.</span></label>
+</fieldset>
+</section>
+<section class="pe-card" style="display: flex; flex-direction: column; gap: var(--space-3)">
+<h2 style="margin: 0; font: 600 19px/26px var(--font-sans)">Event Administrator</h2>
+<p style="margin: 0; font: 400 16px/24px var(--font-sans)">Whether an event's Event Administrator holds a seat on its event board.</p>
+<fieldset style="margin: 0; padding: 0; border: 0; display: flex; flex-direction: column; gap: var(--space-2)">
+<legend style="padding: 0; font: 600 14px/20px var(--font-sans)">For every event</legend>
+<label style="display: flex; align-items: flex-start; gap: var(--space-2); min-height: 44px; font: 400 16px/24px var(--font-sans)"><input type="radio" name="event-admin" style="flex: none; width: 20px; height: 20px; margin-top: 2px"><span>Holds a seat. The Event Administrator counts toward the board's seats.</span></label>
+<label style="display: flex; align-items: flex-start; gap: var(--space-2); min-height: 44px; font: 400 16px/24px var(--font-sans)"><input type="radio" name="event-admin" defaultChecked="checked" style="flex: none; width: 20px; height: 20px; margin-top: 2px"><span>Holds no seat. The Event Administrator works alongside the board. (Default)</span></label>
+</fieldset>
+<p style="margin: 0; font: 400 14px/20px var(--font-sans); color: var(--ink-muted)">Organization Leadership appoints each event's Event Administrator.</p>
+</section>
+<section class="pe-card" style="display: flex; flex-direction: column; gap: var(--space-3)">
+<h2 style="margin: 0; font: 600 19px/26px var(--font-sans)">Lowering a station's capacity</h2>
+<p style="margin: 0; font: 400 16px/24px var(--font-sans)">What happens when an event board sets fewer spots than the people already in a station.</p>
+<fieldset style="margin: 0; padding: 0; border: 0; display: flex; flex-direction: column; gap: var(--space-2)">
+<legend style="padding: 0; font: 600 14px/20px var(--font-sans)">For every event</legend>
+<label style="display: flex; align-items: flex-start; gap: var(--space-2); min-height: 44px; font: 400 16px/24px var(--font-sans)"><input type="radio" name="lowering" defaultChecked="checked" style="flex: none; width: 20px; height: 20px; margin-top: 2px"><span>Refuse. The board removes people first, then lowers the number. (Default)</span></label>
+<label style="display: flex; align-items: flex-start; gap: var(--space-2); min-height: 44px; font: 400 16px/24px var(--font-sans)"><input type="radio" name="lowering" style="flex: none; width: 20px; height: 20px; margin-top: 2px"><span>Allow, and remove no one. The station shows Full until enough people leave.</span></label>
+<label style="display: flex; align-items: flex-start; gap: var(--space-2); min-height: 44px; font: 400 16px/24px var(--font-sans)"><input type="radio" name="lowering" style="flex: none; width: 20px; height: 20px; margin-top: 2px"><span>Allow, and remove the people who joined most recently. Each is emailed.</span></label>
+</fieldset>
+<label style="display: flex; align-items: flex-start; gap: var(--space-2); min-height: 44px; font: 400 16px/24px var(--font-sans)"><input type="checkbox" name="lowering-fixed" style="flex: none; width: 20px; height: 20px; margin-top: 2px"><span>Fix this for every event. Event boards cannot change it.</span></label>
+<p style="margin: 0; font: 400 14px/20px var(--font-sans); color: var(--ink-muted)">This setting comes in a later release. The first release always refuses.</p>
+</section>
+<div style="display: flex; flex-wrap: wrap; gap: var(--space-3)">
+<a class="pe-btn pe-btn--primary" href="OrgHome.dc.html">Save policies</a>
+<a class="pe-btn pe-btn--secondary" href="OrgHome.dc.html">Cancel</a>
+</div>
+</main>
+</div>
+</x-dc>
+<script type="text/x-dc" data-dc-script data-props='{"theme":{"editor":"enum","options":["greystone","sunbeam","moonshadow"],"default":"greystone"},"$preview":{"width":1280,"height":1760}}'>
+class Component extends DCLogic {
+renderVals() {
+return { theme: this.props.theme ?? 'greystone' };
+}
+}
+</script>
+</body>
+</html>

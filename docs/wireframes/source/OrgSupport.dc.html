@@ -1,0 +1,85 @@
+<!doctype html>
+<html lang="en">
+<head>
+<meta charset="utf-8">
+<title>Support access</title>
+<script src="./support.js"></script>
+<link rel="stylesheet" href="theme.css">
+<link rel="stylesheet" href="ds/phoenixevent/components/bundle.css">
+</head>
+<body>
+<x-dc>
+<helmet>
+<style>
+body{margin:0}
+a{color:#1c1c1c}a:hover{color:#000000}
+</style>
+</helmet>
+<div data-theme="{{theme}}" style="min-height: 1470px; background: var(--surface); color: var(--ink); font-family: var(--font-sans)">
+<header style="display: flex; flex-wrap: wrap; align-items: center; gap: var(--space-4); padding: var(--space-3) var(--space-8); background: var(--surface-raised); border-bottom: 1px solid var(--border)">
+<span style="font: 700 19px/26px var(--font-sans)">PhoenixEvent</span>
+<span style="display: inline-flex; align-items: center; gap: var(--space-1); font: 400 14px/20px var(--font-sans); color: var(--ink-muted)"><svg class="pe-icon" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><rect x="5" y="4" width="14" height="16" rx="1"></rect><path d="M9 8h2M13 8h2M9 12h2M13 12h2M10 20v-4h4v4"></path></svg>Lincoln Elementary PTA</span>
+<span style="flex-grow: 1"></span>
+<span style="font: 400 14px/20px var(--font-sans); color: var(--ink-muted)">[ORGANIZATION ADMINISTRATOR NAME]</span>
+<a class="pe-btn pe-btn--secondary" href="AccountLoggedOut.dc.html">Log out</a>
+</header>
+<main style="max-width: 720px; margin: 0 auto; padding: var(--space-8); display: flex; flex-direction: column; gap: var(--space-6)">
+<div><a class="pe-link" href="OrgHome.dc.html">Back to Lincoln Elementary PTA</a></div>
+<div style="display: flex; flex-direction: column; gap: var(--space-2)">
+<h1 style="margin: 0; font: 700 30px/36px var(--font-sans)">Support access</h1>
+<p style="margin: 0; font: 400 16px/24px var(--font-sans)">PhoenixEvent support staff see the members, events and messages of Lincoln Elementary PTA only while you let them in. You choose when, and for how long.</p>
+</div>
+<section class="pe-card" style="display: flex; flex-direction: column; gap: var(--space-3)">
+<div style="display: flex; flex-wrap: wrap; align-items: center; gap: var(--space-3)">
+<h2 style="margin: 0; font: 600 19px/26px var(--font-sans); flex-grow: 1">Support access is open</h2>
+<span class="pe-badge pe-badge--caution"><svg class="pe-icon" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><circle cx="12" cy="12" r="9"></circle><path d="M12 7v5l3 2"></path></svg>Open until [END TIME]</span>
+</div>
+<p style="margin: 0; font: 400 16px/24px var(--font-sans)">[ORGANIZATION ADMINISTRATOR NAME] opened support access on [DATE OPENED]. It closes by itself at [END TIME].</p>
+<p style="margin: 0; font: 400 14px/20px var(--font-sans); color: var(--ink-muted)">[SYSTEM ADMINISTRATOR NAME] entered at [TIME ENTERED].</p>
+<div><a class="pe-btn pe-btn--secondary" href="#">End support access now</a></div>
+</section>
+<section class="pe-card" style="display: flex; flex-direction: column; gap: var(--space-4)">
+<h2 style="margin: 0; font: 600 19px/26px var(--font-sans)">Allow support access</h2>
+<div class="pe-field">
+<label class="pe-field__label" for="support-length">How long</label>
+<select class="pe-input" id="support-length" name="support-length" defaultValue="4 hours"><option>1 hour</option><option>4 hours</option><option>24 hours</option></select>
+<span class="pe-field__hint">[The lengths offered are an open decision]</span>
+</div>
+<div class="pe-field">
+<label class="pe-field__label" for="support-reason">Reason, kept in your organization's record</label>
+<input class="pe-input" id="support-reason" name="support-reason">
+</div>
+<div><a class="pe-btn pe-btn--primary" href="#">Allow support access</a></div>
+<p style="margin: 0; font: 400 14px/20px var(--font-sans); color: var(--ink-muted)">[An administrator sees one of these two panels: this form while support access is closed, the panel above while it is open]</p>
+</section>
+<section class="pe-card" style="display: flex; flex-direction: column; gap: var(--space-3)">
+<h2 style="margin: 0; font: 600 19px/26px var(--font-sans)">What support staff see</h2>
+<p style="margin: 0; font: 400 16px/24px var(--font-sans)">During a support session, support staff see what an Organization Administrator sees, in this organization only. A banner stays at the top of every page for them, and each session is kept in the record below.</p>
+<p style="margin: 0; font: 400 14px/20px var(--font-sans); color: var(--ink-muted)">[Whether support staff may also change things during a session, or only look, is an open decision]</p>
+</section>
+<section style="display: flex; flex-direction: column; gap: var(--space-3)">
+<h2 style="margin: 0; font: 600 24px/30px var(--font-sans)">Past support access</h2>
+<div class="pe-card" style="display: flex; flex-direction: column">
+<div style="display: flex; flex-wrap: wrap; align-items: center; gap: var(--space-3); padding: var(--space-3) 0">
+<div style="flex: 1 1 320px; display: flex; flex-direction: column"><span style="font: 600 16px/24px var(--font-sans)">[DATE OPENED] to [DATE ENDED]</span><span style="font: 400 14px/20px var(--font-sans); color: var(--ink-muted)">Opened by [ORGANIZATION ADMINISTRATOR NAME] · Entered by [SYSTEM ADMINISTRATOR NAME] · Ended at the time limit</span></div>
+<span class="pe-badge pe-badge--neutral"><svg class="pe-icon" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><rect x="5" y="11" width="14" height="9" rx="2"></rect><path d="M8 11V8a4 4 0 0 1 8 0v3"></path></svg>Closed</span>
+</div>
+<div style="display: flex; flex-wrap: wrap; align-items: center; gap: var(--space-3); padding: var(--space-3) 0; border-top: 1px solid var(--border)">
+<div style="flex: 1 1 320px; display: flex; flex-direction: column"><span style="font: 600 16px/24px var(--font-sans)">[DATE OPENED] to [DATE ENDED]</span><span style="font: 400 14px/20px var(--font-sans); color: var(--ink-muted)">Opened by [ORGANIZATION ADMINISTRATOR NAME] · Nobody entered · Ended early by [ORGANIZATION ADMINISTRATOR NAME]</span></div>
+<span class="pe-badge pe-badge--neutral"><svg class="pe-icon" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><rect x="5" y="11" width="14" height="9" rx="2"></rect><path d="M8 11V8a4 4 0 0 1 8 0v3"></path></svg>Closed</span>
+</div>
+</div>
+<p style="margin: 0; font: 400 14px/20px var(--font-sans); color: var(--ink-muted)">[Whether this record also lists each page support staff opened is an open decision]</p>
+</section>
+</main>
+</div>
+</x-dc>
+<script type="text/x-dc" data-dc-script data-props='{"theme":{"editor":"enum","options":["greystone","sunbeam","moonshadow"],"default":"greystone"},"$preview":{"width":1280,"height":1470}}'>
+class Component extends DCLogic {
+renderVals() {
+return { theme: this.props.theme ?? 'greystone' };
+}
+}
+</script>
+</body>
+</html>

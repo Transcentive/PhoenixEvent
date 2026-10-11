@@ -1,0 +1,42 @@
+<!doctype html>
+<html lang="en">
+<head>
+<meta charset="utf-8">
+<title>Add theme</title>
+<script src="./support.js"></script>
+<link rel="stylesheet" href="theme.css">
+<link rel="stylesheet" href="ds/phoenixevent/components/bundle.css">
+</head>
+<body>
+<x-dc>
+<helmet>
+<style>
+body{margin:0}
+a{color:#1c1c1c}a:hover{color:#000000}
+</style>
+</helmet>
+<div data-theme="{{theme}}" style="min-height: 700px; background: var(--surface); color: var(--ink); font-family: var(--font-sans); display: flex; flex-direction: column">
+<div class="pe-scrim" style="flex-grow: 1; min-height: 700px">
+<div class="pe-dialog" role="dialog" aria-modal="true" aria-labelledby="dialog-title">
+<h1 class="pe-dialog__title" id="dialog-title">Add theme</h1>
+<div class="pe-field"><label class="pe-field__label" for="theme-name">Theme name</label><input class="pe-input" id="theme-name" name="theme-name"></div>
+<div class="pe-field"><label class="pe-field__label" for="theme-base">Start from</label><select class="pe-input" id="theme-base" name="theme-base"><option>Sunbeam, light</option><option>Moonshadow, dark</option><option>Greystone, neutral</option></select><span class="pe-field__hint">The new theme begins as a copy. You then set each color.</span></div>
+<p class="pe-dialog__body" style="font: 400 14px/20px var(--font-sans); color: var(--ink-muted)">A theme can be chosen once every color has a value and each text, border and focus pair passes the contrast check.</p>
+<p class="pe-dialog__body" style="font: 400 14px/20px var(--font-sans); color: var(--ink-muted)">[The color editing screen, and font and layout options, are yet to be wireframed and depend on open decisions]</p>
+<div class="pe-dialog__actions">
+<a class="pe-btn pe-btn--secondary" href="CommThemes.dc.html">Cancel</a>
+<a class="pe-btn pe-btn--primary" href="CommThemes.dc.html">Add theme</a>
+</div>
+</div>
+</div>
+</div>
+</x-dc>
+<script type="text/x-dc" data-dc-script data-props='{"theme":{"editor":"enum","options":["greystone","sunbeam","moonshadow"],"default":"greystone"},"$preview":{"width":1280,"height":750}}'>
+class Component extends DCLogic {
+renderVals() {
+return { theme: this.props.theme ?? 'greystone' };
+}
+}
+</script>
+</body>
+</html>

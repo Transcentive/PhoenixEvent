@@ -1,0 +1,71 @@
+<!doctype html>
+<html lang="en">
+<head>
+<meta charset="utf-8">
+<title>Support, organizations that let you in</title>
+<script src="./support.js"></script>
+<link rel="stylesheet" href="theme.css">
+<link rel="stylesheet" href="ds/phoenixevent/components/bundle.css">
+</head>
+<body>
+<x-dc>
+<helmet>
+<style>
+body{margin:0}
+a{color:#1c1c1c}a:hover{color:#000000}
+</style>
+</helmet>
+<div data-theme="{{theme}}" style="min-height: 920px; background: var(--surface); color: var(--ink); font-family: var(--font-sans)">
+<header style="display: flex; flex-wrap: wrap; align-items: center; gap: var(--space-4); padding: var(--space-3) var(--space-8); background: var(--surface-raised); border-bottom: 1px solid var(--border)">
+<span style="font: 700 19px/26px var(--font-sans)">PhoenixEvent</span>
+<span style="font: 400 14px/20px var(--font-sans); color: var(--ink-muted)">System administration</span>
+<span style="flex-grow: 1"></span>
+<span style="font: 400 14px/20px var(--font-sans); color: var(--ink-muted)">[SYSTEM ADMINISTRATOR NAME]</span>
+<a class="pe-btn pe-btn--secondary" href="AccountLoggedOut.dc.html">Log out</a>
+</header>
+<main style="max-width: 880px; margin: 0 auto; padding: var(--space-8); display: flex; flex-direction: column; gap: var(--space-6)">
+<div style="display: flex; flex-direction: column; gap: var(--space-2)">
+<h1 style="margin: 0; font: 700 30px/36px var(--font-sans)">Support sessions</h1>
+<p style="margin: 0; font: 400 16px/24px var(--font-sans)">You see an organization's members, events and messages only while that organization has let you in. An Organization Administrator there opens support access and sets when it ends.</p>
+</div>
+<section style="display: flex; flex-direction: column; gap: var(--space-3)">
+<h2 style="margin: 0; font: 600 24px/30px var(--font-sans)">Organizations that have let you in</h2>
+<div class="pe-card" style="display: flex; flex-direction: column; gap: var(--space-3)">
+<div style="display: flex; flex-wrap: wrap; align-items: center; gap: var(--space-3)">
+<h3 style="margin: 0; font: 600 19px/26px var(--font-sans); flex-grow: 1">Lincoln Elementary PTA</h3>
+<span class="pe-badge pe-badge--caution"><svg class="pe-icon" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><circle cx="12" cy="12" r="9"></circle><path d="M12 7v5l3 2"></path></svg>Open until [END TIME]</span>
+</div>
+<p style="margin: 0; font: 400 14px/20px var(--font-sans); color: var(--ink-muted)">Opened by [ORGANIZATION ADMINISTRATOR NAME] on [DATE OPENED] · Reason: [REASON GIVEN]</p>
+<div><a class="pe-btn pe-btn--primary" href="SupportSession.dc.html">Start support session</a></div>
+</div>
+</section>
+<section style="display: flex; flex-direction: column; gap: var(--space-3)">
+<h2 style="margin: 0; font: 600 24px/30px var(--font-sans)">Ended</h2>
+<div class="pe-card" style="display: flex; flex-direction: column">
+<div style="display: flex; flex-wrap: wrap; align-items: center; gap: var(--space-3); padding: var(--space-3) 0">
+<div style="flex: 1 1 320px; display: flex; flex-direction: column"><span style="font: 600 16px/24px var(--font-sans)">[ORGANIZATION NAME]</span><span style="font: 400 14px/20px var(--font-sans); color: var(--ink-muted)">Open from [DATE OPENED] to [DATE ENDED] · Ended at the time limit</span></div>
+<span class="pe-badge pe-badge--neutral"><svg class="pe-icon" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><rect x="5" y="11" width="14" height="9" rx="2"></rect><path d="M8 11V8a4 4 0 0 1 8 0v3"></path></svg>Closed</span>
+</div>
+<div style="display: flex; flex-wrap: wrap; align-items: center; gap: var(--space-3); padding: var(--space-3) 0; border-top: 1px solid var(--border)">
+<div style="flex: 1 1 320px; display: flex; flex-direction: column"><span style="font: 600 16px/24px var(--font-sans)">[ORGANIZATION NAME]</span><span style="font: 400 14px/20px var(--font-sans); color: var(--ink-muted)">Open from [DATE OPENED] to [DATE ENDED] · Ended early by the organization</span></div>
+<span class="pe-badge pe-badge--neutral"><svg class="pe-icon" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><rect x="5" y="11" width="14" height="9" rx="2"></rect><path d="M8 11V8a4 4 0 0 1 8 0v3"></path></svg>Closed</span>
+</div>
+</div>
+</section>
+<section class="pe-card" style="display: flex; flex-direction: column; gap: var(--space-3)">
+<h2 style="margin: 0; font: 600 19px/26px var(--font-sans)">Every other organization</h2>
+<p style="margin: 0; font: 400 16px/24px var(--font-sans)">Support access is closed everywhere else. To help an organization, ask one of its Organization Administrators to open support access.</p>
+<p style="margin: 0; font: 400 14px/20px var(--font-sans); color: var(--ink-muted)">[What a System Administrator sees of an organization while its support access is closed, such as its name and its subscription, is an open decision]</p>
+</section>
+</main>
+</div>
+</x-dc>
+<script type="text/x-dc" data-dc-script data-props='{"theme":{"editor":"enum","options":["greystone","sunbeam","moonshadow"],"default":"greystone"},"$preview":{"width":1280,"height":920}}'>
+class Component extends DCLogic {
+renderVals() {
+return { theme: this.props.theme ?? 'greystone' };
+}
+}
+</script>
+</body>
+</html>
