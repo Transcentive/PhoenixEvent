@@ -15,14 +15,20 @@ body{margin:0}
 a{color:#1c1c1c}a:hover{color:#000000}
 </style>
 </helmet>
-<div data-theme="{{theme}}" style="min-height: 700px; background: var(--surface); color: var(--ink); font-family: var(--font-sans); display: flex; flex-direction: column">
-<div class="pe-scrim" style="flex-grow: 1; min-height: 700px">
+<div data-theme="{{theme}}" style="min-height: 950px; background: var(--surface); color: var(--ink); font-family: var(--font-sans); display: flex; flex-direction: column">
+<div class="pe-scrim" style="flex-grow: 1; min-height: 950px">
 <div class="pe-dialog" role="dialog" aria-modal="true" aria-labelledby="dialog-title">
 <h1 class="pe-dialog__title" id="dialog-title">Invite member</h1>
-<p class="pe-dialog__body">The person gets an email with a link to join Lincoln Elementary PTA. They create an account at Lincoln Elementary PTA's address, since each organization has its own accounts.</p>
-<div class="pe-field"><label class="pe-field__label" for="invite-email">Email address</label><input class="pe-input" id="invite-email" name="invite-email" type="email" autocomplete="off"></div>
-<div class="pe-field"><label class="pe-field__label" for="invite-role">Role in this organization</label><select class="pe-input" id="invite-role" name="invite-role"><option>Member</option><option>Organization Leadership</option><option>Organization Administrator</option></select></div>
-<p class="pe-dialog__body" style="font: 400 14px/20px var(--font-sans); color: var(--ink-muted)">[How people join an organization, by invitation, by request or both, is to be decided. The link works once and expires after 7 days.]</p>
+<p class="pe-dialog__body">The person gets an email with a link to join the event you choose. A person with no account at Lincoln Elementary PTA creates one at its address.</p>
+<div class="pe-field"><label class="pe-field__label" for="invite-event">Event</label><select class="pe-input" id="invite-event" name="invite-event"><option>Halloween Bash</option><option>Valentine Dance</option></select></div>
+<fieldset style="margin: 0; padding: 0; border: 0; display: flex; flex-direction: column; gap: var(--space-2)">
+<legend style="padding: 0; margin-bottom: var(--space-1); font: 600 14px/20px var(--font-sans)">Who to invite</legend>
+<label style="display: flex; align-items: center; gap: var(--space-2); min-height: 44px; font: 400 16px/24px var(--font-sans)"><input type="radio" name="invite-who" defaultChecked="checked" style="flex: none; width: 20px; height: 20px">A member listed on Members and roles</label>
+<div class="pe-field" style="padding-left: 28px"><label class="pe-field__label" for="invite-member">Member</label><select class="pe-input" id="invite-member" name="invite-member"><option>Dana Reyes</option><option>[MEMBER NAME]</option></select></div>
+<label style="display: flex; align-items: center; gap: var(--space-2); min-height: 44px; font: 400 16px/24px var(--font-sans)"><input type="radio" name="invite-who" style="flex: none; width: 20px; height: 20px">Someone not listed, by email</label>
+<div class="pe-field" style="padding-left: 28px"><label class="pe-field__label" for="invite-email">Email address</label><input class="pe-input" id="invite-email" name="invite-email" type="email" autocomplete="off"></div>
+</fieldset>
+<p class="pe-dialog__body" style="font: 400 14px/20px var(--font-sans); color: var(--ink-muted)">The link works once and expires after 7 days.</p>
 <div class="pe-dialog__actions">
 <a class="pe-btn pe-btn--secondary" href="OrgMembers.dc.html">Cancel</a>
 <a class="pe-btn pe-btn--primary" href="OrgMembers.dc.html">Send invitation</a>
@@ -31,7 +37,7 @@ a{color:#1c1c1c}a:hover{color:#000000}
 </div>
 </div>
 </x-dc>
-<script type="text/x-dc" data-dc-script data-props='{"theme":{"editor":"enum","options":["greystone","sunbeam","moonshadow"],"default":"greystone"},"$preview":{"width":1280,"height":750}}'>
+<script type="text/x-dc" data-dc-script data-props='{"theme":{"editor":"enum","options":["greystone","sunbeam","moonshadow"],"default":"greystone"},"$preview":{"width":1280,"height":1000}}'>
 class Component extends DCLogic {
 renderVals() {
 return { theme: this.props.theme ?? 'greystone' };
