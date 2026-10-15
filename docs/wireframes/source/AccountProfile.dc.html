@@ -1,0 +1,64 @@
+<!doctype html>
+<html lang="en">
+<head>
+<meta charset="utf-8">
+<title>Profile</title>
+<script src="./support.js"></script>
+<link rel="stylesheet" href="theme.css">
+<link rel="stylesheet" href="ds/phoenixevent/components/bundle.css">
+</head>
+<body>
+<x-dc>
+<helmet>
+<style>
+body{margin:0}
+a{color:#1c1c1c}a:hover{color:#000000}
+</style>
+</helmet>
+<div data-theme="{{theme}}" style="min-height: 1500px; background: var(--surface); color: var(--ink); font-family: var(--font-sans)">
+<header style="display: flex; flex-wrap: wrap; align-items: center; gap: var(--space-4); padding: var(--space-3) var(--space-8); background: var(--surface-raised); border-bottom: 1px solid var(--border)">
+<span style="font: 700 19px/26px var(--font-sans)">PhoenixEvent</span>
+<span style="display: inline-flex; align-items: center; gap: var(--space-1); font: 400 14px/20px var(--font-sans); color: var(--ink-muted)"><svg class="pe-icon" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><rect x="5" y="4" width="14" height="16" rx="1"></rect><path d="M9 8h2M13 8h2M9 12h2M13 12h2M10 20v-4h4v4"></path></svg>Lincoln Elementary PTA</span>
+<span style="flex-grow: 1"></span>
+<a class="pe-link" href="AccountProfile.dc.html" style="font: 400 14px/20px var(--font-sans)">Dana Reyes</a>
+<a class="pe-btn pe-btn--secondary" href="AccountLoggedOut.dc.html">Log out</a>
+</header>
+<main style="max-width: 720px; margin: 0 auto; padding: var(--space-8); display: flex; flex-direction: column; gap: var(--space-6)">
+<div><a class="pe-link" href="OrgHome.dc.html">Back to Lincoln Elementary PTA</a></div>
+<h1 style="margin: 0; font: 700 30px/36px var(--font-sans)">Profile</h1>
+<section class="pe-card" style="display: flex; flex-direction: column; gap: var(--space-4)">
+<div style="display: flex; flex-wrap: wrap; align-items: center; gap: var(--space-3)"><div style="flex: 1 1 220px; display: flex; flex-direction: column"><span style="font: 600 14px/20px var(--font-sans)">Email address</span><span style="font: 400 16px/24px var(--font-sans)">dana@example.org</span></div><a class="pe-btn pe-btn--secondary" href="#change-email">Change</a></div>
+<div class="pe-field"><label class="pe-field__label" for="profile-username">Username (optional)</label><input class="pe-input" id="profile-username" name="profile-username" type="text" value="dreyes" autocomplete="username"></div>
+<div style="display: grid; grid-template-columns: repeat(auto-fit, minmax(180px, 1fr)); gap: var(--space-3)">
+<div class="pe-field"><label class="pe-field__label" for="profile-first">First name</label><input class="pe-input" id="profile-first" name="profile-first" type="text" value="Dana" autocomplete="given-name"></div>
+<div class="pe-field"><label class="pe-field__label" for="profile-middle">Middle name (optional)</label><input class="pe-input" id="profile-middle" name="profile-middle" type="text" autocomplete="additional-name"></div>
+<div class="pe-field"><label class="pe-field__label" for="profile-last">Last name</label><input class="pe-input" id="profile-last" name="profile-last" type="text" value="Reyes" autocomplete="family-name"></div>
+</div>
+<fieldset style="margin: 0; padding: 0; border: 0; display: flex; flex-direction: column; gap: var(--space-1)">
+<legend style="padding: 0; margin-bottom: var(--space-1); font: 600 14px/20px var(--font-sans)">Name shown</legend>
+<label style="display: flex; align-items: center; gap: var(--space-2); min-height: 44px; font: 400 16px/24px var(--font-sans)"><input type="radio" name="profile-shown" style="flex: none; width: 20px; height: 20px">Email address: dana@example.org</label>
+<label style="display: flex; align-items: center; gap: var(--space-2); min-height: 44px; font: 400 16px/24px var(--font-sans)"><input type="radio" name="profile-shown" style="flex: none; width: 20px; height: 20px">Username: dreyes</label>
+<label style="display: flex; align-items: center; gap: var(--space-2); min-height: 44px; font: 400 16px/24px var(--font-sans)"><input type="radio" name="profile-shown" defaultChecked="checked" style="flex: none; width: 20px; height: 20px">Personal name: Dana Reyes</label>
+</fieldset>
+<p style="margin: 0; font: 400 14px/20px var(--font-sans); color: var(--ink-muted)">Shown in the page header and on Members and roles. Only what you have entered can be chosen.</p>
+<div style="display: flex; justify-content: flex-end"><a class="pe-btn pe-btn--primary" href="AccountProfile.dc.html">Save</a></div>
+</section>
+<section class="pe-card" id="change-email" style="display: flex; flex-direction: column; gap: var(--space-4)">
+<h2 style="margin: 0; font: 600 19px/26px var(--font-sans)">Change email address</h2>
+<p style="margin: 0; font: 400 14px/20px var(--font-sans); color: var(--ink-muted)">Opens from Change. Your email address also logs you in, so your current password is asked for.</p>
+<div class="pe-field"><label class="pe-field__label" for="change-email-new">New email address</label><input class="pe-input" id="change-email-new" name="change-email-new" type="email" autocomplete="email"></div>
+<div class="pe-field"><label class="pe-field__label" for="change-email-password">Current password</label><input class="pe-input" id="change-email-password" name="change-email-password" type="password" autocomplete="current-password"></div>
+<div style="display: flex; flex-wrap: wrap; justify-content: flex-end; gap: var(--space-3)"><a class="pe-btn pe-btn--secondary" href="AccountProfile.dc.html">Cancel</a><a class="pe-btn pe-btn--primary" href="AccountProfile.dc.html">Change email address</a></div>
+</section>
+</main>
+</div>
+</x-dc>
+<script type="text/x-dc" data-dc-script data-props='{"theme":{"editor":"enum","options":["greystone","sunbeam","moonshadow"],"default":"greystone"},"$preview":{"width":1280,"height":1500}}'>
+class Component extends DCLogic {
+renderVals() {
+return { theme: this.props.theme ?? 'greystone' };
+}
+}
+</script>
+</body>
+</html>

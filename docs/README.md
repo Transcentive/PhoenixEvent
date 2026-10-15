@@ -13,7 +13,7 @@ Handoff pack, version 1, October 10, 2026. It holds the design work done in the 
 | `reference/The-Mighty-Queue-tech-stack-and-hosting-v2.md` | The Mighty Queue's stack and hosting, which section 2A aligns PhoenixEvent with. |
 | `design-system/source/` | The design system: `tokens.json`, the component stylesheet `components/bundle.css` (the `pe-` classes), each component's README and preview, and the brand book in `README.md`. |
 | `design-system/icons/`, `design-system/previews/` | The icons as SVG, and pictures of the components in the three themes. |
-| `wireframes/screens/` | A picture of each of the 59 screens. `wireframes/screens-index.md` lists them by id and page. |
+| `wireframes/screens/` | A picture of each of the 60 screens. `wireframes/screens-index.md` lists them by id and page. |
 | `wireframes/source/` | The source of each screen, for exact wording and layout. `theme.css` holds the tokens as CSS variables, one block per theme; `bundle.css` loads after it. These files were drawn for the wireframe canvas and do not run on their own. |
 | `roadmap/phoenixevent-roadmap.html` | The visual roadmap. Sections 16 to 16B of the specification hold the same content. |
 

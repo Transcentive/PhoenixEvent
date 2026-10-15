@@ -17,7 +17,7 @@
 - The specification is revised in the claude.ai project "Phoenix Event". A new
   version is added to `docs/specification/` beside the earlier ones. A version
   already here is never overwritten or edited.
-- `docs/README.md` describes the rest of `docs/`: the design system, the 59
+- `docs/README.md` describes the rest of `docs/`: the design system, the 60
   wireframe screens, the roadmap, and The Mighty Queue reference.
 
 ## Where the project stands

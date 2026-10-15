@@ -582,6 +582,16 @@
       "w": 1280,
       "x": 5440,
       "y": 0
+    },
+    "AccountProfile.dc.html": {
+      "expand": "fill",
+      "h": 1500,
+      "is_interactive": true,
+      "page": "accounts",
+      "title": "A8. Profile",
+      "w": 1280,
+      "x": 9520,
+      "y": 0
     }
   },
   "createdOnFiles": {
@@ -708,6 +718,7 @@
     "AccountForgot.dc.html",
     "AccountReset.dc.html",
     "AccountLoggedOut.dc.html",
+    "AccountProfile.dc.html",
     "OrgHome.dc.html",
     "OrgMembers.dc.html",
     "OrgPolicies.dc.html",

@@ -18,6 +18,7 @@
 | A5. Forgot password | Accounts | screens/A5-AccountForgot.png | source/AccountForgot.dc.html |
 | A6. Set a new password | Accounts | screens/A6-AccountReset.png | source/AccountReset.dc.html |
 | A7. Logged out | Accounts | screens/A7-AccountLoggedOut.png | source/AccountLoggedOut.dc.html |
+| A8. Profile | Accounts | screens/A8-AccountProfile.png | source/AccountProfile.dc.html |
 | O1. Organization home | Organization | screens/O1-OrgHome.png | source/OrgHome.dc.html |
 | O2. Members and roles | Organization | screens/O2-OrgMembers.png | source/OrgMembers.dc.html |
 | O3. Policies | Organization | screens/O3-OrgPolicies.png | source/OrgPolicies.dc.html |
