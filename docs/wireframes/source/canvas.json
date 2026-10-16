@@ -64,7 +64,7 @@
     },
     "AccountProfile.dc.html": {
       "expand": "fill",
-      "h": 1500,
+      "h": 1700,
       "is_interactive": true,
       "page": "accounts",
       "title": "A8. Profile, private view",
