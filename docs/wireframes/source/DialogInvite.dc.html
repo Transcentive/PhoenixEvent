@@ -15,12 +15,17 @@ body{margin:0}
 a{color:#1c1c1c}a:hover{color:#000000}
 </style>
 </helmet>
-<div data-theme="{{theme}}" style="min-height: 950px; background: var(--surface); color: var(--ink); font-family: var(--font-sans); display: flex; flex-direction: column">
-<div class="pe-scrim" style="flex-grow: 1; min-height: 950px">
+<div data-theme="{{theme}}" style="min-height: 1150px; background: var(--surface); color: var(--ink); font-family: var(--font-sans); display: flex; flex-direction: column">
+<div class="pe-scrim" style="flex-grow: 1; min-height: 1150px">
 <div class="pe-dialog" role="dialog" aria-modal="true" aria-labelledby="dialog-title">
 <h1 class="pe-dialog__title" id="dialog-title">Invite member</h1>
-<p class="pe-dialog__body">The person gets an email with a link to join the event you choose. A person with no account at Lincoln Elementary PTA creates one at its address.</p>
-<div class="pe-field"><label class="pe-field__label" for="invite-event">Event</label><select class="pe-input" id="invite-event" name="invite-event"><option>Halloween Bash</option><option>Valentine Dance</option></select></div>
+<p class="pe-dialog__body">The person gets an email with a link. Choose what you are inviting them to.</p>
+<fieldset style="margin: 0; padding: 0; border: 0; display: flex; flex-direction: column; gap: var(--space-1)">
+<legend style="padding: 0; margin-bottom: var(--space-1); font: 600 14px/20px var(--font-sans)">Invitation</legend>
+<label style="display: flex; align-items: center; gap: var(--space-2); min-height: 44px; font: 400 16px/24px var(--font-sans)"><input type="radio" name="invite-type" defaultChecked="checked" style="flex: none; width: 20px; height: 20px">Join an event</label>
+<label style="display: flex; align-items: center; gap: var(--space-2); min-height: 44px; font: 400 16px/24px var(--font-sans)"><input type="radio" name="invite-type" style="flex: none; width: 20px; height: 20px">Set up an organization member account on the Lincoln Elementary PTA website</label>
+</fieldset>
+<div class="pe-field"><label class="pe-field__label" for="invite-event">Event (for an invitation to join an event)</label><select class="pe-input" id="invite-event" name="invite-event"><option>Halloween Bash</option><option>Valentine Dance</option></select></div>
 <fieldset style="margin: 0; padding: 0; border: 0; display: flex; flex-direction: column; gap: var(--space-2)">
 <legend style="padding: 0; margin-bottom: var(--space-1); font: 600 14px/20px var(--font-sans)">Who to invite</legend>
 <label style="display: flex; align-items: center; gap: var(--space-2); min-height: 44px; font: 400 16px/24px var(--font-sans)"><input type="radio" name="invite-who" defaultChecked="checked" style="flex: none; width: 20px; height: 20px">A member listed on Members and roles</label>
@@ -37,7 +42,7 @@ a{color:#1c1c1c}a:hover{color:#000000}
 </div>
 </div>
 </x-dc>
-<script type="text/x-dc" data-dc-script data-props='{"theme":{"editor":"enum","options":["greystone","sunbeam","moonshadow"],"default":"greystone"},"$preview":{"width":1280,"height":1000}}'>
+<script type="text/x-dc" data-dc-script data-props='{"theme":{"editor":"enum","options":["greystone","sunbeam","moonshadow"],"default":"greystone"},"$preview":{"width":1280,"height":1200}}'>
 class Component extends DCLogic {
 renderVals() {
 return { theme: this.props.theme ?? 'greystone' };

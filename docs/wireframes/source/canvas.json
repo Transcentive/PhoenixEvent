@@ -214,7 +214,7 @@
     },
     "DialogInvite.dc.html": {
       "expand": "fill",
-      "h": 1000,
+      "h": 1200,
       "is_interactive": true,
       "page": "dialogs",
       "title": "D6. Invite member",
