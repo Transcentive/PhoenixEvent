@@ -377,6 +377,16 @@
       "x": 1360,
       "y": 0
     },
+    "OrgOfficers.dc.html": {
+      "expand": "fill",
+      "h": 900,
+      "is_interactive": true,
+      "page": "organization",
+      "title": "O8. Organization officers",
+      "w": 1280,
+      "x": 9520,
+      "y": 0
+    },
     "OrgPolicies.dc.html": {
       "expand": "fill",
       "h": 1760,
@@ -737,6 +747,7 @@
     "OrgSupport.dc.html",
     "SupportOrgs.dc.html",
     "SupportSession.dc.html",
+    "OrgOfficers.dc.html",
     "SetupEvent.dc.html",
     "SetupBoard.dc.html",
     "SetupStation.dc.html",

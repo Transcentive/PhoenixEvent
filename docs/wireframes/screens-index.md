@@ -27,6 +27,7 @@
 | O5. Support access | Organization | screens/O5-OrgSupport.png | source/OrgSupport.dc.html |
 | O6. Support sessions, for the System Administrator | Organization | screens/O6-SupportOrgs.png | source/SupportOrgs.dc.html |
 | O7. Inside a support session | Organization | screens/O7-SupportSession.png | source/SupportSession.dc.html |
+| O8. Organization officers | Organization | screens/O8-OrgOfficers.png | source/OrgOfficers.dc.html |
 | S1. Create event | Event setup | screens/S1-SetupEvent.png | source/SetupEvent.dc.html |
 | S2. Event board | Event setup | screens/S2-SetupBoard.png | source/SetupBoard.dc.html |
 | S3. Create station | Event setup | screens/S3-SetupStation.png | source/SetupStation.dc.html |
