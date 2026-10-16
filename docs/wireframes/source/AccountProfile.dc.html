@@ -2,7 +2,7 @@
 <html lang="en">
 <head>
 <meta charset="utf-8">
-<title>Profile</title>
+<title>Profile, private view</title>
 <script src="./support.js"></script>
 <link rel="stylesheet" href="theme.css">
 <link rel="stylesheet" href="ds/phoenixevent/components/bundle.css">
@@ -26,24 +26,27 @@ a{color:#1c1c1c}a:hover{color:#000000}
 <main style="max-width: 720px; margin: 0 auto; padding: var(--space-8); display: flex; flex-direction: column; gap: var(--space-6)">
 <div><a class="pe-link" href="OrgHome.dc.html">Back to Lincoln Elementary PTA</a></div>
 <div style="display: flex; flex-wrap: wrap; align-items: center; gap: var(--space-4)">
-<h1 style="margin: 0; font: 700 30px/36px var(--font-sans); flex-grow: 1">Profile</h1>
-<a class="pe-btn pe-btn--secondary" href="DialogInvite.dc.html">Invite member</a>
+<h1 style="margin: 0; font: 700 30px/36px var(--font-sans); flex-grow: 1">Your profile</h1>
 </div>
 <section class="pe-card" style="display: flex; flex-direction: column; gap: var(--space-4)">
 <div style="display: flex; flex-wrap: wrap; align-items: center; gap: var(--space-3)"><div style="flex: 1 1 220px; display: flex; flex-direction: column"><span style="font: 600 14px/20px var(--font-sans)">Email address</span><span style="font: 400 16px/24px var(--font-sans)">dana@example.org</span></div><a class="pe-btn pe-btn--secondary" href="#change-email">Change</a></div>
+<div class="pe-field"><label class="pe-field__label" for="profile-email-level">Who can see it</label><select class="pe-input" id="profile-email-level" name="profile-email-level"><option>Public</option><option>Organization members</option><option>Event participants</option><option selected>Station members</option><option>Private</option></select></div>
 <div class="pe-field"><label class="pe-field__label" for="profile-username">Username (optional)</label><input class="pe-input" id="profile-username" name="profile-username" type="text" value="dreyes" autocomplete="username"></div>
+<div class="pe-field"><label class="pe-field__label" for="profile-username-level">Who can see it</label><select class="pe-input" id="profile-username-level" name="profile-username-level"><option selected>Public</option><option>Organization members</option><option>Event participants</option><option>Station members</option><option>Private</option></select></div>
+<p role="note" style="margin: 0; padding: var(--space-3); border: 1px solid var(--border); border-radius: var(--radius-2, 4px); background: var(--surface-raised); font: 400 14px/20px var(--font-sans)">Public means anyone can see this without logging in, including people outside Lincoln Elementary PTA. Choose Public only for details you are happy to share with anyone.</p>
 <div style="display: grid; grid-template-columns: repeat(auto-fit, minmax(180px, 1fr)); gap: var(--space-3)">
 <div class="pe-field"><label class="pe-field__label" for="profile-first">First name</label><input class="pe-input" id="profile-first" name="profile-first" type="text" value="Dana" autocomplete="given-name"></div>
 <div class="pe-field"><label class="pe-field__label" for="profile-middle">Middle name (optional)</label><input class="pe-input" id="profile-middle" name="profile-middle" type="text" autocomplete="additional-name"></div>
 <div class="pe-field"><label class="pe-field__label" for="profile-last">Last name</label><input class="pe-input" id="profile-last" name="profile-last" type="text" value="Reyes" autocomplete="family-name"></div>
 </div>
+<div class="pe-field"><label class="pe-field__label" for="profile-name-level">Who can see it</label><select class="pe-input" id="profile-name-level" name="profile-name-level"><option>Public</option><option selected>Organization members</option><option>Event participants</option><option>Station members</option><option>Private</option></select></div>
 <fieldset style="margin: 0; padding: 0; border: 0; display: flex; flex-direction: column; gap: var(--space-1)">
 <legend style="padding: 0; margin-bottom: var(--space-1); font: 600 14px/20px var(--font-sans)">Name shown</legend>
 <label style="display: flex; align-items: center; gap: var(--space-2); min-height: 44px; font: 400 16px/24px var(--font-sans)"><input type="radio" name="profile-shown" style="flex: none; width: 20px; height: 20px">Email address: dana@example.org</label>
 <label style="display: flex; align-items: center; gap: var(--space-2); min-height: 44px; font: 400 16px/24px var(--font-sans)"><input type="radio" name="profile-shown" style="flex: none; width: 20px; height: 20px">Username: dreyes</label>
 <label style="display: flex; align-items: center; gap: var(--space-2); min-height: 44px; font: 400 16px/24px var(--font-sans)"><input type="radio" name="profile-shown" defaultChecked="checked" style="flex: none; width: 20px; height: 20px">Personal name: Dana Reyes</label>
 </fieldset>
-<p style="margin: 0; font: 400 14px/20px var(--font-sans); color: var(--ink-muted)">Shown in the page header and on Members and roles. Only what you have entered can be chosen.</p>
+<p style="margin: 0; font: 400 14px/20px var(--font-sans); color: var(--ink-muted)">Shown in the page header and on Members and roles. Only what you have entered can be chosen. One of email address, username or personal name must not be Private, and the name shown must be visible at least to organization members. Private stays private, on Members and roles too.</p>
 <div style="display: flex; justify-content: flex-end"><a class="pe-btn pe-btn--primary" href="AccountProfile.dc.html">Save</a></div>
 </section>
 <section class="pe-card" id="change-email" style="display: flex; flex-direction: column; gap: var(--space-4)">
