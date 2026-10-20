@@ -36,7 +36,7 @@
 | S6. Waiting list management | Event setup | screens/S6-SetupWaiting.png | source/SetupWaiting.dc.html |
 | S7. Forming the board, board first | Event setup | screens/S7-SetupBoardFirst.png | source/SetupBoardFirst.dc.html |
 | S8. Forming the board, chair first | Event setup | screens/S8-SetupChairFirst.png | source/SetupChairFirst.dc.html |
-| S9. Station with no chair, members vote | Event setup | screens/S9-StationChairVote.png | source/StationChairVote.dc.html |
+| S9. Station with no chair | Event setup | screens/S9-StationChairVote.png | source/StationChairVote.dc.html |
 | C1. Public event page | Communication | screens/C1-CommPublic.png | source/CommPublic.dc.html |
 | C2. Announcements | Communication | screens/C2-CommList.png | source/CommList.dc.html |
 | C3. Post announcement | Communication | screens/C3-CommCompose.png | source/CommCompose.dc.html |
