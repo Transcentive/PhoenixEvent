@@ -50,8 +50,10 @@ a{color:#1c1c1c}a:hover{color:#000000}
 <h3 style="margin: 0; font: 600 19px/26px var(--font-sans)">Your request</h3>
 <div><span class="pe-badge pe-badge--critical"><svg class="pe-icon" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><circle cx="12" cy="12" r="9"></circle><path d="M5.6 5.6l12.8 12.8"></path></svg>Declined</span></div>
 <p style="margin: 0; font: 400 16px/24px var(--font-sans)">[STATION CHAIR NAME], Station Chair, declined your request on [DATE DECIDED].</p>
-<div><a class="pe-btn pe-btn--secondary" href="Stations.dc.html">See other stations</a></div>
-<p style="margin: 0; font: 400 14px/20px var(--font-sans); color: var(--ink-muted)">[What the person is told, and whether they may ask again, are open decisions]</p>
+<div style="display: flex; flex-direction: column; gap: var(--space-1); padding: var(--space-3); background: var(--surface); border: 1px solid var(--border); border-radius: 6px"><span style="font: 600 13px/20px var(--font-sans); letter-spacing: .01em; color: var(--ink-muted)">Reason</span><span style="font: 400 16px/24px var(--font-sans)">[REASON THE STATION CHAIR WROTE]</span></div>
+<p style="margin: 0; font: 400 14px/20px var(--font-sans); color: var(--ink-muted)">You were also told by email and by a message in PhoenixEvent.</p>
+<div style="display: flex; flex-wrap: wrap; gap: var(--space-3)"><a class="pe-btn pe-btn--secondary" href="JoinRequest.dc.html">Ask again</a><a class="pe-btn pe-btn--secondary" href="Stations.dc.html">See other stations</a></div>
+<p style="margin: 0; font: 400 14px/20px var(--font-sans); color: var(--ink-muted)">[The Reason box shows only when the Station Chair wrote one. Otherwise the message reads "Request was declined".]</p>
 </div>
 <div class="pe-card" style="display: flex; flex-direction: column; gap: var(--space-3)">
 <span style="font: 600 13px/20px var(--font-sans); letter-spacing: .01em; color: var(--ink-muted)">When the request lapses</span>
@@ -66,10 +68,10 @@ a{color:#1c1c1c}a:hover{color:#000000}
 <aside class="pe-card" style="flex: 1 1 320px; display: flex; flex-direction: column; gap: var(--space-4)">
 <h2 style="margin: 0; font: 600 19px/26px var(--font-sans)">Your request</h2>
 <div><span class="pe-badge pe-badge--caution"><svg class="pe-icon" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><circle cx="12" cy="12" r="9"></circle><path d="M12 7v5l3 2"></path></svg>Pending approval</span></div>
-<p style="margin: 0; font: 400 16px/24px var(--font-sans)">You asked to join Face Painting on [DATE SENT]. [STATION CHAIR NAME], Station Chair, decides. You get an email with the answer. Your request holds 1 spot until [EXPIRY TIME].</p>
+<p style="margin: 0; font: 400 16px/24px var(--font-sans)">You asked to join Face Painting on [DATE SENT]. [STATION CHAIR NAME], Station Chair, decides. You get the answer by email and by a message in PhoenixEvent. Your request holds 1 spot until [EXPIRY TIME].</p>
 <div class="pe-meter"><div class="pe-meter__track" role="img" aria-label="6 of 12 spots taken"><div class="pe-meter__fill" style="width: 50%"></div></div><div class="pe-meter__row"><span>6 of 12 spots taken</span><span class="pe-meter__note">1 more held for you</span></div></div>
 <div><a class="pe-btn pe-btn--secondary" href="JoinRequest.dc.html">Withdraw request</a></div>
-<p style="margin: 0; font: 400 14px/20px var(--font-sans); color: var(--ink-muted)">[Whether a person may withdraw a waiting request is an open decision]</p>
+<p style="margin: 0; font: 400 14px/20px var(--font-sans); color: var(--ink-muted)">Withdrawing opens the spot your request holds.</p>
 </aside>
 </div>
 </main>

@@ -28,7 +28,7 @@ a{color:#1c1c1c}a:hover{color:#000000}
 <section style="display: flex; flex-direction: column; gap: var(--space-3)">
 <div style="display: flex; align-items: center; gap: var(--space-1); font: 600 13px/20px var(--font-sans); letter-spacing: .01em; color: var(--ink-muted)"><svg class="pe-icon" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M6 21V4M6 5h11l-2 3.5 2 3.5H6"></path></svg>Station · Halloween Bash</div>
 <h1 style="margin: 0; font: 700 30px/36px var(--font-sans)">Requests to join Face Painting</h1>
-<p style="margin: 0; font: 400 16px/24px var(--font-sans)">2 requests are waiting for your answer. You decide them as Station Chair.</p>
+<p style="margin: 0; font: 400 16px/24px var(--font-sans)">3 requests are waiting for your answer. You decide them as Station Chair.</p>
 </section>
 <div style="display: flex; flex-wrap: wrap; gap: var(--space-8); align-items: flex-start">
 <div style="flex: 999 1 560px; min-width: 0; display: flex; flex-direction: column; gap: var(--space-6)">
@@ -45,7 +45,21 @@ a{color:#1c1c1c}a:hover{color:#000000}
 <a class="pe-btn pe-btn--secondary" href="#">Approve request</a>
 <a class="pe-btn pe-btn--secondary" href="#">Decline request</a>
 </div>
-<p style="margin: 0; padding-top: var(--space-3); border-top: 1px solid var(--border); font: 400 14px/20px var(--font-sans)">Approving a request adds the person to the station and takes 1 spot. The spot is the one the request already holds.</p>
+<div style="display: flex; flex-wrap: wrap; align-items: center; gap: var(--space-3); padding: var(--space-3) 0; border-top: 1px solid var(--border)">
+<div style="flex: 1 1 100%; display: flex; flex-direction: column"><span style="font: 600 16px/24px var(--font-sans)">[USER NAME]</span><span style="font: 400 14px/20px var(--font-sans); color: var(--ink-muted)">Registrant · Asked again [DATE SENT] · Declined [N] times before · Holds a spot until [EXPIRY TIME]</span></div>
+<span class="pe-badge pe-badge--caution"><svg class="pe-icon" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><circle cx="12" cy="12" r="9"></circle><path d="M12 7v5l3 2"></path></svg>Pending approval</span>
+<a class="pe-btn pe-btn--secondary" href="#">Approve request</a>
+<a class="pe-btn pe-btn--secondary" href="#">Decline request</a>
+<a class="pe-btn pe-btn--secondary" href="#">Bypass and fill from the waiting list</a>
+</div>
+<p style="margin: 0; padding-top: var(--space-3); border-top: 1px solid var(--border); font: 400 14px/20px var(--font-sans)">Approving a request adds the person to the station and takes 1 spot. The spot is the one the request already holds. A person who was declined may ask again. Bypassing a repeated request declines it and gives its spot to the next person on the waiting list.</p>
+</section>
+<section class="pe-card" style="display: flex; flex-direction: column; gap: var(--space-4)">
+<h2 style="margin: 0; font: 600 19px/26px var(--font-sans)">Decline request</h2>
+<p style="margin: 0; font: 400 16px/24px var(--font-sans)">You are declining [USER NAME]'s request to join Face Painting.</p>
+<div class="pe-field"><label class="pe-field__label" for="decline-reason">Reason (optional)</label><textarea class="pe-input" id="decline-reason" name="decline-reason" rows="3"></textarea><span class="pe-field__hint">Leave it empty to send only "Request was declined". [USER NAME] is told by email and by a message in PhoenixEvent, with your name and any reason you write.</span></div>
+<div style="display: flex; flex-wrap: wrap; gap: var(--space-3)"><a class="pe-btn pe-btn--primary" href="#">Decline request</a><a class="pe-btn pe-btn--secondary" href="#">Cancel</a></div>
+<p style="margin: 0; font: 400 14px/20px var(--font-sans); color: var(--ink-muted)">[This panel opens when you press Decline request beside a name.]</p>
 </section>
 <section style="display: flex; flex-direction: column; gap: var(--space-3)">
 <h2 style="margin: 0; font: 600 24px/30px var(--font-sans)">Decided</h2>
@@ -56,22 +70,25 @@ a{color:#1c1c1c}a:hover{color:#000000}
 </div>
 <div style="display: flex; flex-wrap: wrap; align-items: center; gap: var(--space-3); padding: var(--space-3) 0; border-top: 1px solid var(--border)">
 <div style="flex: 1 1 220px; display: flex; flex-direction: column"><span style="font: 600 16px/24px var(--font-sans)">[USER NAME]</span><span style="font: 400 14px/20px var(--font-sans); color: var(--ink-muted)">Declined by you on [DATE DECIDED]</span></div>
+<a class="pe-btn pe-btn--secondary" href="#">Block from this station</a>
+<a class="pe-btn pe-btn--secondary" href="#">Recommend suspension</a>
 <span class="pe-badge pe-badge--critical"><svg class="pe-icon" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><circle cx="12" cy="12" r="9"></circle><path d="M5.6 5.6l12.8 12.8"></path></svg>Declined</span>
 </div>
 </div>
+<p style="margin: 0; font: 400 14px/20px var(--font-sans); color: var(--ink-muted)">Blocking keeps the person from asking to join this station again. A suspension is effectively a block from the event: your recommendation goes to the Event Chair, who decides.</p>
 </section>
 <p style="margin: 0; max-width: 720px; font: 400 14px/20px var(--font-sans); color: var(--ink-muted)">[The line under each name shows how the person became a participant of Halloween Bash: as a registrant, who registered, or as a subscriber, who paid.]</p>
 </div>
 <aside style="flex: 1 1 320px; display: flex; flex-direction: column; gap: var(--space-6)">
 <section class="pe-card" style="display: flex; flex-direction: column; gap: var(--space-4)">
 <h2 style="margin: 0; font: 600 19px/26px var(--font-sans)">Spots</h2>
-<div class="pe-meter"><div class="pe-meter__track" role="img" aria-label="6 of 12 spots taken"><div class="pe-meter__fill" style="width: 50%"></div></div><div class="pe-meter__row"><span>6 of 12 spots taken</span><span class="pe-meter__note">2 more held</span></div></div>
-<p style="margin: 0; font: 400 14px/20px var(--font-sans); color: var(--ink-muted)">Each of the 2 waiting requests holds 1 spot, so 4 spots are open to new requests. A request you leave unanswered lapses at its expiry time and its spot opens again. [The length of the expiry is an open decision]</p>
+<div class="pe-meter"><div class="pe-meter__track" role="img" aria-label="6 of 12 spots taken"><div class="pe-meter__fill" style="width: 50%"></div></div><div class="pe-meter__row"><span>6 of 12 spots taken</span><span class="pe-meter__note">3 more held</span></div></div>
+<p style="margin: 0; font: 400 14px/20px var(--font-sans); color: var(--ink-muted)">Each of the 3 waiting requests holds 1 spot, so 3 spots are open to new requests. A request you leave unanswered lapses at its expiry time and its spot opens again. [The length of the expiry is an open decision]</p>
 </section>
 <section class="pe-card" style="display: flex; flex-direction: column; gap: var(--space-3)">
 <h2 style="margin: 0; font: 600 19px/26px var(--font-sans)">When a station has no chair</h2>
 <p style="margin: 0; font: 400 14px/20px var(--font-sans)">The Event Board Chair sees this same list for that station, headed "You decide these requests because Cake Walk has no chair, lead or manager yet."</p>
-<p style="margin: 0; font: 400 14px/20px var(--font-sans); color: var(--ink-muted)">[Who decides when the event board has no chair either is an open decision]</p>
+<p style="margin: 0; font: 400 14px/20px var(--font-sans); color: var(--ink-muted)">An event always has an Event Board Chair once its stations take requests, because registration opens only once the board is formed (5E.4).</p>
 </section>
 </aside>
 </div>

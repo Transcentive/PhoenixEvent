@@ -314,7 +314,7 @@
     },
     "JoinApprovals.dc.html": {
       "expand": "fill",
-      "h": 1040,
+      "h": 1650,
       "is_interactive": true,
       "title": "9. Requests to join a station",
       "w": 1280,
@@ -332,7 +332,7 @@
     },
     "JoinWaiting.dc.html": {
       "expand": "fill",
-      "h": 1120,
+      "h": 1240,
       "is_interactive": true,
       "title": "8. Request to join, waiting and decided",
       "w": 1280,
