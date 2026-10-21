@@ -64,3 +64,19 @@
 | G3. Propose event | Governance | screens/G3-GovPropose.png | source/GovPropose.dc.html |
 | G4. Proposal review | Governance | screens/G4-GovReview.png | source/GovReview.dc.html |
 | G5. My proposals | Governance | screens/G5-GovMine.png | source/GovMine.dc.html |
+
+## Phone versions
+
+Drawn 390 pixels wide (spec section 12). Each uses the same source file as its laptop version.
+
+| Screen | Phone image |
+| --- | --- |
+| A1. Find your organization | screens/A1-AccountOrg-phone.png |
+| A2. Log in | screens/A2-AccountLogin-phone.png |
+| A3. Create account | screens/A3-AccountCreate-phone.png |
+| A4. Confirm email | screens/A4-AccountConfirm-phone.png |
+| A5. Forgot password | screens/A5-AccountForgot-phone.png |
+| A6. Set a new password | screens/A6-AccountReset-phone.png |
+| A7. Logged out | screens/A7-AccountLoggedOut-phone.png |
+| A8. Profile, private view | screens/A8-AccountProfile-phone.png |
+| A9. Profile, shared view | screens/A9-AccountProfileShared-phone.png |
