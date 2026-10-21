@@ -28,11 +28,21 @@ a{color:#1c1c1c}a:hover{color:#000000}
 <div class="pe-field">
 <label class="pe-field__label" for="org">Organization</label>
 <input class="pe-input" id="org" name="organization" defaultValue="Lincoln Elementary PTA" autocomplete="organization">
-<span class="pe-field__hint">Each organization has its own login address, such as lincolnpta.phoenixevent.tomsherlock.space during testing. [Proposed: a person with no address to hand enters their email address and gets an email linking to each organization with an account under it. The screen never shows that list.]</span>
+<span class="pe-field__hint">Each organization has its own login address, such as lincolnpta.phoenixevent.tomsherlock.space during testing.</span>
 </div>
 <div class="pe-login__foot">
 <a class="pe-link" href="AccountCreate.dc.html">Create account</a>
 <a class="pe-btn pe-btn--primary" href="AccountLogin.dc.html">Go to its login page</a>
+</div>
+<div style="display: flex; flex-direction: column; gap: var(--space-3); padding-top: var(--space-4); border-top: 1px solid var(--border)">
+<h2 style="margin: 0; font: 600 16px/24px var(--font-sans)">Don't know your organization's address?</h2>
+<div class="pe-field">
+<label class="pe-field__label" for="lookup-email">Email address</label>
+<input class="pe-input" id="lookup-email" name="lookup-email" type="email" autocomplete="email">
+<span class="pe-field__hint">We'll email you a link to the login page of each organization where you have an account.</span>
+</div>
+<div><a class="pe-btn pe-btn--secondary" href="#">Email me the links</a></div>
+<p style="margin: 0; font: 400 14px/20px var(--font-sans); color: var(--ink-muted)">[After sending, the screen always reads: "If any organization has an account under this address, we've emailed you a link to each one." The screen never shows the list.]</p>
 </div>
 </div>
 </main>
