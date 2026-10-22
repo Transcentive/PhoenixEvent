@@ -85,11 +85,31 @@ ENV
   echo "  + $ENV_FILE"
 fi
 
+# Settings added after the file was first written are appended, and nothing
+# already there is changed.
+add_setting() {
+  if ! grep -q "^$1=" "$ENV_FILE"; then
+    printf '%s=%s\n' "$1" "$2" >> "$ENV_FILE"
+    echo "  + $1"
+  fi
+}
+if ! grep -q "^ORG_DOMAIN=" "$ENV_FILE"; then
+  printf '\n# Addresses (spec 4A.5): each organization at <name>.phoenixevent.localhost:5174,\n# the general address at phoenixevent.localhost:5174.\n' >> "$ENV_FILE"
+fi
+add_setting ORG_DOMAIN phoenixevent.localhost
+add_setting SITE_SCHEME http
+add_setting SITE_PORT 5174
+add_setting COOKIE_SECURE false
+add_setting JWT_SECRET "$(openssl rand -hex 32)"
+# The organization a phone on the same Wi-Fi reaches at the Mac's Wi-Fi
+# address (scripts/run-local.sh). Empty: none.
+add_setting LAN_ORGANIZATION ""
+
 mkdir -p "$REPO_ROOT/.local/files" "$REPO_ROOT/.local/logs"
 
 say "Done"
 cat <<'NEXT'
   Start everything:
 
-    ./scripts/run-local.sh        # then open http://localhost:5174
+    ./scripts/run-local.sh        # then open http://phoenixevent.localhost:5174
 NEXT

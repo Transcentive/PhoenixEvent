@@ -4,6 +4,7 @@ package main
 import (
 	"context"
 	"errors"
+	"flag"
 	"fmt"
 	"log"
 	"net/http"
@@ -14,23 +15,72 @@ import (
 
 	"github.com/gin-gonic/gin"
 
+	"github.com/Transcentive/PhoenixEvent/backend/internal/accounts"
 	"github.com/Transcentive/PhoenixEvent/backend/internal/config"
 	"github.com/Transcentive/PhoenixEvent/backend/internal/database"
 	"github.com/Transcentive/PhoenixEvent/backend/internal/email"
 	"github.com/Transcentive/PhoenixEvent/backend/internal/server"
 	"github.com/Transcentive/PhoenixEvent/backend/internal/storage"
+	"github.com/Transcentive/PhoenixEvent/backend/internal/token"
 )
 
 // build is the commit the binary was built from, set by the deploy script.
 var build = "dev"
 
 func main() {
+	run := serve
+	if len(os.Args) > 1 && os.Args[1] == "create-organization" {
+		run = createOrganization
+	}
 	if err := run(); err != nil {
 		log.Fatalf("phoenixevent: %v", err)
 	}
 }
 
-func run() error {
+// createOrganization is the System Administrator's command (spec 4A.6):
+//
+//	phoenixevent-server create-organization -name "Lincoln Elementary PTA" \
+//	    -address lincolnpta -admin-email admin@example.org
+//
+// It runs with the same environment as the server, so it reaches the same
+// database and sends email the same way.
+func createOrganization() error {
+	flags := flag.NewFlagSet("create-organization", flag.ContinueOnError)
+	name := flags.String("name", "", "the organization's name, such as \"Lincoln Elementary PTA\"")
+	address := flags.String("address", "", "the address name, such as lincolnpta; fixed once set")
+	adminEmail := flags.String("admin-email", "", "the email address of the first Organization Administrator")
+	if err := flags.Parse(os.Args[2:]); err != nil {
+		return err
+	}
+	if *name == "" || *address == "" || *adminEmail == "" {
+		flags.Usage()
+		return errors.New("-name, -address and -admin-email are all required")
+	}
+
+	cfg, err := config.Load()
+	if err != nil {
+		return fmt.Errorf("configuration:\n%w", err)
+	}
+	if err := database.RunMigrations(cfg.DatabaseURL, cfg.MigrationsPath); err != nil {
+		return err
+	}
+	ctx := context.Background()
+	pool, err := database.NewPool(ctx, cfg.DatabaseURL)
+	if err != nil {
+		return err
+	}
+	defer pool.Close()
+
+	svc := accounts.NewService(pool, newSender(cfg.Email), cfg.Site, token.NewIssuer(cfg.JWTSecret))
+	org, err := svc.CreateOrganization(ctx, *name, *address, *adminEmail)
+	if err != nil {
+		return err
+	}
+	fmt.Printf("Created %s at %s\nThe link to set a password went to %s.\n", org.Name, cfg.Site.OrgURL(org.Slug), *adminEmail)
+	return nil
+}
+
+func serve() error {
 	cfg, err := config.Load()
 	if err != nil {
 		return fmt.Errorf("configuration:\n%w", err)
@@ -52,14 +102,15 @@ func run() error {
 	}
 	defer pool.Close()
 
-	// Both adapters are built at startup so that a host with a bad storage
-	// path or email setting fails here. Nothing uses them until Phase 2.
+	// The storage adapter is built at startup so that a host with a bad
+	// path fails here. Nothing uses it until uploads arrive.
 	files, err := storage.NewLocalFS(cfg.StoragePath)
 	if err != nil {
 		return err
 	}
-	mailer := newSender(cfg.Email)
-	_, _ = files, mailer
+	_ = files
+	tokens := token.NewIssuer(cfg.JWTSecret)
+	accountService := accounts.NewService(pool, newSender(cfg.Email), cfg.Site, tokens)
 
 	if os.Getenv("GIN_MODE") == "" {
 		gin.SetMode(gin.ReleaseMode)
@@ -67,8 +118,14 @@ func run() error {
 	srv := &http.Server{
 		// Localhost only: nginx is the one process open to the internet
 		// (spec 2A.3).
-		Addr:              fmt.Sprintf("127.0.0.1:%d", cfg.Port),
-		Handler:           server.New(pool, build),
+		Addr: fmt.Sprintf("127.0.0.1:%d", cfg.Port),
+		Handler: server.New(server.Deps{
+			DB:       pool,
+			Build:    build,
+			Accounts: accountService,
+			Tokens:   tokens,
+			Site:     cfg.Site,
+		}),
 		ReadHeaderTimeout: 10 * time.Second,
 	}
 

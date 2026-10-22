@@ -23,8 +23,16 @@
 ## Where the project stands
 
 Roadmap Phase 1, the repository and development foundation, is built and runs
-on the Mac. It has not been deployed to the droplet. Phase 2 (accounts,
-organization context and RBAC) is next. No domain tables exist yet.
+on the Mac. Phase 2 (accounts, organization context and RBAC) is under way: its
+first step, organizations and sign-in (the create-organization server command,
+screens A1 to A7, E1 and E2), is built and was tested by the owner on the Mac
+and a phone on October 22, 2026. Nothing has been deployed to the droplet.
+
+On a development Mac each organization is at
+`http://<name>.phoenixevent.localhost:5174`. A phone on the same Wi-Fi reaches
+the organization `LAN_ORGANIZATION` names in `backend/.env` at the Mac's Wi-Fi
+address, which `./scripts/run-local.sh` prints. Emails are written to
+`.local/logs/api.log`.
 
 ## Stack (spec 2A.2)
 
@@ -65,7 +73,7 @@ docs/                  specification, design system, wireframes, roadmap
 
 ```sh
 ./scripts/setup-local-db.sh   # once: role, database, backend/.env
-./scripts/run-local.sh        # API on 8082, web client on http://localhost:5174
+./scripts/run-local.sh        # API on 8082; web client at http://phoenixevent.localhost:5174 (general address) and http://<org>.phoenixevent.localhost:5174
 ./scripts/check.sh            # every automated check; run before committing
 ./scripts/test.sh             # backend tests only, against phoenixevent_test
 ./scripts/deploy.sh root@droplet

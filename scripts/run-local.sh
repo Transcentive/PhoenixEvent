@@ -29,9 +29,15 @@ fi
 say "Building the API"
 (cd "$REPO_ROOT/backend" && go build -o "$REPO_ROOT/.local/phoenixevent-server" ./cmd/server)
 
+# A phone cannot look up the .localhost names, so the Mac's Wi-Fi address
+# stands for the organization LAN_ORGANIZATION names in backend/.env.
+LAN="$(ipconfig getifaddr en0 2>/dev/null || ipconfig getifaddr en1 2>/dev/null || true)"
+LAN_ORG="$(grep -E '^LAN_ORGANIZATION=' "$ENV_FILE" | head -1 | cut -d= -f2-)"
+
 say "Starting the API on $PORT"
 (
   set -a; . "$ENV_FILE"; set +a
+  if [ -n "$LAN" ] && [ -n "$LAN_ORG" ]; then export LAN_ADDRESS="$LAN:5174"; fi
   cd "$REPO_ROOT/backend"
   exec "$REPO_ROOT/.local/phoenixevent-server"
 ) >"$LOG" 2>&1 &
@@ -49,6 +55,10 @@ for _ in $(seq 1 30); do
 done
 echo "  health: $(curl -s -m 2 "http://127.0.0.1:$PORT/api/v1/health")"
 
-say "Starting the web client: http://localhost:5174"
+say "Starting the web client: http://phoenixevent.localhost:5174"
+if [ -n "$LAN" ] && [ -n "$LAN_ORG" ]; then
+  echo "  On a phone on the same Wi-Fi: http://$LAN:5174 is $LAN_ORG"
+fi
 cd "$REPO_ROOT/frontend"
-npm run dev
+# --host listens on the Wi-Fi as well, or the phone gets nothing.
+npm run dev -- --host

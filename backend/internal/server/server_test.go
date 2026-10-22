@@ -31,7 +31,7 @@ func TestHealth(t *testing.T) {
 	for _, tt := range tests {
 		t.Run(tt.name, func(t *testing.T) {
 			rec := httptest.NewRecorder()
-			New(tt.db, "abc123").ServeHTTP(rec, httptest.NewRequest(http.MethodGet, "/api/v1/health", nil))
+			New(Deps{DB: tt.db, Build: "abc123"}).ServeHTTP(rec, httptest.NewRequest(http.MethodGet, "/api/v1/health", nil))
 
 			if rec.Code != tt.wantCode {
 				t.Fatalf("status code = %d, want %d", rec.Code, tt.wantCode)
@@ -50,7 +50,7 @@ func TestHealth(t *testing.T) {
 func TestUnknownRouteIs404(t *testing.T) {
 	gin.SetMode(gin.TestMode)
 	rec := httptest.NewRecorder()
-	New(fakeDB{}, "abc123").ServeHTTP(rec, httptest.NewRequest(http.MethodGet, "/api/v1/nothing", nil))
+	New(Deps{DB: fakeDB{}, Build: "abc123"}).ServeHTTP(rec, httptest.NewRequest(http.MethodGet, "/api/v1/nothing", nil))
 	if rec.Code != http.StatusNotFound {
 		t.Errorf("status code = %d, want 404", rec.Code)
 	}

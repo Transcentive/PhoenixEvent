@@ -13,6 +13,8 @@ func TestLoadFrom(t *testing.T) {
 	base := map[string]string{
 		"DATABASE_URL": "postgres://phoenixevent@localhost:5433/phoenixevent",
 		"STORAGE_PATH": "/tmp/pe",
+		"ORG_DOMAIN":   "phoenixevent.localhost",
+		"JWT_SECRET":   "0123456789abcdef0123456789abcdef",
 	}
 	with := func(extra map[string]string) map[string]string {
 		merged := map[string]string{}
@@ -38,6 +40,12 @@ func TestLoadFrom(t *testing.T) {
 				if cfg.Port != 8082 || cfg.Email.Port != 587 || cfg.MigrationsPath != "migrations" {
 					t.Errorf("unexpected defaults: %+v", cfg)
 				}
+				if cfg.Site.Scheme != "https" || !cfg.Site.CookieSecure {
+					t.Errorf("a host must opt out of HTTPS, not in: %+v", cfg.Site)
+				}
+				if got := cfg.Site.OrgURL("lincolnpta"); got != "https://lincolnpta.phoenixevent.localhost/" {
+					t.Errorf("OrgURL = %q", got)
+				}
 			},
 		},
 		{
@@ -49,6 +57,23 @@ func TestLoadFrom(t *testing.T) {
 				}
 			},
 		},
+		{
+			name:   "development Mac",
+			values: with(map[string]string{"SITE_SCHEME": "http", "SITE_PORT": "5174", "COOKIE_SECURE": "false"}),
+			check: func(t *testing.T, cfg Config) {
+				if got := cfg.Site.OrgURL("lincolnpta"); got != "http://lincolnpta.phoenixevent.localhost:5174/" {
+					t.Errorf("OrgURL = %q", got)
+				}
+				if got := cfg.Site.GeneralURL(); got != "http://phoenixevent.localhost:5174/" {
+					t.Errorf("GeneralURL = %q", got)
+				}
+				if cfg.Site.CookieSecure {
+					t.Error("COOKIE_SECURE=false was ignored")
+				}
+			},
+		},
+		{name: "secret too short", values: with(map[string]string{"JWT_SECRET": "short"}), wantErr: "JWT_SECRET"},
+		{name: "org domain missing", values: with(map[string]string{"ORG_DOMAIN": ""}), wantErr: "ORG_DOMAIN"},
 		{name: "database url missing", values: map[string]string{"STORAGE_PATH": "/tmp/pe"}, wantErr: "DATABASE_URL is required"},
 		{name: "storage path missing", values: map[string]string{"DATABASE_URL": "x"}, wantErr: "STORAGE_PATH is required"},
 		{name: "port not a number", values: with(map[string]string{"PORT": "http"}), wantErr: "PORT"},

@@ -48,8 +48,10 @@ fi
 
 say "Running tests"
 cd "$REPO_ROOT/backend"
+# -p 1: the packages share the one throwaway database, and each empties it
+# before its tests, so they take turns.
 if [ $# -gt 0 ]; then
-  DATABASE_URL="$TEST_URL" go test "$@"
+  DATABASE_URL="$TEST_URL" go test -p 1 "$@"
 else
-  DATABASE_URL="$TEST_URL" go test ./...
+  DATABASE_URL="$TEST_URL" go test -p 1 ./...
 fi

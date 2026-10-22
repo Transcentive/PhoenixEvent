@@ -6,6 +6,7 @@ import (
 	"fmt"
 	"os"
 	"strconv"
+	"strings"
 )
 
 // Config is everything the server needs to start. Secrets arrive through the
@@ -16,6 +17,50 @@ type Config struct {
 	MigrationsPath string
 	StoragePath    string
 	Email          Email
+	Site           Site
+	// JWTSecret signs access tokens (2A.3). At least 32 characters.
+	JWTSecret string
+}
+
+// Site describes the addresses people use. Each organization is at
+// <slug>.<OrgDomain> (4A.5), and OrgDomain alone is the general address,
+// screen A1.
+type Site struct {
+	// OrgDomain is phoenixevent.tomsherlock.space during testing and
+	// phoenixevent.localhost on a development Mac.
+	OrgDomain string
+	// Scheme and Port build the links in emails: https and no port on the
+	// droplet; http and 5174, the web client's port, on a development Mac.
+	Scheme string
+	Port   string
+	// CookieSecure marks cookies HTTPS-only. True everywhere but a
+	// development Mac.
+	CookieSecure bool
+	// LANAddress and LANOrganization are for testing on a phone, on a
+	// development Mac only. A phone cannot look up the .localhost names, so
+	// the Mac's Wi-Fi address, such as 192.168.1.189:5174, stands for one
+	// organization, named by its address name. scripts/run-local.sh sets
+	// LAN_ADDRESS; LAN_ORGANIZATION is in backend/.env. Both empty on the
+	// droplet.
+	LANAddress      string
+	LANOrganization string
+}
+
+// OrgURL is the address of one organization's site, ending in /.
+func (s Site) OrgURL(slug string) string {
+	return s.Scheme + "://" + slug + "." + s.OrgDomain + s.portSuffix() + "/"
+}
+
+// GeneralURL is the general address, screen A1.
+func (s Site) GeneralURL() string {
+	return s.Scheme + "://" + s.OrgDomain + s.portSuffix() + "/"
+}
+
+func (s Site) portSuffix() string {
+	if s.Port == "" {
+		return ""
+	}
+	return ":" + s.Port
 }
 
 // Email selects and configures the email adapter. An empty Host means no SMTP
@@ -50,6 +95,25 @@ func LoadFrom(getenv func(string) string) (Config, error) {
 		},
 	}
 
+	cfg.Site = Site{
+		OrgDomain:       strings.ToLower(getenv("ORG_DOMAIN")),
+		Scheme:          orDefault(getenv("SITE_SCHEME"), "https"),
+		Port:            getenv("SITE_PORT"),
+		CookieSecure:    getenv("COOKIE_SECURE") != "false",
+		LANAddress:      strings.ToLower(getenv("LAN_ADDRESS")),
+		LANOrganization: strings.ToLower(getenv("LAN_ORGANIZATION")),
+	}
+	cfg.JWTSecret = getenv("JWT_SECRET")
+
+	if cfg.Site.OrgDomain == "" {
+		errs = append(errs, errors.New("ORG_DOMAIN is required, such as phoenixevent.localhost"))
+	}
+	if cfg.Site.Scheme != "http" && cfg.Site.Scheme != "https" {
+		errs = append(errs, fmt.Errorf("SITE_SCHEME: %q is neither http nor https", cfg.Site.Scheme))
+	}
+	if len(cfg.JWTSecret) < 32 {
+		errs = append(errs, errors.New("JWT_SECRET is required, at least 32 characters"))
+	}
 	if cfg.DatabaseURL == "" {
 		errs = append(errs, errors.New("DATABASE_URL is required"))
 	}
