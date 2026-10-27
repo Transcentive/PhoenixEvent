@@ -232,8 +232,8 @@ func (s *Service) Register(ctx context.Context, org *Organization, emailAddr, us
 		acc.Username = &username
 	}
 	err = tx.QueryRow(ctx,
-		`INSERT INTO accounts (organization_id, email, username, password_hash) VALUES ($1, $2, $3, $4) RETURNING id`,
-		org.ID, emailAddr, acc.Username, hash,
+		`INSERT INTO accounts (organization_id, email, username, password_hash, email_level) VALUES ($1, $2, $3, $4, $5) RETURNING id`,
+		org.ID, emailAddr, acc.Username, hash, startingEmailLevel(acc.Username),
 	).Scan(&acc.ID)
 	if isUniqueViolation(err) {
 		if strings.Contains(constraintName(err), "username") {

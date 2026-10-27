@@ -12,6 +12,8 @@ import Login from "@/pages/account/Login";
 import Logout from "@/pages/account/Logout";
 import ResetPassword from "@/pages/account/ResetPassword";
 import UnknownAddress from "@/pages/account/UnknownAddress";
+import Person from "@/pages/profile/Person";
+import ProfilePage from "@/pages/profile/Profile";
 
 /*
   What the page shows depends on the address (4A.5): the general address
@@ -54,6 +56,8 @@ export default function App() {
       <Route path="/status" element={<FoundationPage />} />
       <Route path="/" element={signedIn ? <Home /> : <Navigate to="/login" replace />} />
       <Route path="/login" element={signedIn ? <Navigate to="/" replace /> : <Login />} />
+      <Route path="/profile" element={signedIn ? <ProfilePage /> : <Navigate to="/login" replace />} />
+      <Route path="/people/:id" element={signedIn ? <Person /> : <Navigate to="/login" replace />} />
       <Route path="/register" element={<CreateAccount />} />
       <Route path="/check-email" element={<CheckEmail />} />
       <Route path="/confirm-email" element={<ConfirmEmail />} />

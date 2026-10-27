@@ -26,7 +26,9 @@ Roadmap Phase 1, the repository and development foundation, is built and runs
 on the Mac. Phase 2 (accounts, organization context and RBAC) is under way: its
 first step, organizations and sign-in (the create-organization server command,
 screens A1 to A7, E1 and E2), is built and was tested by the owner on the Mac
-and a phone on October 22, 2026. Nothing has been deployed to the droplet.
+and a phone on October 22, 2026. Its second step, the profile (screens A8 and
+A9, section 8B), is built and was tested by the owner on October 27, 2026.
+Nothing has been deployed to the droplet.
 
 On a development Mac each organization is at
 `http://<name>.phoenixevent.localhost:5174`. A phone on the same Wi-Fi reaches

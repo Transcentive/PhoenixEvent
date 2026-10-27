@@ -66,6 +66,11 @@ func New(d Deps) *gin.Engine {
 
 		signedIn := org.Group("", h.requireSession)
 		signedIn.GET("/me", h.me)
+		signedIn.GET("/profile", h.profile)
+		signedIn.PUT("/profile", h.updateProfile)
+		signedIn.PUT("/profile/visibility", h.updateVisibility)
+		signedIn.POST("/profile/email", h.changeEmail)
+		signedIn.GET("/people/:id", h.person)
 	}
 
 	return router

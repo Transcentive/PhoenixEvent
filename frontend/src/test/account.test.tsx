@@ -1,11 +1,9 @@
-import { render, screen } from "@testing-library/react";
+import { screen } from "@testing-library/react";
 import userEvent from "@testing-library/user-event";
-import { MemoryRouter } from "react-router-dom";
 import { http, HttpResponse } from "msw";
-import App from "@/App";
-import { SessionProvider } from "@/session";
 import { safeReturn } from "@/pages/account/Logout";
 import { server } from "./server";
+import { DANA, renderAt } from "./app";
 
 const PTA = {
   kind: "organization",
@@ -14,16 +12,6 @@ const PTA = {
 };
 
 const ENDED = { code: "session_ended", message: "Your session has ended. Log in again." };
-
-function renderAt(path: string) {
-  render(
-    <SessionProvider>
-      <MemoryRouter initialEntries={[path]}>
-        <App />
-      </MemoryRouter>
-    </SessionProvider>,
-  );
-}
 
 function atPTA(...handlers: Parameters<typeof server.use>) {
   server.use(
@@ -112,6 +100,7 @@ describe("account screens", () => {
     atPTA(
       http.post("/api/v1/auth/login", () => HttpResponse.json(session)),
       http.post("/api/v1/auth/logout", () => HttpResponse.json({})),
+      http.get("/api/v1/profile", () => HttpResponse.json({ ...DANA, name: "dreyes" })),
     );
     renderAt("/login");
     await userEvent.type(await screen.findByLabelText("Username"), "dreyes");

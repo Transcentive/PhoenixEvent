@@ -1,0 +1,11 @@
+ALTER TABLE accounts
+    DROP CONSTRAINT accounts_levels,
+    DROP CONSTRAINT accounts_personal_name,
+    DROP COLUMN roles_level,
+    DROP COLUMN name_level,
+    DROP COLUMN username_level,
+    DROP COLUMN email_level,
+    DROP COLUMN name_shown,
+    DROP COLUMN last_name,
+    DROP COLUMN middle_name,
+    DROP COLUMN first_name;

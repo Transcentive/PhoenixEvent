@@ -54,3 +54,21 @@ func TestHash(t *testing.T) {
 		t.Error("a different password matches")
 	}
 }
+
+// v1.05: spaces at the start and end are removed when a password is set and
+// at login; spaces inside it count.
+func TestOuterSpacesAreRemoved(t *testing.T) {
+	hash, err := Hash("SysAdmin#1234! ")
+	if err != nil {
+		t.Fatal(err)
+	}
+	if !Matches(hash, "SysAdmin#1234!") || !Matches(hash, "  SysAdmin#1234!") {
+		t.Error("an outer space made a difference")
+	}
+	if Matches(hash, "SysAdmin #1234!") {
+		t.Error("an inner space made no difference")
+	}
+	if err := Check("   short pass   "); err != ErrTooShort {
+		t.Errorf("outer spaces counted toward the length: %v", err)
+	}
+}

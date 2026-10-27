@@ -46,10 +46,18 @@ var (
 	ErrCommon   = errors.New("This password is on the list of common passwords. Choose another.")
 )
 
+// trim removes spaces at the start and end of a password, when it is set
+// and at login, so a stray space from copying and pasting locks nobody out
+// (8A.1, v1.05). Spaces inside it count.
+func trim(pw string) string {
+	return strings.TrimSpace(pw)
+}
+
 // Check applies the rule of 8A.1: 12 to 64 characters, any characters, and
 // not on the list. Characters are counted as a person sees them, so "é" is
 // one.
 func Check(pw string) error {
+	pw = trim(pw)
 	n := utf8.RuneCountInString(pw)
 	switch {
 	case n < MinLength:
@@ -70,7 +78,7 @@ func Check(pw string) error {
 }
 
 func Hash(pw string) (string, error) {
-	hash, err := bcrypt.GenerateFromPassword([]byte(pw), bcryptCost)
+	hash, err := bcrypt.GenerateFromPassword([]byte(trim(pw)), bcryptCost)
 	if err != nil {
 		return "", err
 	}
@@ -78,5 +86,5 @@ func Hash(pw string) (string, error) {
 }
 
 func Matches(hash, pw string) bool {
-	return bcrypt.CompareHashAndPassword([]byte(hash), []byte(pw)) == nil
+	return bcrypt.CompareHashAndPassword([]byte(hash), []byte(trim(pw))) == nil
 }

@@ -193,3 +193,127 @@ body {
   font: 400 14px/20px var(--font-sans);
   color: var(--ink-muted);
 }
+
+/* The frame for someone logged in (A8, A9 and the pages that follow): the
+   organization and the person's name in the bar, and a column of cards. */
+.pe-topbar {
+  flex-wrap: wrap;
+}
+
+.pe-topbar__org {
+  display: inline-flex;
+  align-items: center;
+  gap: var(--space-1);
+  font: 400 14px/20px var(--font-sans);
+  color: var(--ink-muted);
+}
+
+.pe-topbar__person {
+  font: 400 14px/20px var(--font-sans);
+}
+
+.pe-page-wide {
+  box-sizing: border-box;
+  max-width: 720px;
+  margin: 0 auto;
+  padding: var(--space-8);
+  display: flex;
+  flex-direction: column;
+  gap: var(--space-6);
+}
+
+.pe-page-title {
+  margin: 0;
+  font: 700 30px/36px var(--font-sans);
+  overflow-wrap: anywhere;
+}
+
+.pe-card__title {
+  margin: 0;
+  font: 600 19px/26px var(--font-sans);
+}
+
+.pe-stack {
+  display: flex;
+  flex-direction: column;
+  gap: var(--space-4);
+}
+
+.pe-readonly {
+  display: flex;
+  flex-direction: column;
+}
+
+.pe-readonly--action {
+  flex-direction: row;
+  flex-wrap: wrap;
+  align-items: center;
+  justify-content: space-between;
+  gap: var(--space-3);
+}
+
+.pe-readonly--action > div {
+  display: flex;
+  flex-direction: column;
+}
+
+.pe-readonly__value {
+  font: 400 16px/24px var(--font-sans);
+  overflow-wrap: anywhere;
+}
+
+.pe-names {
+  display: grid;
+  grid-template-columns: repeat(auto-fit, minmax(180px, 1fr));
+  gap: var(--space-3);
+}
+
+.pe-warning {
+  margin: 0;
+  padding: var(--space-3);
+  border: 1px solid var(--border);
+  border-radius: var(--radius-sm);
+  background: var(--surface-raised);
+  font: 400 14px/20px var(--font-sans);
+}
+
+.pe-choices {
+  margin: 0;
+  padding: 0;
+  border: 0;
+  display: flex;
+  flex-direction: column;
+  gap: var(--space-1);
+}
+
+.pe-choices legend {
+  padding: 0;
+  margin-bottom: var(--space-1);
+}
+
+.pe-choice {
+  display: flex;
+  align-items: center;
+  gap: var(--space-2);
+  min-height: 44px;
+  overflow-wrap: anywhere;
+}
+
+.pe-choice input {
+  flex: none;
+  width: 20px;
+  height: 20px;
+}
+
+.pe-actions {
+  display: flex;
+  flex-wrap: wrap;
+  justify-content: flex-end;
+  gap: var(--space-3);
+}
+
+@media (max-width: 600px) {
+  .pe-page-wide {
+    padding: var(--space-6) var(--space-4);
+  }
+}

@@ -138,3 +138,63 @@ export const logout = () => call<object>("POST", "/auth/logout");
 
 export const getMe = (accessToken: string) =>
   call<{ account: Account; organization: Organization }>("GET", "/me", undefined, accessToken);
+
+export type Level = "public" | "organization" | "event" | "station" | "private";
+export type NameShown = "email" | "username" | "personal_name";
+
+/* The owner's own profile (A8, spec 8B). */
+export interface Profile {
+  id: string;
+  email: string;
+  username: string | null;
+  first_name: string | null;
+  middle_name: string | null;
+  last_name: string | null;
+  name_shown: NameShown;
+  name_choice: NameShown | null;
+  name: string;
+  email_level: Level;
+  username_level: Level;
+  name_level: Level;
+  roles_level: Level;
+  roles: string[];
+}
+
+export interface ProfileChange {
+  username: string;
+  first_name: string;
+  middle_name: string;
+  last_name: string;
+}
+
+export interface VisibilityChange {
+  name_shown: NameShown | "";
+  email_level: Level;
+  username_level: Level;
+  name_level: Level;
+  roles_level: Level;
+}
+
+/* Another person's profile as the viewer may see it (A9). */
+export interface SharedProfile {
+  id: string;
+  name: string;
+  personal_name?: string;
+  username?: string;
+  email?: string;
+  roles?: string[];
+}
+
+export const getProfile = (accessToken: string) => call<Profile>("GET", "/profile", undefined, accessToken);
+
+export const updateProfile = (accessToken: string, change: ProfileChange) =>
+  call<Profile>("PUT", "/profile", change, accessToken);
+
+export const updateVisibility = (accessToken: string, change: VisibilityChange) =>
+  call<Profile>("PUT", "/profile/visibility", change, accessToken);
+
+export const changeEmail = (accessToken: string, email: string, password: string) =>
+  call<Profile>("POST", "/profile/email", { email, password }, accessToken);
+
+export const getPerson = (accessToken: string, id: string) =>
+  call<SharedProfile>("GET", `/people/${encodeURIComponent(id)}`, undefined, accessToken);
