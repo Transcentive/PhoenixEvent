@@ -1,29 +1,7 @@
 import { screen } from "@testing-library/react";
 import userEvent from "@testing-library/user-event";
 import { http, HttpResponse } from "msw";
-import { server } from "./server";
-import { DANA, renderAt } from "./app";
-
-const SESSION = {
-  access_token: "t",
-  expires_at: new Date(Date.now() + 15 * 60_000).toISOString(),
-  account: { id: "a", email: "dana@example.org", username: "dreyes" },
-};
-
-function signedInAt(path: string, ...handlers: Parameters<typeof server.use>) {
-  server.use(
-    http.get("/api/v1/address", () =>
-      HttpResponse.json({
-        kind: "organization",
-        organization: { name: "Lincoln Elementary PTA", slug: "lincolnpta" },
-        general_url: "http://phoenixevent.localhost:5174/",
-      }),
-    ),
-    http.post("/api/v1/auth/refresh", () => HttpResponse.json(SESSION)),
-    ...handlers,
-  );
-  renderAt(path);
-}
+import { DANA, signedInAt } from "./app";
 
 describe("A8, the profile and its visibility", () => {
   it("saves a personal name, and the header shows it", async () => {

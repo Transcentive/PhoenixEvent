@@ -198,3 +198,30 @@ export const changeEmail = (accessToken: string, email: string, password: string
 
 export const getPerson = (accessToken: string, id: string) =>
   call<SharedProfile>("GET", `/people/${encodeURIComponent(id)}`, undefined, accessToken);
+
+/* Organization roles (7B). Member is every account and is not listed. */
+export type OrganizationRole = "organization_administrator" | "organization_leadership";
+
+export interface Officer {
+  id: string;
+  name: string;
+  roles: string[];
+}
+
+export interface PersonRoles {
+  id: string;
+  name: string;
+  roles: OrganizationRole[];
+}
+
+export const getMyRoles = (accessToken: string) =>
+  call<{ roles: OrganizationRole[] }>("GET", "/me", undefined, accessToken).then((d) => d.roles);
+
+export const getOfficers = (accessToken: string) =>
+  call<{ officers: Officer[] }>("GET", "/officers", undefined, accessToken).then((d) => d.officers);
+
+export const getPersonRoles = (accessToken: string, id: string) =>
+  call<PersonRoles>("GET", `/people/${encodeURIComponent(id)}/roles`, undefined, accessToken);
+
+export const setPersonRoles = (accessToken: string, id: string, roles: OrganizationRole[]) =>
+  call<PersonRoles>("PUT", `/people/${encodeURIComponent(id)}/roles`, { roles }, accessToken);

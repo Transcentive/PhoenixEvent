@@ -331,8 +331,15 @@ func (h *handlers) logout(c *gin.Context) {
 	c.JSON(http.StatusOK, gin.H{})
 }
 
+// me also gives the organization roles the account holds, so the web client
+// shows each action only to the roles 7B.6 names. The server still checks.
 func (h *handlers) me(c *gin.Context) {
-	c.JSON(http.StatusOK, gin.H{"account": c.MustGet(ctxAccount), "organization": organization(c)})
+	roles, err := h.accounts.RolesOf(c.Request.Context(), organization(c), account(c).ID)
+	if err != nil {
+		h.internal(c, err)
+		return
+	}
+	c.JSON(http.StatusOK, gin.H{"account": c.MustGet(ctxAccount), "organization": organization(c), "roles": roles})
 }
 
 // resolve reads which address the request is for. On a development Mac, the

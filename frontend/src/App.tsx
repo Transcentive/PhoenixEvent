@@ -6,12 +6,15 @@ import ConfirmEmail from "@/pages/account/ConfirmEmail";
 import CreateAccount from "@/pages/account/CreateAccount";
 import FindOrganization from "@/pages/account/FindOrganization";
 import ForgotPassword from "@/pages/account/ForgotPassword";
-import Home from "@/pages/account/Home";
 import LoggedOut from "@/pages/account/LoggedOut";
 import Login from "@/pages/account/Login";
 import Logout from "@/pages/account/Logout";
 import ResetPassword from "@/pages/account/ResetPassword";
 import UnknownAddress from "@/pages/account/UnknownAddress";
+import Members from "@/pages/organization/Members";
+import NoAccess from "@/pages/organization/NoAccess";
+import Officers from "@/pages/organization/Officers";
+import OrgHome from "@/pages/organization/OrgHome";
 import Person from "@/pages/profile/Person";
 import ProfilePage from "@/pages/profile/Profile";
 
@@ -54,7 +57,9 @@ export default function App() {
   return (
     <Routes>
       <Route path="/status" element={<FoundationPage />} />
-      <Route path="/" element={signedIn ? <Home /> : <Navigate to="/login" replace />} />
+      <Route path="/" element={signedIn ? <OrgHome /> : <Navigate to="/login" replace />} />
+      <Route path="/members" element={signedIn ? <Members /> : <Navigate to="/login" replace />} />
+      <Route path="/officers" element={signedIn ? <Officers /> : <Navigate to="/login" replace />} />
       <Route path="/login" element={signedIn ? <Navigate to="/" replace /> : <Login />} />
       <Route path="/profile" element={signedIn ? <ProfilePage /> : <Navigate to="/login" replace />} />
       <Route path="/people/:id" element={signedIn ? <Person /> : <Navigate to="/login" replace />} />
@@ -66,7 +71,7 @@ export default function App() {
       <Route path="/set-password" element={<ResetPassword />} />
       <Route path="/logout" element={<Logout />} />
       <Route path="/logged-out" element={<LoggedOut />} />
-      <Route path="*" element={<Navigate to="/" replace />} />
+      <Route path="*" element={signedIn ? <NoAccess /> : <Navigate to="/login" replace />} />
     </Routes>
   );
 }

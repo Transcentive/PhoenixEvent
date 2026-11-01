@@ -18,14 +18,14 @@ export function useOwnProfile() {
   });
 }
 
-const BUILDING = (
+export const BUILDING = (
   <svg className="pe-icon" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="2" strokeLinecap="round" strokeLinejoin="round" aria-hidden="true">
     <rect x="5" y="4" width="14" height="16" rx="1" />
     <path d="M9 8h2M13 8h2M9 12h2M13 12h2M10 20v-4h4v4" />
   </svg>
 );
 
-export default function SignedInShell({ children }: { children: ReactNode }) {
+export default function SignedInShell({ children, full }: { children: ReactNode; full?: boolean }) {
   const { address, session, signOut } = useSession();
   const navigate = useNavigate();
   const profile = useOwnProfile();
@@ -52,7 +52,7 @@ export default function SignedInShell({ children }: { children: ReactNode }) {
           Log out
         </button>
       </header>
-      <main className="pe-page-wide">{children}</main>
+      <main className={full ? "pe-page-wide pe-page-full" : "pe-page-wide"}>{children}</main>
     </div>
   );
 }

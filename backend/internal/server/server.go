@@ -71,6 +71,9 @@ func New(d Deps) *gin.Engine {
 		signedIn.PUT("/profile/visibility", h.updateVisibility)
 		signedIn.POST("/profile/email", h.changeEmail)
 		signedIn.GET("/people/:id", h.person)
+		signedIn.GET("/people/:id/roles", h.personRoles)
+		signedIn.PUT("/people/:id/roles", h.setRoles)
+		signedIn.GET("/officers", h.officers)
 	}
 
 	return router
