@@ -22,6 +22,9 @@
 
 ## Where the project stands
 
+**Read `HANDOFF.md` first.** It holds the questions waiting for the owner's
+answer and the work in hand.
+
 Roadmap Phase 1, the repository and development foundation, is built and runs
 on the Mac. Phase 2 (accounts, organization context and RBAC) is under way: its
 first step, organizations and sign-in (the create-organization server command,
