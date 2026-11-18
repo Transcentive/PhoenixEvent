@@ -225,3 +225,155 @@ export const getPersonRoles = (accessToken: string, id: string) =>
 
 export const setPersonRoles = (accessToken: string, id: string, roles: OrganizationRole[]) =>
   call<PersonRoles>("PUT", `/people/${encodeURIComponent(id)}/roles`, { roles }, accessToken);
+
+/* O3, Policies (16B.6): the settings the first release acts on. */
+export type Participation = "subscribers" | "registrants" | "both";
+
+export interface Policies {
+  approve_registrations: boolean;
+  participation: Participation;
+  event_admin_holds_seat: boolean;
+}
+
+export const getPolicies = (accessToken: string) => call<Policies>("GET", "/policies", undefined, accessToken);
+
+export const setPolicies = (accessToken: string, p: Policies) => call<Policies>("PUT", "/policies", p, accessToken);
+
+/* Events: O1 lists them, S1 creates one (16B.6). */
+export type BoardOrder = "board_first" | "chair_first";
+
+export interface EventSummary {
+  id: string;
+  name: string;
+  date: string | null;
+  location: string | null;
+  description: string | null;
+  board_capacity: number;
+  visibility: "public" | "unlisted" | "private";
+  board_order: BoardOrder;
+  can_edit: boolean;
+  formed: boolean;
+}
+
+export interface NewEvent {
+  name: string;
+  date: string;
+  location: string;
+  description: string;
+  board_capacity: string;
+  board_order: BoardOrder | "";
+}
+
+export const getEvents = (accessToken: string) =>
+  call<{ events: EventSummary[] }>("GET", "/events", undefined, accessToken).then((d) => d.events);
+
+export const createEvent = (accessToken: string, e: NewEvent) =>
+  call<EventSummary>("POST", "/events", e, accessToken);
+
+export const getEvent = (accessToken: string, id: string) =>
+  call<EventSummary>("GET", `/events/${encodeURIComponent(id)}`, undefined, accessToken);
+
+export const updateEvent = (accessToken: string, id: string, e: NewEvent) =>
+  call<EventSummary>("PUT", `/events/${encodeURIComponent(id)}`, e, accessToken);
+
+export const deleteEvent = (accessToken: string, id: string) =>
+  call<object>("DELETE", `/events/${encodeURIComponent(id)}`, undefined, accessToken);
+
+/* The event board: forming it board first or chair first (5E), and D1. */
+export type Position = "chair" | "member" | "event_administrator";
+
+export interface Seat {
+  id: string;
+  name: string;
+  position: Position;
+  deputy: boolean;
+}
+
+export interface Board {
+  event: EventSummary;
+  seats: Seat[];
+  seats_taken: number;
+  event_admin_holds_seat: boolean;
+  formed: boolean;
+  candidates: { id: string; name: string }[];
+  can_appoint_chair: boolean;
+  can_record_chair: boolean;
+  can_appoint_members: boolean;
+  can_appoint_admin: boolean;
+  can_remove: boolean;
+  can_record_deputy: boolean;
+  can_replace_chair: boolean;
+  can_start_removal: string[];
+  removals: Removal[];
+}
+
+/* A removal from the event board (5D.3, rulings of November 11, 2026). */
+export interface Removal {
+  id: string;
+  person: string;
+  name: string;
+  position: Position;
+  reason: string;
+  started_by: string;
+  needs_vote: boolean;
+  needs_chair: boolean;
+  chair_agreed: boolean;
+  leadership_approved: boolean;
+  votes: { name: string; in_favor: boolean }[];
+  my_vote: boolean | null;
+  voting_closed: boolean;
+  waiting: string[];
+  can_vote: boolean;
+  can_close_voting: boolean;
+  can_approve: boolean;
+  can_agree: boolean;
+  can_edit: boolean;
+}
+
+const boardPath = (id: string) => `/events/${encodeURIComponent(id)}/board`;
+
+export const getBoard = (accessToken: string, id: string) => call<Board>("GET", boardPath(id), undefined, accessToken);
+
+export const appoint = (accessToken: string, id: string, person: string, position: Position) =>
+  call<Board>("POST", boardPath(id), { person, position }, accessToken);
+
+export const recordChair = (accessToken: string, id: string, person: string) =>
+  call<Board>("POST", `${boardPath(id)}/chair`, { person }, accessToken);
+
+/* D2, Replace chair, for the Event Board Chair (5D.3, rulings of November 18,
+   2026): why, each Board Member's answer (true accepted), and the new chair. */
+export type ReplaceWhy = "resigned" | "illness" | "death";
+
+export const replaceChair = (
+  accessToken: string,
+  id: string,
+  body: { why: ReplaceWhy; answers: Record<string, boolean>; person: string },
+) => call<Board>("POST", `${boardPath(id)}/replace-chair`, body, accessToken);
+
+/* Records the Event Board's election of the Deputy Board Chair (7B.8). */
+export const recordDeputy = (accessToken: string, id: string, person: string) =>
+  call<Board>("POST", `${boardPath(id)}/deputy`, { person }, accessToken);
+
+export const removeFromBoard = (accessToken: string, id: string, person: string) =>
+  call<Board>("DELETE", `${boardPath(id)}/${encodeURIComponent(person)}`, undefined, accessToken);
+
+const removalsPath = (id: string) => `/events/${encodeURIComponent(id)}/removals`;
+
+export const startRemoval = (accessToken: string, id: string, person: string, reason: string) =>
+  call<Board>("POST", removalsPath(id), { person, reason }, accessToken);
+
+export const editRemoval = (accessToken: string, id: string, removal: string, reason: string) =>
+  call<Board>("PUT", `${removalsPath(id)}/${encodeURIComponent(removal)}`, { reason }, accessToken);
+
+export const withdrawRemoval = (accessToken: string, id: string, removal: string) =>
+  call<Board>("DELETE", `${removalsPath(id)}/${encodeURIComponent(removal)}`, undefined, accessToken);
+
+export const voteOnRemoval = (accessToken: string, id: string, removal: string, inFavor: boolean) =>
+  call<Board>("POST", `${removalsPath(id)}/${encodeURIComponent(removal)}/vote`, { in_favor: inFavor }, accessToken);
+
+export const decideRemoval = (accessToken: string, id: string, removal: string, approve: boolean) =>
+  call<Board>("POST", `${removalsPath(id)}/${encodeURIComponent(removal)}/decision`, { approve }, accessToken);
+
+/* carries: the Event Board's decision when someone abstained. */
+export const closeVoting = (accessToken: string, id: string, removal: string, carries?: boolean) =>
+  call<Board>("POST", `${removalsPath(id)}/${encodeURIComponent(removal)}/close`, carries === undefined ? {} : { carries }, accessToken);

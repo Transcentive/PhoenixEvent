@@ -32,8 +32,17 @@ screens A1 to A7, E1 and E2), is built and was tested by the owner on the Mac
 and a phone on October 22, 2026. Its second step, the profile (screens A8 and
 A9, section 8B), is built and was tested by the owner on October 27, 2026. Its
 third step, organization roles (screens O1, O2, O8, D5 and E3, and Change roles
-on A9), is built and was tested by the owner on November 1, 2026. Nothing has
-been deployed to the droplet.
+on A9), is built and was tested by the owner on November 1, 2026. Phase 3
+(events) is under way: Policies (O3), Create, Edit and Delete event (S1), the
+events on Organization home (O1), Forming the board (S7, S8) with Appoint
+(D1), Removals (termination and board votes), the Deputy Board Chair
+(migrations 000004 to 000009) and Replace chair (D2) for the Event Chair are
+built, not yet tested by the owner or committed. Appoint board member (D1)
+lists all three roles, greying out those the signed-in person may not appoint.
+Nothing has been deployed to the droplet.
+
+The owner's coding design rules for every project (CRUD with permissions;
+screen names with codes alongside) are in `~/.claude/coding-rules.md`.
 
 On a development Mac each organization is at
 `http://<name>.phoenixevent.localhost:5174`. A phone on the same Wi-Fi reaches

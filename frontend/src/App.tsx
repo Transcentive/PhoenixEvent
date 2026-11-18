@@ -15,6 +15,9 @@ import Members from "@/pages/organization/Members";
 import NoAccess from "@/pages/organization/NoAccess";
 import Officers from "@/pages/organization/Officers";
 import OrgHome from "@/pages/organization/OrgHome";
+import PoliciesPage from "@/pages/organization/Policies";
+import CreateEventPage, { EditEventPage } from "@/pages/event/CreateEvent";
+import EventBoardPage from "@/pages/event/EventBoard";
 import Person from "@/pages/profile/Person";
 import ProfilePage from "@/pages/profile/Profile";
 
@@ -60,6 +63,10 @@ export default function App() {
       <Route path="/" element={signedIn ? <OrgHome /> : <Navigate to="/login" replace />} />
       <Route path="/members" element={signedIn ? <Members /> : <Navigate to="/login" replace />} />
       <Route path="/officers" element={signedIn ? <Officers /> : <Navigate to="/login" replace />} />
+      <Route path="/policies" element={signedIn ? <PoliciesPage /> : <Navigate to="/login" replace />} />
+      <Route path="/events/new" element={signedIn ? <CreateEventPage /> : <Navigate to="/login" replace />} />
+      <Route path="/events/:id/edit" element={signedIn ? <EditEventPage /> : <Navigate to="/login" replace />} />
+      <Route path="/events/:id/board" element={signedIn ? <EventBoardPage /> : <Navigate to="/login" replace />} />
       <Route path="/login" element={signedIn ? <Navigate to="/" replace /> : <Login />} />
       <Route path="/profile" element={signedIn ? <ProfilePage /> : <Navigate to="/login" replace />} />
       <Route path="/people/:id" element={signedIn ? <Person /> : <Navigate to="/login" replace />} />

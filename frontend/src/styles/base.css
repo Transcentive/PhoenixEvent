@@ -335,11 +335,27 @@ body {
   font: 600 14px/20px var(--font-sans);
 }
 
+/* The menu strip on Organization home (O1): a band darker than the page. */
 .pe-links {
   display: flex;
   flex-wrap: wrap;
-  gap: var(--space-2) var(--space-6);
-  font: 400 16px/24px var(--font-sans);
+  gap: var(--space-1);
+  padding: var(--space-1);
+  background: var(--surface-sunken);
+  border: 1px solid var(--border);
+  border-radius: 8px;
+  font: 600 16px/24px var(--font-sans);
+}
+
+.pe-links .pe-link {
+  padding: var(--space-2) var(--space-4);
+  border-radius: 6px;
+  color: var(--ink);
+  text-decoration: none;
+}
+
+.pe-links .pe-link:hover {
+  background: var(--border);
 }
 
 .pe-section-title {
@@ -420,4 +436,48 @@ body {
   width: 100%;
   max-width: 480px;
   margin: 0 auto;
+}
+
+/* S1: the description and the board's capacity. */
+.pe-textarea {
+  height: auto;
+  min-height: 120px;
+  padding-top: var(--space-2);
+  resize: vertical;
+}
+
+.pe-field--short {
+  max-width: 240px;
+}
+
+/* O1: the events, as cards in two columns, one on a phone. */
+.pe-event-grid {
+  display: grid;
+  grid-template-columns: repeat(auto-fill, minmax(min(100%, 360px), 1fr));
+  gap: var(--space-4);
+}
+
+.pe-event-card__head {
+  display: flex;
+  align-items: flex-start;
+  justify-content: space-between;
+  gap: var(--space-3);
+}
+
+.pe-choices:disabled {
+  opacity: 0.6;
+}
+
+/* Event board: the two cards side by side, one above the other on a phone. */
+.pe-board-grid {
+  display: grid;
+  grid-template-columns: minmax(0, 2fr) minmax(0, 1.2fr);
+  gap: var(--space-4);
+  align-items: start;
+}
+
+@media (max-width: 760px) {
+  .pe-board-grid {
+    grid-template-columns: minmax(0, 1fr);
+  }
 }

@@ -57,6 +57,7 @@ export function signedInAt(path: string, ...handlers: Parameters<typeof server.u
     http.post("/api/v1/auth/refresh", () => HttpResponse.json(SESSION)),
     ...handlers,
     http.get("/api/v1/me", () => HttpResponse.json({ account: SESSION.account, organization: {}, roles: [] })),
+    http.get("/api/v1/events", () => HttpResponse.json({ events: [] })),
   );
   renderAt(path);
 }

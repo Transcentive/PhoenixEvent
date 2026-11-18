@@ -8,6 +8,7 @@ Handoff pack, version 1, October 10, 2026. It holds the design work done in the 
 | --- | --- |
 | `../CLAUDE.md` | Instructions for Claude on this project. Read automatically at the start of every session. |
 | `specification/phoenixevent-specification-v0.78.md` | The specification. It governs everything else here. |
+| `drafts/` | Specification drafts made in a build session, waiting for the owner to put them in the claude.ai project. Deleted once the version comes back to `specification/`. |
 | `specification/phoenixevent-later-decisions-v0.2.md` | Decisions the owner holds for later. |
 | `specification/source-documents/` | The requirements baseline 0.1 and addendum 0.10, which the specification merges (section 19). |
 | `reference/The-Mighty-Queue-tech-stack-and-hosting-v2.md` | The Mighty Queue's stack and hosting, which section 2A aligns PhoenixEvent with. |

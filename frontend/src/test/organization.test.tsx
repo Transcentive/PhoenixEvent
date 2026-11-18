@@ -19,8 +19,8 @@ describe("O1, organization home", () => {
     expect(await screen.findByRole("heading", { level: 1, name: "Lincoln Elementary PTA" })).toBeInTheDocument();
     expect(screen.getByRole("link", { name: "Members and roles" })).toHaveAttribute("href", "/members");
     expect(screen.getByRole("link", { name: "Organization officers" })).toHaveAttribute("href", "/officers");
-    expect(screen.getByText("No events yet")).toBeInTheDocument();
-    expect(screen.queryByRole("button", { name: "Create event" })).not.toBeInTheDocument();
+    expect(await screen.findByText("No events yet")).toBeInTheDocument();
+    expect(screen.queryByRole("link", { name: "Create event" })).not.toBeInTheDocument();
   });
 });
 

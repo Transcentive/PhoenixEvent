@@ -323,7 +323,7 @@ func (h *handlers) refresh(c *gin.Context) {
 // succeeds with no session too, so a stale pe_org can always be cleared.
 func (h *handlers) logout(c *gin.Context) {
 	raw, _ := c.Cookie(sessionCookie)
-	if err := h.accounts.Logout(c.Request.Context(), raw); err != nil {
+	if err := h.accounts.Logout(c.Request.Context(), organization(c), raw); err != nil {
 		h.internal(c, err)
 		return
 	}

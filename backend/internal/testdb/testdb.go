@@ -45,7 +45,7 @@ func Pool(t *testing.T) *pgxpool.Pool {
 	}
 	t.Cleanup(pool.Close)
 	if _, err := pool.Exec(context.Background(),
-		`TRUNCATE audit_log, login_failures, email_links, sessions, organization_roles, accounts, organizations`); err != nil {
+		`TRUNCATE board_removal_votes, board_removals, event_board, events, organization_policies, audit_log, login_failures, email_links, sessions, organization_roles, accounts, organizations`); err != nil {
 		t.Fatal(err)
 	}
 	return pool

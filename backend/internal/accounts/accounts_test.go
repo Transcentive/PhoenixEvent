@@ -257,7 +257,7 @@ func TestRefreshLogoutAndReset(t *testing.T) {
 	// Logging out ends the session at once, though the access token has
 	// not expired.
 	claims, _ := s.tokens.Check(second.AccessToken)
-	if err := s.Logout(ctx, second.RefreshToken); err != nil {
+	if err := s.Logout(ctx, org, second.RefreshToken); err != nil {
 		t.Fatal(err)
 	}
 	if _, err := s.Authenticate(ctx, org, claims); !errors.Is(err, ErrSessionEnded) {

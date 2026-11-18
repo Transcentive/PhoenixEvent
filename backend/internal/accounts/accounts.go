@@ -499,15 +499,17 @@ func (s *Service) Refresh(ctx context.Context, org *Organization, raw string) (*
 	return s.session(acc, sessionID, next)
 }
 
-// Logout ends the session the refresh token belongs to (8A.2: at once).
-func (s *Service) Logout(ctx context.Context, raw string) error {
+// Logout ends the session the refresh token belongs to (8A.2: at once), in
+// the organization at this address only.
+func (s *Service) Logout(ctx context.Context, org *Organization, raw string) error {
 	if raw == "" {
 		return nil
 	}
 	var orgID, accountID string
 	err := s.db.QueryRow(ctx, `
-		UPDATE sessions SET revoked_at = $2 WHERE refresh_token_hash = $1 AND revoked_at IS NULL
-		RETURNING organization_id, account_id`, token.Hash(raw), s.now()).Scan(&orgID, &accountID)
+		UPDATE sessions SET revoked_at = $2
+		WHERE refresh_token_hash = $1 AND organization_id = $3 AND revoked_at IS NULL
+		RETURNING organization_id, account_id`, token.Hash(raw), s.now(), org.ID).Scan(&orgID, &accountID)
 	if errors.Is(err, pgx.ErrNoRows) {
 		return nil
 	}
@@ -618,6 +620,7 @@ func (s *Service) findByLogin(ctx context.Context, org *Organization, login stri
 type execQuerier interface {
 	Exec(ctx context.Context, sql string, args ...any) (pgconn.CommandTag, error)
 	QueryRow(ctx context.Context, sql string, args ...any) pgx.Row
+	Query(ctx context.Context, sql string, args ...any) (pgx.Rows, error)
 }
 
 // newLink stores a new single-use link for the account and returns the secret
