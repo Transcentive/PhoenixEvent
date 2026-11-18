@@ -128,6 +128,9 @@ an earlier one.
   the page (his request). `.pe-links` in base.css; checks green, uncommitted,
   awaiting his look. The O1 wireframe still shows plain links.
 
+- 2026-11-18: everything above marked uncommitted was committed and pushed
+  as a backup at his word (de2f099); still awaiting his test.
+
 ## Suggestions waiting for the owner's ruling
 
 Built as suggestions, easy to change; not rules until he rules.

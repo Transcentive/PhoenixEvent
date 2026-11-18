@@ -37,7 +37,8 @@ on A9), is built and was tested by the owner on November 1, 2026. Phase 3
 events on Organization home (O1), Forming the board (S7, S8) with Appoint
 (D1), Removals (termination and board votes), the Deputy Board Chair
 (migrations 000004 to 000009) and Replace chair (D2) for the Event Chair are
-built, not yet tested by the owner or committed. Appoint board member (D1)
+built and committed as a backup (de2f099, November 18, 2026), not yet
+tested by the owner. Appoint board member (D1)
 lists all three roles, greying out those the signed-in person may not appoint.
 Nothing has been deployed to the droplet.
 
