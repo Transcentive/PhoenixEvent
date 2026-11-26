@@ -7,7 +7,7 @@ import SignedInShell from "@/pages/SignedInShell";
 import { Alert, Note } from "@/pages/account/parts";
 import { ChangeRoles, useIsAdministrator } from "./roles";
 
-/* O2, Members and roles (4A.10): the members who take part in a current
+/* O2, Members (4A.10): the members who take part in a current
    event or took part in a past one, each with their roles. An appointment to
    an event board makes a person a participant (5D.1); registrations and
    stations add to the list once they are built. Every member sees it; only an
@@ -31,7 +31,7 @@ export default function Members() {
           Back to {orgName}
         </Link>
       </div>
-      <h1 className="pe-page-title">Members and roles</h1>
+      <h1 className="pe-page-title">Members</h1>
       <p className="pe-lead">A role gives permissions inside this organization only. Payments are kept separately from roles.</p>
       {members.isError && <Alert>The members did not load. Reload the page to try again.</Alert>}
       {members.data?.length === 0 && (

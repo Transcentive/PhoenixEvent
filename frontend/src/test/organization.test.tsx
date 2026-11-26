@@ -17,14 +17,14 @@ describe("O1, organization home", () => {
   it("links to the built organization pages and has no events yet", async () => {
     signedInAt("/", profile);
     expect(await screen.findByRole("heading", { level: 1, name: "Lincoln Elementary PTA" })).toBeInTheDocument();
-    expect(screen.getByRole("link", { name: "Members and roles" })).toHaveAttribute("href", "/members");
+    expect(screen.getByRole("link", { name: "Members" })).toHaveAttribute("href", "/members");
     expect(screen.getByRole("link", { name: "Organization officers" })).toHaveAttribute("href", "/officers");
     expect(await screen.findByText("No events yet")).toBeInTheDocument();
     expect(screen.queryByRole("link", { name: "Create event" })).not.toBeInTheDocument();
   });
 });
 
-describe("O2, Members and roles", () => {
+describe("O2, Members", () => {
   it("lists nobody while no one takes part in an event", async () => {
     signedInAt("/members", profile, http.get("/api/v1/members", () => HttpResponse.json({ members: [] })));
     expect(await screen.findByText("No members listed yet")).toBeInTheDocument();

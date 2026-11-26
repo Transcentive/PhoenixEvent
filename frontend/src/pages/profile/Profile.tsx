@@ -233,9 +233,9 @@ function VisibilitySection({ profile, orgName }: { profile: Profile; orgName: st
         {fields.name_shown && <span className="pe-field__error">{fields.name_shown}</span>}
       </fieldset>
       <p className="pe-note">
-        Shown in the page header and on Members and roles. Only what you have saved in your profile can be chosen. One of
+        Shown in the page header and on Members. Only what you have saved in your profile can be chosen. One of
         email address, username or personal name must not be Private, and the name shown must be visible at least to
-        organization members. Private stays private, on Members and roles too.
+        organization members. Private stays private, on Members too.
       </p>
       <div className="pe-actions">
         <button className="pe-btn pe-btn--primary" type="submit" disabled={busy}>

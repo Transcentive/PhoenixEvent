@@ -38,7 +38,7 @@ events on Organization home (O1), Forming the board (S7, S8) with Appoint
 (D1), Removals (termination and board votes), the Deputy Board Chair
 (migrations 000004 to 000009) and Replace chair (D2) for the Event Chair are
 built and committed as a backup (de2f099, November 18, 2026), not yet
-tested by the owner. Members and roles (O2) lists
+tested by the owner. Members (O2) lists
 the members on an event board (built November 19). Every Event board
 shows Board members on the left and the Event Chair on the right (ruled and built
 November 25), with the Deputy Board Chair below the Chair and its

@@ -8,7 +8,7 @@ import (
 	"github.com/jackc/pgx/v5"
 )
 
-// Member is one person on O2, Members and roles (4A.10).
+// Member is one person on O2, Members (4A.10).
 type Member struct {
 	ID    string   `json:"id"`
 	Name  string   `json:"name"`

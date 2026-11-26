@@ -6,7 +6,7 @@ import (
 	"testing"
 )
 
-// O2, Members and roles (4A.10): those taking part in an event, which an
+// O2, Members (4A.10): those taking part in an event, which an
 // appointment makes them (5D.1), with their roles; email and roles follow the
 // levels the member chose (8B.4).
 func TestMembers(t *testing.T) {

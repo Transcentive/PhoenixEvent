@@ -166,6 +166,11 @@ an earlier one.
   layout, Deputy card and info icon, participant lines) committed and pushed
   at his word; still awaiting his look.
 
+- 2026-11-26: Members and roles (O2) renamed Members, the page title and the
+  link on Organization home (O1) (his ruling; spec draft 16B.6). Committed and
+  pushed at his word.
+  The O1 and O2 wireframes still say "Members and roles".
+
 ## Suggestions waiting for the owner's ruling
 
 Built as suggestions, easy to change; not rules until he rules.

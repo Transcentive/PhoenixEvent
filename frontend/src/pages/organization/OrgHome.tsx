@@ -29,7 +29,7 @@ export default function OrgHome() {
         <h1 className="pe-page-title">{orgName}</h1>
         <nav className="pe-links" aria-label={orgName}>
           <Link className="pe-link" to="/members">
-            Members and roles
+            Members
           </Link>
           <Link className="pe-link" to="/officers">
             Organization officers

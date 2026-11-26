@@ -217,7 +217,7 @@ export interface PersonRoles {
 export const getMyRoles = (accessToken: string) =>
   call<{ roles: OrganizationRole[] }>("GET", "/me", undefined, accessToken).then((d) => d.roles);
 
-/* O2, Members and roles (4A.10): the email shows only where its level lets
+/* O2, Members (4A.10): the email shows only where its level lets
    the viewer see it. */
 export interface Member {
   id: string;
