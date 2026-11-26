@@ -40,7 +40,7 @@ answered it and the answer is recorded in the specification.
   Triathlon.
 - **Event board message (November 10, 2026, owner's request).** Someone
   without Organization Leadership sees "You need Organization Leadership to
-  appoint the chair" (or the board members), linking to Organization officers.
+  appoint the chair" (or the board members), linking to Officers (O8).
   Flow chart of the four chair-first steps: https://claude.ai/artifact/WfKj12tHoUCtfkT5h3JZHk
 - **Commit, when the owner gives the word.** Everything above is uncommitted:
   the Phase 2 exit fix, O3 and S1, edit and delete, the event board. Each
@@ -170,6 +170,10 @@ an earlier one.
   link on Organization home (O1) (his ruling; spec draft 16B.6). Committed and
   pushed at his word.
   The O1 and O2 wireframes still say "Members and roles".
+
+- 2026-11-26: Organization officers (O8) renamed Officers, the page title and
+  the link on Organization home (O1) (his ruling; spec draft 16B.6). Committed
+  and pushed at his word. The O1 and O8 wireframes still say "Organization officers".
 
 ## Suggestions waiting for the owner's ruling
 

@@ -7,7 +7,7 @@ import SignedInShell from "@/pages/SignedInShell";
 import { Alert, Note } from "@/pages/account/parts";
 import { ChangeRoles, useIsAdministrator } from "./roles";
 
-/* O8, Organization officers (4A.10): everyone who holds Organization
+/* O8, Officers (4A.10): everyone who holds Organization
    Leadership or Organization Administrator. Every member sees it; only an
    Organization Administrator sees Change roles (v1.07). */
 export default function Officers() {
@@ -28,7 +28,7 @@ export default function Officers() {
           Back to {orgName}
         </Link>
       </div>
-      <h1 className="pe-page-title">Organization officers</h1>
+      <h1 className="pe-page-title">Officers</h1>
       <p className="pe-lead">The people who hold Organization Leadership or Organization Administrator in {orgName}.</p>
       {officers.isError && <Alert>The officers did not load. Reload the page to try again.</Alert>}
       {officers.data && (

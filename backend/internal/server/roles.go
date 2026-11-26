@@ -9,7 +9,7 @@ import (
 	"github.com/Transcentive/PhoenixEvent/backend/internal/accounts"
 )
 
-// Organization roles (7B): O8, Organization officers, and D5, Change roles.
+// Organization roles (7B): O8, Officers, and D5, Change roles.
 
 func (h *handlers) officers(c *gin.Context) {
 	list, err := h.accounts.Officers(c.Request.Context(), organization(c))

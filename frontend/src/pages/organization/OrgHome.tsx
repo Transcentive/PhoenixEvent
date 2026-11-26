@@ -32,7 +32,7 @@ export default function OrgHome() {
             Members
           </Link>
           <Link className="pe-link" to="/officers">
-            Organization officers
+            Officers
           </Link>
           {administrator && (
             <Link className="pe-link" to="/policies">

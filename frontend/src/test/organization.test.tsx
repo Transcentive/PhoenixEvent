@@ -18,7 +18,7 @@ describe("O1, organization home", () => {
     signedInAt("/", profile);
     expect(await screen.findByRole("heading", { level: 1, name: "Lincoln Elementary PTA" })).toBeInTheDocument();
     expect(screen.getByRole("link", { name: "Members" })).toHaveAttribute("href", "/members");
-    expect(screen.getByRole("link", { name: "Organization officers" })).toHaveAttribute("href", "/officers");
+    expect(screen.getByRole("link", { name: "Officers" })).toHaveAttribute("href", "/officers");
     expect(await screen.findByText("No events yet")).toBeInTheDocument();
     expect(screen.queryByRole("link", { name: "Create event" })).not.toBeInTheDocument();
   });
@@ -53,7 +53,7 @@ describe("O2, Members", () => {
   });
 });
 
-describe("O8, Organization officers", () => {
+describe("O8, Officers", () => {
   it("shows a member the officers without Change roles", async () => {
     signedInAt("/officers", profile, officers);
     expect(await screen.findByRole("link", { name: "Lee Park" })).toHaveAttribute("href", "/people/b");

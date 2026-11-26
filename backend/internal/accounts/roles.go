@@ -21,7 +21,7 @@ var organizationRoles = []string{RoleAdministrator, RoleLeadership}
 // ErrForbidden refuses an action the person's roles do not allow (7B.6).
 var ErrForbidden = errors.New("This needs a role you do not hold here.")
 
-// Officer is one person on O8, Organization officers (4A.10).
+// Officer is one person on O8, Officers (4A.10).
 type Officer struct {
 	ID    string   `json:"id"`
 	Name  string   `json:"name"`
