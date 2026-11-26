@@ -74,6 +74,7 @@ func New(d Deps) *gin.Engine {
 		signedIn.GET("/people/:id/roles", h.personRoles)
 		signedIn.PUT("/people/:id/roles", h.setRoles)
 		signedIn.GET("/officers", h.officers)
+		signedIn.GET("/members", h.members)
 		signedIn.GET("/policies", h.getPolicies)
 		signedIn.PUT("/policies", h.setPolicies)
 		signedIn.GET("/events", h.events)

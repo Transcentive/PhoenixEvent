@@ -25,10 +25,31 @@ describe("O1, organization home", () => {
 });
 
 describe("O2, Members and roles", () => {
-  it("lists nobody until events exist", async () => {
-    signedInAt("/members", profile);
+  it("lists nobody while no one takes part in an event", async () => {
+    signedInAt("/members", profile, http.get("/api/v1/members", () => HttpResponse.json({ members: [] })));
     expect(await screen.findByText("No members listed yet")).toBeInTheDocument();
     expect(screen.getByRole("link", { name: "Back to Lincoln Elementary PTA" })).toHaveAttribute("href", "/");
+  });
+
+  it("lists those taking part in an event with their roles", async () => {
+    signedInAt(
+      "/members",
+      profile,
+      http.get("/api/v1/members", () =>
+        HttpResponse.json({
+          members: [
+            { id: "c", name: "Grace Okafor", email: "grace@example.org", roles: ["Board Member, Turkey Triathlon"] },
+            { id: "a", name: "dreyes", roles: ["Event Chair, Turkey Triathlon", "Board Member, Book Fair (Deputy Board Chair)"] },
+          ],
+        }),
+      ),
+    );
+    expect(await screen.findByRole("link", { name: "Grace Okafor" })).toHaveAttribute("href", "/people/c");
+    expect(screen.getByText("grace@example.org")).toBeInTheDocument();
+    const list = screen.getByRole("region", { name: "Members" });
+    expect(within(list).getByRole("link", { name: "dreyes" })).toHaveAttribute("href", "/profile");
+    expect(screen.getByText("Event Chair, Turkey Triathlon; Board Member, Book Fair (Deputy Board Chair)")).toBeInTheDocument();
+    expect(screen.queryByRole("button", { name: "Change roles" })).not.toBeInTheDocument();
   });
 });
 

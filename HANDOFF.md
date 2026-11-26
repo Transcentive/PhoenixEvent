@@ -131,6 +131,41 @@ an earlier one.
 - 2026-11-18: everything above marked uncommitted was committed and pushed
   as a backup at his word (de2f099); still awaiting his test.
 
+- 2026-11-18: test data in the dev database at his request, kept until he is
+  done testing: Maple Grove Swim Club and Riverside Community Garden added,
+  two more Lincoln Elementary PTA events, three events per organization, every
+  board filled, 61 accounts (list in memory, never in the repository). Backup
+  first: .local/backups/phoenixevent-before-test-data-20261118-1520.dump.
+  Stations, Station Chairs and participants to add once built.
+
+- 2026-11-19: Members and roles (O2) list built at his direction: members taking
+  part in an event (an appointment makes a participant, 5D.1), with their event
+  roles; email and roles follow each member's levels (8B.4); Change roles for
+  an Organization Administrator. GET /members, members.go, tests; all checks
+  green, uncommitted, awaiting his look. Registrations and stations add to it
+  once built.
+
+- 2026-11-25: every Event board uses the Winter Book Fair layout, Board
+  members card left and Event Chair card right, whichever comes first (his
+  ruling; spec v1.10 draft, 16B.6). EventBoard.tsx; uncommitted, awaiting his
+  look. The chair-first wireframe still draws the old order.
+
+- 2026-11-26: Deputy Board Chair card moved below the Event Chair card; on a
+  phone the order is Event Chair, Deputy Board Chair, Board members; its
+  description hidden behind an "i" in a circle that opens a popup (his
+  rulings; spec v1.10 draft, 16B.6). EventBoard.tsx, base.css, test; all
+  checks green, uncommitted, awaiting his look. Not in the wireframes.
+
+- 2026-11-26: the Event board no longer says "Appointing a person to the board
+  makes them a participant of [event]"; the statement is in the specification
+  only, worded "of the Event" (his ruling; spec draft 5D.1, 5D.2). At his word
+  the same day, the like lines also went from Appoint board member (D1) and
+  the chair card's Appoint chair field (chair-first events).
+
+- 2026-11-26: everything above from 2026-11-19 on (members list, Event board
+  layout, Deputy card and info icon, participant lines) committed and pushed
+  at his word; still awaiting his look.
+
 ## Suggestions waiting for the owner's ruling
 
 Built as suggestions, easy to change; not rules until he rules.

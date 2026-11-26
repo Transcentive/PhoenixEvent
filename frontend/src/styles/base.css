@@ -404,6 +404,19 @@ body {
   overflow-wrap: anywhere;
 }
 
+.pe-list__who {
+  display: flex;
+  flex: 1 1 220px;
+  flex-direction: column;
+  min-width: 0;
+}
+
+.pe-list__email {
+  color: var(--ink-muted);
+  font: 400 14px/20px var(--font-sans);
+  overflow-wrap: anywhere;
+}
+
 .pe-list__roles {
   flex: 1 1 200px;
   font: 400 16px/24px var(--font-sans);
@@ -480,4 +493,59 @@ body {
   .pe-board-grid {
     grid-template-columns: minmax(0, 1fr);
   }
+}
+
+/* Event board: Board members on the left; the Chair with the Deputy Board
+   Chair below it on the right. On a phone, Chair and Deputy come first. */
+@media (max-width: 760px) {
+  .pe-board-grid__side {
+    order: -1;
+  }
+}
+
+/* An "i" in a circle beside a heading; its text opens in a popup under it. */
+.pe-info-line {
+  position: relative;
+  display: flex;
+  align-items: center;
+  gap: var(--space-2);
+}
+
+.pe-info {
+  display: inline-flex;
+}
+
+.pe-info__button {
+  display: inline-grid;
+  place-items: center;
+  width: 24px;
+  height: 24px;
+  padding: 0;
+  border: 1.5px solid var(--ink-muted);
+  border-radius: 50%;
+  background: transparent;
+  color: var(--ink-muted);
+  font: italic 700 14px/1 Georgia, "Times New Roman", serif;
+  cursor: pointer;
+}
+
+.pe-info__button:hover,
+.pe-info__button[aria-expanded="true"] {
+  border-color: var(--ink);
+  color: var(--ink);
+}
+
+.pe-info__popup {
+  position: absolute;
+  z-index: 10;
+  top: calc(100% + var(--space-2));
+  left: 0;
+  right: 0;
+  padding: var(--space-3);
+  background: var(--surface-raised);
+  border: 1px solid var(--border-strong);
+  border-radius: var(--radius-md);
+  box-shadow: var(--shadow-overlay);
+  color: var(--ink);
+  font: 400 14px/20px var(--font-sans);
 }

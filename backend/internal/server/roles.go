@@ -20,6 +20,16 @@ func (h *handlers) officers(c *gin.Context) {
 	c.JSON(http.StatusOK, gin.H{"officers": list})
 }
 
+// members is O2, Members and roles (4A.10).
+func (h *handlers) members(c *gin.Context) {
+	list, err := h.accounts.Members(c.Request.Context(), organization(c), account(c).ID)
+	if err != nil {
+		h.internal(c, err)
+		return
+	}
+	c.JSON(http.StatusOK, gin.H{"members": list})
+}
+
 func (h *handlers) personRoles(c *gin.Context) {
 	p, err := h.accounts.RolesFor(c.Request.Context(), organization(c), account(c).ID, c.Param("id"))
 	if h.refused(c, err) {

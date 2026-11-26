@@ -217,6 +217,18 @@ export interface PersonRoles {
 export const getMyRoles = (accessToken: string) =>
   call<{ roles: OrganizationRole[] }>("GET", "/me", undefined, accessToken).then((d) => d.roles);
 
+/* O2, Members and roles (4A.10): the email shows only where its level lets
+   the viewer see it. */
+export interface Member {
+  id: string;
+  name: string;
+  email?: string;
+  roles: string[];
+}
+
+export const getMembers = (accessToken: string) =>
+  call<{ members: Member[] }>("GET", "/members", undefined, accessToken).then((d) => d.members);
+
 export const getOfficers = (accessToken: string) =>
   call<{ officers: Officer[] }>("GET", "/officers", undefined, accessToken).then((d) => d.officers);
 

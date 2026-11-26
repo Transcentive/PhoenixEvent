@@ -1,4 +1,4 @@
-import { useEffect, useId, useState } from "react";
+import { useEffect, useId, useRef, useState, type ReactNode } from "react";
 import { Link, useParams } from "react-router-dom";
 import { useMutation, useQuery, useQueryClient } from "@tanstack/react-query";
 import {
@@ -164,7 +164,9 @@ function BoardView({ board, orgName }: { board: Board; orgName: string }) {
           seats and sees "Appoint board member" here.
         </p>
       )}
-      <p className="pe-dialog__body">Appointing a person to the board makes them a participant of {e.name}.</p>
+      {/* "Appointing a person to the board makes them a participant of the
+          Event" belongs in the specification only, not on this page (owner,
+          November 26, 2026; 5D.1). */}
       {boardFirst && !chair && <p className="pe-note">Organization Leadership acts for the Organization here.</p>}
     </section>
   );
@@ -257,12 +259,17 @@ function BoardView({ board, orgName }: { board: Board; orgName: string }) {
         </div>
       </section>
 
+      {/* Board members on the left; the Event Chair on the right with the
+          Deputy Board Chair below it, whichever comes first (owner, November
+          25 and 26, 2026). On a phone: Chair, Deputy Board Chair, then Board
+          members. */}
       <div className="pe-board-grid">
-        {boardFirst ? membersCard : chairCard}
-        {boardFirst ? chairCard : membersCard}
+        <div className="pe-board-grid__main">{membersCard}</div>
+        <div className="pe-board-grid__side pe-stack">
+          {chairCard}
+          {members.length > 0 && <Deputy board={board} />}
+        </div>
       </div>
-
-      {members.length > 0 && <Deputy board={board} />}
 
       {board.removals.length > 0 && <Removals board={board} />}
 
@@ -300,9 +307,9 @@ function AppointChair({ board, orgName }: { board: Board; orgName: string }) {
             </option>
           ))}
         </select>
-        <span className="pe-field__hint">
-          The list holds members of {orgName}. Becoming chair makes the person a participant of {board.event.name}.
-        </span>
+        {/* That becoming chair makes a participant is in the specification
+            only (owner, November 26, 2026; 5D.1). */}
+        <span className="pe-field__hint">The list holds members of {orgName}.</span>
       </div>
       <div>
         <button className="pe-btn pe-btn--primary" type="button" disabled={!person || save.isPending} onClick={() => save.mutate()}>
@@ -426,7 +433,8 @@ function AppointDialog({ board, full, onClose }: { board: Board; full: boolean; 
               </option>
             ))}
           </select>
-          <span className="pe-field__hint">Appointing makes the person a participant of {e.name}.</span>
+          {/* That appointing makes a participant is in the specification only
+              (owner, November 26, 2026; 5D.1). */}
         </div>
         <div className="pe-field">
           <label className="pe-field__label" htmlFor={roleId}>
@@ -676,9 +684,16 @@ function Deputy({ board }: { board: Board }) {
   });
   return (
     <section className="pe-card pe-stack" aria-labelledby="deputy-heading">
-      <h2 className="pe-card__title" id="deputy-heading">
-        Deputy Board Chair
-      </h2>
+      <div className="pe-info-line">
+        <h2 className="pe-card__title" id="deputy-heading">
+          Deputy Board Chair
+        </h2>
+        <InfoButton label="About the Deputy Board Chair">
+          The Deputy Board Chair serves in the place of the Event Chair when the Event Chair cannot serve. The Event
+          Board elects the Deputy from among the Board Members; electing the Deputy is the first order of business at
+          the board's initial meeting.
+        </InfoButton>
+      </div>
       {deputy ? (
         <p className="pe-dialog__body">
           <strong>{deputy.name}</strong> is the Deputy Board Chair.
@@ -688,11 +703,6 @@ function Deputy({ board }: { board: Board }) {
           <Status>Not yet elected</Status>
         </div>
       )}
-      <p className="pe-dialog__body">
-        The Deputy Board Chair serves in the place of the Event Chair when the Event Chair cannot serve. The Event Board
-        elects the Deputy from among the Board Members; electing the Deputy is the first order of business at the board's
-        initial meeting.
-      </p>
       {board.can_record_deputy && (
         <>
           {save.isError && <Alert>{message(save.error)}</Alert>}
@@ -717,6 +727,45 @@ function Deputy({ board }: { board: Board }) {
         </>
       )}
     </section>
+  );
+}
+
+/* An information icon (an "i" in a circle) that opens its text in a popup
+   under it. Clicking it again, clicking elsewhere or pressing Esc closes it
+   (owner, November 26, 2026). */
+function InfoButton({ label, children }: { label: string; children: ReactNode }) {
+  const [open, setOpen] = useState(false);
+  const ref = useRef<HTMLSpanElement>(null);
+  const popupId = useId();
+  useEffect(() => {
+    if (!open) return;
+    const onKey = (e: KeyboardEvent) => e.key === "Escape" && setOpen(false);
+    const onClick = (e: MouseEvent) => ref.current && !ref.current.contains(e.target as Node) && setOpen(false);
+    window.addEventListener("keydown", onKey);
+    document.addEventListener("mousedown", onClick);
+    return () => {
+      window.removeEventListener("keydown", onKey);
+      document.removeEventListener("mousedown", onClick);
+    };
+  }, [open]);
+  return (
+    <span className="pe-info" ref={ref}>
+      <button
+        className="pe-info__button"
+        type="button"
+        aria-label={label}
+        aria-expanded={open}
+        aria-controls={popupId}
+        onClick={() => setOpen((o) => !o)}
+      >
+        i
+      </button>
+      {open && (
+        <span className="pe-info__popup" id={popupId} role="note">
+          {children}
+        </span>
+      )}
+    </span>
   );
 }
 

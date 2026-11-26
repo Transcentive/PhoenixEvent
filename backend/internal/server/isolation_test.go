@@ -64,6 +64,7 @@ func TestEveryRouteStaysInItsOrganization(t *testing.T) {
 		{"GET", "/api/v1/people/" + dana + "/roles"},
 		{"PUT", "/api/v1/people/" + dana + "/roles"},
 		{"GET", "/api/v1/officers"},
+		{"GET", "/api/v1/members"},
 	}
 	for _, r := range routes {
 		// A token from one organization is refused at the other's address.

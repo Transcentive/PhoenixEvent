@@ -483,6 +483,11 @@ describe("Removals from the event board", () => {
       }),
     );
     expect(await screen.findByText("Not yet elected")).toBeInTheDocument();
+    expect(screen.queryByText(/serves in the place of the Event Chair/)).not.toBeInTheDocument();
+    await userEvent.click(screen.getByRole("button", { name: "About the Deputy Board Chair" }));
+    expect(screen.getByText(/serves in the place of the Event Chair/)).toBeInTheDocument();
+    await userEvent.keyboard("{Escape}");
+    expect(screen.queryByText(/serves in the place of the Event Chair/)).not.toBeInTheDocument();
     await userEvent.selectOptions(screen.getByLabelText("The board's election"), "m2");
     await userEvent.click(screen.getByRole("button", { name: "Record the board's election" }));
     expect(await screen.findByText(/is the Deputy Board Chair\./)).toBeInTheDocument();
